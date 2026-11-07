@@ -1,0 +1,23 @@
+name: Rename to index
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rename-to-index.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace index.html with batch 19 file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm index.html
+          git mv xiang-su-lian-lian-kan.html index.html
+          git commit -m "Replace index.html with batch 19 game file (949 icons)"
+          git push
