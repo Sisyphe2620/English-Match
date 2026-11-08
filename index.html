@@ -512,19 +512,21 @@
          the bottom edge, closing the page's empty middle from
          below as well. */
       .sp-bottom { margin-top: auto; margin-bottom: clamp(10px, 4.5dvh, 40px); width: 100%; position: relative; z-index: 3; padding: 0 14px; }
-      .sp-review-note {
-        display: none;
-        text-align: center;
-        font-size: 17px;
-        font-weight: 800;
-        letter-spacing: 0.5px;
-        color: #e05244;
-        margin-bottom: 8px;
+      /* Slogan banner image where the dynamic due-words note
+         used to sit (the note is gone; the review itself still
+         happens silently when 继续 is tapped with words due).
+         The ribbon artwork ships with its white sticker outline
+         kept and the surrounding white background cut away, so
+         it sits directly on the beige dotted ground like the
+         other start-page stickers. Width matches the buttons
+         and bar below (84% of the padded column), centred. */
+      .sp-slogan { text-align: center; margin-bottom: 10px; line-height: 0; }
+      .sp-slogan img {
+        width: 84%;
+        max-width: 430px;
+        height: auto;
+        filter: drop-shadow(0 3px 5px rgba(146, 96, 34, 0.18));
       }
-      .sp-review-note.show { display: block; }
-      /* The review note above and this learned line share one
-         font size/weight by request, so the two lines read as
-         a matched pair. */
       .sp-learned { text-align: center; font-size: 17px; font-weight: 800; letter-spacing: 0.5px; }
       .sp-learned b { color: #0d9488; font-size: inherit; }
       .sp-bar {
@@ -866,7 +868,9 @@
           </div>
         </div>
         <div class="sp-bottom">
-          <div class="sp-review-note" id="spReviewNote"></div>
+          <div class="sp-slogan">
+            <img src="assets/slogan.webp" alt="记忆，从熟悉开始。不知不觉就记住很多词！" />
+          </div>
           <div class="sp-learned" id="spLearned">已学 <b>0</b> / 1150 词</div>
           <div class="sp-bar"><div class="sp-bar-fill" id="spBarFill"></div></div>
           <button class="sp-btn continue" id="spContinueBtn" type="button">继续第 1 关</button>
@@ -36287,8 +36291,7 @@
          The start page is the game's front door; no board is dealt
          until the player chooses. 继续 enters the saved level — or
          the daily review first when at least 6 words are due and
-         today has no review yet (the start page shows a note
-         saying so). 新开一局 opens the difficulty modal; picking a
+         today has no review yet. 新开一局 opens the difficulty modal; picking a
          difficulty wipes the memory book, keeps the chosen band,
          and deals a fresh level 1. After 全部完成 the continue
          button reads 再玩一次 and restarts from level 1 with a
@@ -36306,13 +36309,6 @@
         var dueList = computeDue();
         pendingReview = seen > 0 && dueList.length >= 6 &&
           progress.lastReviewDate !== todayStr();
-        var note = document.getElementById("spReviewNote");
-        if (pendingReview) {
-          note.textContent = "今天有 " + dueList.length + " 个词到期，点「继续」先复习一关";
-          note.classList.add("show");
-        } else {
-          note.classList.remove("show");
-        }
         document.getElementById("spContinueBtn").textContent = progress.completedAll
           ? "再玩一次"
           : "继续第 " + progress.currentLevel + " 关";
