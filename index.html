@@ -511,18 +511,23 @@
          hero stack; margin-bottom lifts the bar + buttons up off
          the bottom edge, closing the page's empty middle from
          below as well. */
-      .sp-bottom { margin-top: auto; margin-bottom: clamp(10px, 4.5dvh, 40px); width: 100%; position: relative; z-index: 3; padding: 0 14px; }
+      .sp-bottom { margin-top: auto; margin-bottom: clamp(6px, 3.8dvh, 32px); width: 100%; position: relative; z-index: 3; padding: 0 14px; }
       /* Slogan banner image where the dynamic due-words note
          used to sit (the note is gone; the review itself still
          happens silently when 继续 is tapped with words due).
          The ribbon artwork ships with its white sticker outline
          kept and the surrounding white background cut away, so
          it sits directly on the beige dotted ground like the
-         other start-page stickers. Width matches the buttons
-         and bar below (84% of the padded column), centred. */
-      .sp-slogan { text-align: center; margin-bottom: 10px; line-height: 0; }
+         other start-page stickers. Widened to 92% of the padded
+         column (still under the title artwork's width) and
+         nudged down the page: its margin under the ribbon is
+         down to 2px so it hugs the 已学 row, and .sp-bottom's
+         own bottom margin gave back a few px as well. The
+         taller ribbon (+~9px) is offset by those two trims, so
+         the one-screen fit is unchanged. */
+      .sp-slogan { text-align: center; margin-bottom: 2px; line-height: 0; }
       .sp-slogan img {
-        width: 84%;
+        width: 92%;
         max-width: 430px;
         height: auto;
         filter: drop-shadow(0 3px 5px rgba(146, 96, 34, 0.18));
