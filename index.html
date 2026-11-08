@@ -518,16 +518,16 @@
          The ribbon artwork ships with its white sticker outline
          kept and the surrounding white background cut away, so
          it sits directly on the beige dotted ground like the
-         other start-page stickers. Widened to 92% of the padded
+         other start-page stickers. Widened to 95% of the padded
          column (still under the title artwork's width) and
-         nudged down the page: its margin under the ribbon is
-         down to 2px so it hugs the 已学 row, and .sp-bottom's
-         own bottom margin gave back a few px as well. The
-         taller ribbon (+~9px) is offset by those two trims, so
-         the one-screen fit is unchanged. */
-      .sp-slogan { text-align: center; margin-bottom: 2px; line-height: 0; }
+         shifted a further 16px down the page via margin-top.
+         The ribbon's width growth adds a few px of height and
+         the 16px shift takes the space the .sp-bottom bottom
+         margin hands back, so the one-screen fit with both
+         buttons fully visible is unchanged. */
+      .sp-slogan { text-align: center; margin-top: 16px; margin-bottom: 2px; line-height: 0; }
       .sp-slogan img {
-        width: 92%;
+        width: 95%;
         max-width: 430px;
         height: auto;
         filter: drop-shadow(0 3px 5px rgba(146, 96, 34, 0.18));
