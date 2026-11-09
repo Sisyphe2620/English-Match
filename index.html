@@ -610,8 +610,21 @@
         font-family: inherit;
         touch-action: manipulation;
       }
-      .zone-btn img { width: 100%; display: block; filter: drop-shadow(0 4px 5px rgba(30, 60, 20, 0.35)); transition: transform 0.1s ease; }
-      .zone-btn:active img { transform: scale(0.93); }
+      /* White app-icon backing: exactly the size of the zone icon
+         itself — the icon keeps its full button width and is laid
+         over the pad unchanged — white with softly rounded corners
+         and a faint shadow, so all 13 stickers read as one tidy
+         set of app icons on the busy map artwork. */
+      .zone-icon {
+        display: block;
+        background: #fff;
+        border-radius: 22%;
+        box-shadow: 0 4px 10px rgba(30, 60, 20, 0.30), 0 1px 3px rgba(30, 60, 20, 0.22);
+        line-height: 0;
+        transition: transform 0.1s ease;
+      }
+      .zone-btn img { width: 100%; display: block; }
+      .zone-btn:active .zone-icon { transform: scale(0.93); }
       .zone-tag {
         display: inline-block;
         margin-top: -4px;
@@ -627,17 +640,28 @@
         box-shadow: 0 3px 0 #d84a3e;
         white-space: nowrap;
       }
+      /* Learned progress as one thin bar under the zone name:
+         the fill width is the zone's learned share, set in
+         refreshMap. The counts themselves no longer sit on the
+         button — they show once the player is inside the zone. */
       .zone-prog {
-        display: table;
-        margin: 4px auto 0;
-        background: rgba(255, 250, 240, 0.94);
-        border: 1.5px solid var(--card-edge);
-        color: var(--ink);
+        display: block;
+        width: 74%;
+        height: 7px;
+        margin: 6px auto 0;
+        background: rgba(255, 250, 240, 0.92);
+        border: 1px solid var(--card-edge);
         border-radius: 999px;
-        padding: 1px 9px 2px;
-        font-size: 11.5px;
-        font-weight: 800;
-        white-space: nowrap;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(30, 60, 20, 0.25);
+      }
+      .zone-prog-fill {
+        display: block;
+        height: 100%;
+        width: 0%;
+        background: var(--teal);
+        border-radius: 999px;
+        transition: width 0.45s ease;
       }
       .zone-star {
         position: absolute;
@@ -871,6 +895,70 @@
       @media (prefers-reduced-motion: reduce) {
         .load-spin { animation-duration: 2.4s; }
       }
+
+      /* ---------- Loading page ----------
+         The game's front door now: the home page's own title and
+         boy artwork over the same beige dotted background the
+         home page uses, a coral progress bar that fills as the
+         home images and the level-1 entry-pool sprite sheets
+         actually arrive (driven by real load events, never a
+         timer), and the home page's coral capsule as the 开始
+         button once everything is in. One screen, no scroll. */
+      .boot-page {
+        position: fixed;
+        inset: 0;
+        z-index: 80;
+        display: none;
+        justify-content: center;
+        background:
+          radial-gradient(#eccf9c 1.7px, transparent 1.8px) 0 0 / 24px 24px,
+          #fff2e1;
+        overflow: hidden;
+      }
+      .boot-page.show { display: flex; }
+      .boot-inner {
+        width: 100%;
+        max-width: 460px;
+        height: 100dvh;
+        padding: 20px 22px calc(16px + env(safe-area-inset-bottom));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .boot-title {
+        width: 92%;
+        max-width: 400px;
+        height: auto;
+        filter: drop-shadow(0 3px 5px rgba(146, 96, 34, 0.18));
+      }
+      .boot-boy {
+        width: 70%;
+        max-width: 290px;
+        height: auto;
+        margin-top: 8px;
+        filter: drop-shadow(0 3px 5px rgba(146, 96, 34, 0.18));
+      }
+      .boot-bar {
+        width: 84%;
+        height: 20px;
+        margin-top: 24px;
+        border-radius: 999px;
+        background: var(--teal-track);
+        border: 2px solid var(--card-edge);
+        overflow: hidden;
+      }
+      .boot-bar-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(180deg, #ff8a76, #ff6a5e);
+        border-radius: 999px;
+        transition: width 0.3s ease;
+      }
+      .boot-pct { margin-top: 10px; font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: 1px; }
+      .boot-status { margin-top: 2px; font-size: 15px; font-weight: 700; color: var(--ink-soft); letter-spacing: 1px; }
+      .boot-start { margin-top: 20px; }
+      .boot-start[hidden] { display: none; }
     </style>
   </head>
   <body>
@@ -965,7 +1053,7 @@
          bar and the two capsule buttons, which ride up closer
          underneath. No difficulty choice here: that lives in
          the modal below, opened by 新开一局. -->
-    <div class="start-page show" id="startPage">
+    <div class="start-page" id="startPage">
       <div class="sp-inner">
         <div class="sp-hero-stack">
           <h1 class="sp-title-wrap">
@@ -1009,8 +1097,9 @@
 
     <!-- Map page: the user's tall map artwork scrolls under 13
          zone sticker buttons (built by JS from ZONE_DEFS, each
-         with its zone name and learned count added here — the
-         artwork itself carries no text). Opens scrolled to the
+         with its icon on a white app-icon pad, its zone name and
+         a thin learned-progress bar added here — the artwork
+         itself carries no text). Opens scrolled to the
          bottom, where the road starts at the beach. The explorer
          kid and the back button sit on the page layer, not in
          the scroller, so they stay put while the map moves. -->
@@ -1046,6 +1135,24 @@
           <span class="d-tag">B2</span>
         </button>
         <div class="start-note" style="text-align:center">选好难度就从第 1 关重新开始，之前的进度会被清空。</div>
+      </div>
+    </div>
+
+    <!-- Loading page: shown first, before the home page. The bar
+         tracks real arrivals only — the home page's artwork
+         (title, boy, slogan ribbon) and the sprite sheets
+         covering the level-1 entry pool. At 100% a 开始 button
+         appears; tapping it opens the home page and is also the
+         tap that unlocks audio on mobile browsers, so the home
+         page's background music starts right away. -->
+    <div class="boot-page show" id="bootPage">
+      <div class="boot-inner">
+        <img class="boot-title" id="bootTitleImg" src="assets/start-title.webp" alt="英语消消乐 ENGLISH MATCH!" />
+        <img class="boot-boy" id="bootBoyImg" src="assets/start-boy.webp" alt="" />
+        <div class="boot-bar"><div class="boot-bar-fill" id="bootBarFill"></div></div>
+        <div class="boot-pct" id="bootPct">0%</div>
+        <div class="boot-status" id="bootStatus">正在加载游戏…</div>
+        <button class="sp-btn continue boot-start" id="bootStartBtn" type="button" hidden>开始 · START</button>
       </div>
     </div>
 
@@ -36699,13 +36806,16 @@
              7 days, 14 days; level 5 counts as mastered and is
              spot-checked again after 30 days.
          A normal level deals: pinned / due review words first
-         (yesterday's misses first, then the most overdue), then
-         new words (themed batches, batch order reshuffled with a
-         fresh random seed every day) — at most 8, and fewer when
-         review words already take the room, so a level never
-         deals more than 12 types — then random old words to fill
-         up to 12 types. Level 1 draws its 8 words at random from
-         the 100-word entry pool, so every fresh game differs.
+         (yesterday's misses first, then the most overdue) — now
+         only 2–3 types — then new words (themed batches, batch
+         order reshuffled with a fresh random seed every day) —
+         at most 8, and fewer when review words already take the
+         room, so a level deals 10–11 types in all — then random
+         old words to fill up to that 10–11. Dealing fewer types
+         than the old 12 is what lets buildDeck give a random
+         2–4 of them 3 pairs instead of 2. Level 1 draws its 8
+         words at random from the 100-word entry pool, so every
+         fresh game differs.
          ============================================================ */
       var DAY_MS = 86400000;
       var INTERVALS = [0, 1, 3, 7, 14, 30]; /* days, by level before promotion */
@@ -36885,21 +36995,37 @@
         return out;
       }
 
+      /* Triple-pair levels (2026-11): a normal level now deals
+         10 or 11 types instead of 12, chosen at random each time.
+         That is what leaves room in the 24 pairs for some types
+         to deal 3 pairs (see buildDeck): 10 types give 4 tripled
+         types, 11 types give 2 — so every level, a random 2–4
+         types are matched three times and all three rotating
+         voices get a turn on those words. New words stay at 8
+         per level (the 151-level / 1197-word introduction order
+         is untouched); due review words drop from 4 types to the
+         2–3 types that fill the rest of the 10–11, and old words
+         fill any gap left when reviews or new words run short. */
+      function tripleTarget() { return Math.random() < 0.5 ? 10 : 11; }
+
       function composeLevel(lv) {
         if (lv === 1 && seenCount() === 0) return drawNewWords(8, true);
-        var target = lv === 1 ? 8 : 12;
+        var target = lv === 1 ? 8 : tripleTarget();
         var picks = [], inPick = {};
         function add(k) { if (!inPick[k]) { inPick[k] = true; picks.push(k); } }
         var pinnedCount = 0;
         Object.keys(progress.words).forEach(function (k) {
           if (progress.words[k].pin > 0) pinnedCount++;
         });
-        /* Review words take at least 4 slots (more when many words
-           are pinned). New words get 8 only while room remains: a
-           level never deals more than the target number of types,
-           so new words = min(8, target - review words dealt). Old
+        /* Review words take 2–3 slots on a normal level (target
+           minus the 8 new words); level 1 keeps its old review
+           room. New words get 8 only while room remains: a level
+           never deals more than the target number of types, so
+           new words = min(8, target - review words dealt). Old
            words fill whatever is left up to the target. */
-        var reviewSlots = Math.max(4, Math.min(8, pinnedCount));
+        var reviewSlots = lv === 1
+          ? Math.max(4, Math.min(8, pinnedCount))
+          : target - 8;
         computeDue().slice(0, reviewSlots).forEach(add);
         if (lv === 1) drawNewWords(target - picks.length, true).forEach(add);
         else drawNewWords(Math.min(8, target - picks.length), false).forEach(add);
@@ -36911,16 +37037,17 @@
         }
         return picks;
       }
-      function composeReview() { return computeDue().slice(0, 12); }
+      function composeReview() { return computeDue().slice(0, tripleTarget()); }
 
       /* ============================================================
          Map zones. The 13 zones partition all 1197 words (plan:
          map-plan-2026-11-09, one word in exactly one zone).
          Zone play is practice on top of the one memory book: a
-         zone level deals this zone's due reviews first, then its
-         unseen words (at most 8), then its other words up to 12
-         types — the same recipe as the main line, filtered to
-         the zone. Zone lengths differ because zone sizes differ
+         zone level deals this zone's due reviews first (2–3
+         types, as on the main line now), then its unseen words
+         (at most 8), then its other words up to 10–11 types —
+         the same triple-pair recipe as the main line, filtered
+         to the zone. Zone lengths differ because zone sizes differ
          (美食厨房 241 words runs long, 工具工坊 27 runs short);
          that is accepted. progress.zoneLevels[id] counts the
          zone levels finished, so the HUD can number them.
@@ -36981,13 +37108,13 @@
         var words = zoneWords(id);
         var inZone = {};
         words.forEach(function (k) { inZone[k] = true; });
-        var target = 12;
+        var target = Math.min(tripleTarget(), words.length);
         var picks = [], inPick = {};
         function add(k) { if (k && !inPick[k]) { inPick[k] = true; picks.push(k); } }
         var due = computeDue().filter(function (k) { return inZone[k]; });
-        var pinnedCount = 0;
-        due.forEach(function (k) { if (progress.words[k].pin > 0) pinnedCount++; });
-        var reviewSlots = Math.max(4, Math.min(8, pinnedCount));
+        /* Due reviews take the same 2–3 slots as a main-line
+           level (target minus the 8 fresh words). */
+        var reviewSlots = Math.max(0, target - 8);
         due.slice(0, reviewSlots).forEach(add);
         var fresh = words.filter(function (k) { return !progress.words[k]; });
         fresh.slice(0, Math.min(8, target - picks.length)).forEach(add);
@@ -37000,16 +37127,33 @@
         return picks;
       }
 
-      /* Spread the 24 pairs over however many types this level has:
-         8 types x 3 pairs, 12 types x 2 pairs, anything else fills
-         the 48 tiles as evenly as possible. */
+      /* Spread the 24 pairs over however many types this level
+         has, under the triple-pair rule: with 10 types, 4 types
+         deal 3 pairs (6 tiles) and the other 6 deal 2 pairs; with
+         11 types, 2 types deal 3 pairs and the other 9 deal 2
+         pairs — the board stays exactly 48 tiles either way.
+         Which types get the third pair is chosen at random on
+         every deal (the extra pairs go to a shuffled set of
+         indices, never just the first types in the list), so the
+         tripled words change from level to level and each of
+         them can be matched — and spoken — three times, cycling
+         all three rotating voices. 8 types (level 1) deal 3
+         pairs each, as before; any other count fills the 48
+         tiles as evenly as possible, extra pairs again handed
+         out at random. */
       function buildDeck(types) {
         var n = types.length;
+        if (!n) return [];
         var base = Math.floor(PAIRS / n);
         var rem = PAIRS - base * n;
+        var order = [];
+        for (var oi = 0; oi < n; oi++) order.push(oi);
+        shuffled(order);
+        var extra = {};
+        for (var ei = 0; ei < rem; ei++) extra[order[ei]] = true;
         var deck = [];
         types.forEach(function (k, i) {
-          var copies = (base + (i < rem ? 1 : 0)) * 2;
+          var copies = (base + (extra[i] ? 1 : 0)) * 2;
           for (var j = 0; j < copies; j++) deck.push(k);
         });
         return deck;
@@ -37486,8 +37630,10 @@
         winOverlay.classList.remove("show");
 
         // Deal this level's composed types: buildDeck spreads the
-        // 24 pairs evenly over them (8 types x 3 pairs, 12 types x
-        // 2 pairs), so the board is always the full 48 tiles.
+        // 24 pairs over them under the triple-pair rule (a random
+        // 2–4 types at 3 pairs, the rest at 2 pairs; level 1's 8
+        // types at 3 pairs each), so the board is always the full
+        // 48 tiles.
         var types = currentTypes;
         tiles = shuffled(buildDeck(types));
 
@@ -37753,6 +37899,7 @@
         document.getElementById("soundOnIcon").style.display = soundOn ? "" : "none";
         document.getElementById("soundOffIcon").style.display = soundOn ? "none" : "";
         if (!soundOn && window.speechSynthesis) { try { window.speechSynthesis.cancel(); } catch (e) {} }
+        if (!soundOn) stopBgm(); else syncBgm();
       });
 
       var reducedMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -37916,6 +38063,77 @@
         } catch (e) { /* music is a bonus; game continues silently */ }
       }
 
+      /* Cheerful background music for the home and map pages,
+         synthesized with WebAudio (no audio files, nothing extra
+         to download): a light, bouncy C-major loop at 132 BPM —
+         a hopping triangle melody over a root-and-fifth bass,
+         running C – F – C – G, with a soft sparkle on each repeat.
+         A small lookahead scheduler keeps it looping. It plays
+         only while the home or map page is on screen, stops for
+         levels so it never fights word speech, the win fanfare
+         or the error buzz, and follows the same sound on/off
+         switch as every other sound. It can only start after
+         the loading page's 开始 tap has unlocked audio. */
+      var bgmUnlocked = false;
+      var bgmTimer = null;
+      var bgmStep = 0;
+      var bgmNextAt = 0;
+      var BGM_STEP_S = 60 / 132 / 2; /* eighth notes at 132 BPM */
+      var BGM_MEL = [
+        523.25, 659.25, 783.99, 1046.5, 783.99, 659.25, 783.99, 659.25,
+        880.0, 659.25, 523.25, 587.33, 659.25, 783.99, 659.25, 0,
+        523.25, 659.25, 783.99, 1046.5, 783.99, 659.25, 880.0, 783.99,
+        987.77, 783.99, 587.33, 783.99, 1046.5, 0, 783.99, 0
+      ];
+      var BGM_BASS = [130.81, 98.0, 87.31, 130.81, 130.81, 98.0, 98.0, 146.83];
+      function bgmTick() {
+        if (!audioCtx) return;
+        /* If the tab slept, the schedule fell behind: jump back
+           to "now" instead of bursting every missed note at once. */
+        if (bgmNextAt < audioCtx.currentTime - 0.1) {
+          bgmNextAt = audioCtx.currentTime + 0.05;
+        }
+        while (bgmNextAt < audioCtx.currentTime + 0.18) {
+          var at = bgmNextAt - audioCtx.currentTime;
+          var mel = BGM_MEL[bgmStep % BGM_MEL.length];
+          if (mel) tone(mel, at, 0.21, "triangle", 0.13);
+          if (bgmStep % 4 === 0) {
+            var bas = BGM_BASS[(bgmStep / 4) % BGM_BASS.length];
+            if (bas) tone(bas, at, 0.4, "triangle", 0.11);
+          }
+          if (bgmStep % 16 === 0) tone(2093.0, at, 0.3, "sine", 0.05);
+          bgmStep++;
+          bgmNextAt += BGM_STEP_S;
+        }
+      }
+      function startBgm() {
+        if (!soundOn || !bgmUnlocked || bgmTimer) return;
+        try {
+          var AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC) return;
+          if (!audioCtx) audioCtx = new AC();
+          if (audioCtx.state === "suspended") audioCtx.resume();
+          bgmStep = 0;
+          bgmNextAt = audioCtx.currentTime + 0.08;
+          bgmTimer = setInterval(bgmTick, 80);
+          bgmTick();
+        } catch (e) { /* music is a bonus; game continues silently */ }
+      }
+      function stopBgm() {
+        if (bgmTimer) { clearInterval(bgmTimer); bgmTimer = null; }
+      }
+      /* Music belongs to the home and map pages only: call after
+         every page change and sound-toggle flip and it settles
+         into the right state. */
+      function syncBgm() {
+        var onMenu = startPage.classList.contains("show") || mapPage.classList.contains("show");
+        if (onMenu) startBgm(); else stopBgm();
+      }
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) stopBgm();
+        else if (bgmUnlocked) syncBgm();
+      });
+
       function onWin() {
         document.getElementById("winScore").textContent = score;
         document.getElementById("winMoves").textContent = moves;
@@ -38026,6 +38244,7 @@
 
       function enterGame() {
         startPage.classList.remove("show");
+        stopBgm();
         if (progress.completedAll) {
           var d = progress.difficulty;
           resetProgress();
@@ -38062,13 +38281,14 @@
           b.style.top = z.y + "%";
           b.setAttribute("aria-label", z.name);
           b.innerHTML =
-            '<img data-src="assets/zones/' + z.id + '.webp" alt="" />' +
+            '<span class="zone-icon"><img data-src="assets/zones/' + z.id + '.webp" alt="" /></span>' +
             '<span class="zone-tag">' + z.name + '</span>' +
-            '<span class="zone-prog"></span>' +
+            '<span class="zone-prog"><span class="zone-prog-fill"></span></span>' +
             '<span class="zone-star" hidden>★</span>';
           b.addEventListener("click", function () { startZone(z.id); });
           mapStage.appendChild(b);
-          z.progEl = b.querySelector(".zone-prog");
+          z.btnEl = b;
+          z.progFillEl = b.querySelector(".zone-prog-fill");
           z.starEl = b.querySelector(".zone-star");
         });
       }
@@ -38076,7 +38296,12 @@
         ZONE_DEFS.forEach(function (z) {
           var total = zoneWords(z.id).length;
           var seen = zoneSeenCount(z.id);
-          if (z.progEl) z.progEl.textContent = "已学 " + seen + "/" + total;
+          /* The bar's fill is the learned share; the counts stay
+             off the button face and ride along in its accessible
+             name instead (inside the zone they show as the
+             remaining-new-words line on the win card). */
+          if (z.progFillEl) z.progFillEl.style.width = (total > 0 ? Math.round((seen / total) * 100) : 0) + "%";
+          if (z.btnEl) z.btnEl.setAttribute("aria-label", z.name + "，已学 " + seen + "/" + total);
           if (z.starEl) z.starEl.hidden = !(total > 0 && seen >= total);
         });
       }
@@ -38089,10 +38314,12 @@
         startPage.classList.remove("show");
         refreshMap();
         mapPage.classList.add("show");
+        syncBgm();
       }
       function startZone(id) {
         mapPage.classList.remove("show");
         startPage.classList.remove("show");
+        stopBgm();
         newGame((progress.zoneLevels[id] || 0) + 1, { zone: id, types: composeZoneLevel(id) });
       }
       buildMap();
@@ -38147,6 +38374,7 @@
         mapPage.classList.remove("show");
         refreshStartPage();
         startPage.classList.add("show");
+        syncBgm();
       });
       document.getElementById("winMapBtn").addEventListener("click", function () {
         zoneMode = null;
@@ -38170,9 +38398,84 @@
           saveProgress();
           diffOverlay.classList.remove("show");
           startPage.classList.remove("show");
+          stopBgm();
           refreshStartPage();
           newGame(1);
         });
+      });
+
+      /* ---------------- Loading page ----------------
+         The boot screen counts real arrivals only: the home
+         page's artwork (title and boy, the very <img>s this
+         page shows, plus the slogan ribbon the home page wears)
+         and every sprite sheet covering the level-1 entry pool
+         — the sheets the boot code already queues first, whose
+         settle callbacks the sheet loader fires either way. A
+         file that fails still counts as settled (its icons keep
+         their pixel fallback, as everywhere else in the game),
+         so the bar can never hang. At 100% the 开始 button
+         appears; tapping it opens the home page, and the tap
+         itself is the gesture mobile browsers require before
+         audio may play, so the background music starts with
+         the home page. */
+      var bootPage = document.getElementById("bootPage");
+      var bootFill = document.getElementById("bootBarFill");
+      var bootPct = document.getElementById("bootPct");
+      var bootStatus = document.getElementById("bootStatus");
+      var bootStartBtn = document.getElementById("bootStartBtn");
+      var bootTotal = 0, bootDone = 0, bootReady = false;
+      function bootBump() {
+        if (bootReady) return;
+        bootDone++;
+        var pct = Math.min(100, Math.round((bootDone / bootTotal) * 100));
+        bootFill.style.width = pct + "%";
+        bootPct.textContent = pct + "%";
+        if (bootDone >= bootTotal) {
+          bootReady = true;
+          bootStatus.textContent = "加载完成！";
+          bootStartBtn.hidden = false;
+        }
+      }
+      ["bootTitleImg", "bootBoyImg"].forEach(function (id) {
+        var el = document.getElementById(id);
+        bootTotal++;
+        if (!el || el.complete) bootBump();
+        else {
+          el.addEventListener("load", bootBump);
+          el.addEventListener("error", bootBump);
+        }
+      });
+      bootTotal++;
+      (function () {
+        var im = new Image();
+        im.onload = bootBump;
+        im.onerror = bootBump;
+        im.src = "assets/slogan.webp";
+      })();
+      var bootSheetSeen = {}, bootSheetList = [];
+      ENTRY_POOL.forEach(function (k) {
+        var s = sheetOfKey(k);
+        if (s >= 0 && !bootSheetSeen[s]) { bootSheetSeen[s] = true; bootSheetList.push(s); }
+      });
+      bootSheetList.forEach(function (s) {
+        bootTotal++;
+        if (sheetState[s] === 2 || sheetState[s] === 3) bootBump();
+        else sheetWaiters[s].push(bootBump);
+      });
+      if (bootTotal <= 0) { bootTotal = 1; bootBump(); }
+      bootStartBtn.addEventListener("click", function () {
+        bootPage.classList.remove("show");
+        refreshStartPage();
+        startPage.classList.add("show");
+        try {
+          var AC = window.AudioContext || window.webkitAudioContext;
+          if (AC) {
+            if (!audioCtx) audioCtx = new AC();
+            if (audioCtx.state === "suspended") audioCtx.resume();
+          }
+        } catch (e) {}
+        bgmUnlocked = true;
+        syncBgm();
       });
 
       refreshStartPage();
