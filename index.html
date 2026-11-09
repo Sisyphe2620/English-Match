@@ -600,7 +600,7 @@
         appearance: none;
         position: absolute;
         transform: translate(-50%, -50%);
-        width: 27%;
+        width: 25%;
         background: none;
         border: none;
         padding: 0;
@@ -36940,20 +36940,27 @@
         tools: ["scissors","needle","hammer","saw","rope","ladder","shovel","wrench","screwdriver","drill","pliers","measure","axe","nail","screw","hardhat","goggles","matches","firewood","pocketknife","mallet","hatchet","rod","lighter","chain","blade","craft"],
         dream: ["love","time","peace","luck","danger","idea","dream","hope","anger","fear","joy","happiness","health","freedom","confidence","energy","speed","strength","beauty","fun","truth","friendship","marriage","holiday","journey","adventure","success","victory","safety","pride","memory","mind","courage","noise","kindness","trust","silence","future","past","accident","anniversary","birthday","balance","battle","ceremony","charity","credit","crime","crisis","culture","excitement","delight","relief","shame","sympathy","worry","regret","mood","passion","emotion","ability","talent","weakness","behaviour","personality","character","attitude","habit","faith","belief","decision","choice","thought","opinion","reason","problem","solution","difficulty","understanding","attention","moment","opportunity","experience","event","condition","change","growth","progress","failure","life","society","community","government","relationship","communication","agreement","competition","support","respect","promise"]
       };
+      /* Zone sticker positions on the long map (2026-11): x/y are
+         % of the map stage. Each sticker sits in a clearing beside
+         the dirt road — side chosen per stretch so neither the
+         sticker nor its name/progress pills cover the road or the
+         bridges. dream sits left of the sky castle; home stands on
+         the beach at centre-bottom, clear of the kid pinned to the
+         page's bottom-left corner. */
       var ZONE_DEFS = [
-        { id: "dream",     name: "梦想天空",   x: 74, y: 5.2 },
-        { id: "tools",     name: "工具工坊",   x: 55, y: 10.2 },
-        { id: "people",    name: "人物职业",   x: 29, y: 15.2 },
-        { id: "study",     name: "学习书房",   x: 61, y: 21.5 },
-        { id: "city",      name: "城市街区",   x: 25, y: 28.2 },
-        { id: "transport", name: "交通工具",   x: 62, y: 35.5 },
-        { id: "nature",    name: "自然天地",   x: 26, y: 43.2 },
-        { id: "sport",     name: "运动游乐",   x: 66, y: 51.2 },
-        { id: "health",    name: "身体健康",   x: 27, y: 59.5 },
-        { id: "clothes",   name: "穿搭衣橱",   x: 65, y: 67.8 },
-        { id: "animals",   name: "动植物乐园", x: 26, y: 76.3 },
-        { id: "food",      name: "美食厨房",   x: 64, y: 84.8 },
-        { id: "home",      name: "家园小屋",   x: 33, y: 90.8 }
+        { id: "dream",     name: "梦想天空",   x: 42, y: 6.5 },
+        { id: "tools",     name: "工具工坊",   x: 22, y: 13.5 },
+        { id: "people",    name: "人物职业",   x: 18, y: 23.5 },
+        { id: "study",     name: "学习书房",   x: 80, y: 30.4 },
+        { id: "city",      name: "城市街区",   x: 22, y: 37.4 },
+        { id: "transport", name: "交通工具",   x: 84, y: 43.8 },
+        { id: "nature",    name: "自然天地",   x: 22, y: 50.2 },
+        { id: "sport",     name: "运动游乐",   x: 15, y: 56.6 },
+        { id: "health",    name: "身体健康",   x: 76, y: 63.0 },
+        { id: "clothes",   name: "穿搭衣橱",   x: 78, y: 69.5 },
+        { id: "animals",   name: "动植物乐园", x: 14, y: 76.0 },
+        { id: "food",      name: "美食厨房",   x: 80, y: 82.6 },
+        { id: "home",      name: "家园小屋",   x: 20, y: 91.0 }
       ];
       var zoneMode = null;      // zone id while a zone level is on screen
       var zoneFinished = false; // the zone on screen has no unseen words left
