@@ -1017,11 +1017,11 @@
     <div class="map-page" id="mapPage">
       <div class="map-scroll" id="mapScroll">
         <div class="map-stage" id="mapStage">
-          <img class="map-bg" src="assets/map-bg.webp" alt="单词地图：一条小路从海边出发，穿过草地、小河和森林，一直通到云朵上的城堡" />
+          <img class="map-bg" data-src="assets/map-bg.webp" alt="单词地图：一条小路从海边出发，穿过草地、小河和森林，一直通到云朵上的城堡" />
         </div>
       </div>
       <button class="map-back" id="mapBackBtn" type="button">‹ 回首页</button>
-      <img class="map-kid" src="assets/map-kid.webp" alt="" />
+      <img class="map-kid" data-src="assets/map-kid.webp" alt="" />
     </div>
 
     <!-- Difficulty modal: opened by 新开一局 on the start page.
@@ -38062,7 +38062,7 @@
           b.style.top = z.y + "%";
           b.setAttribute("aria-label", z.name);
           b.innerHTML =
-            '<img src="assets/zones/' + z.id + '.webp" alt="" />' +
+            '<img data-src="assets/zones/' + z.id + '.webp" alt="" />' +
             '<span class="zone-tag">' + z.name + '</span>' +
             '<span class="zone-prog"></span>' +
             '<span class="zone-star" hidden>★</span>';
@@ -38081,6 +38081,10 @@
         });
       }
       function showMap() {
+        /* If the background prefetch has not run yet, start the
+           map images loading right now — the page opens the same,
+           the artwork just streams in instead of being ready. */
+        loadMapImages();
         winOverlay.classList.remove("show");
         startPage.classList.remove("show");
         refreshMap();
@@ -38093,11 +38097,51 @@
       }
       buildMap();
 
+      /* ---------------- Map image prefetch ----------------
+         The map artwork (backdrop, explorer kid, 13 zone
+         stickers, ~364 KB in all) carries its URLs in data-src,
+         so nothing of it downloads while the home page loads.
+         Once the page has fully loaded and the browser goes
+         idle, loadMapImages() fills in the real srcs and the
+         artwork downloads quietly in the background: by the
+         time the player taps 地图 it is already here (and the
+         browser cache serves every later open). showMap() calls
+         the same function, so opening the map early just starts
+         the same downloads on demand — no error, no blank page. */
+      var mapImagesRequested = false;
+      function loadMapImages() {
+        if (mapImagesRequested) return;
+        mapImagesRequested = true;
+        Array.prototype.forEach.call(
+          mapPage.querySelectorAll("img[data-src]"),
+          function (img) { img.src = img.getAttribute("data-src"); }
+        );
+      }
+      function scheduleMapPrefetch() {
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(function () { loadMapImages(); }, { timeout: 4000 });
+        } else {
+          setTimeout(loadMapImages, 1500);
+        }
+      }
+      if (document.readyState === "complete") scheduleMapPrefetch();
+      else window.addEventListener("load", scheduleMapPrefetch);
+
       document.getElementById("spMapBtn").addEventListener("click", function () {
         showMap();
         /* The road starts at the beach: open on the bottom of
            the map, 家园小屋 first. */
-        requestAnimationFrame(function () { mapScroll.scrollTop = mapScroll.scrollHeight; });
+        function scrollMapToBottom() { mapScroll.scrollTop = mapScroll.scrollHeight; }
+        requestAnimationFrame(scrollMapToBottom);
+        /* If the backdrop is still on its way in (map opened
+           before the prefetch finished), it has no height yet:
+           scroll again the moment it lands. */
+        var bg = mapPage.querySelector(".map-bg");
+        if (bg && !bg.complete) {
+          bg.addEventListener("load", function () {
+            if (mapPage.classList.contains("show")) scrollMapToBottom();
+          });
+        }
       });
       document.getElementById("mapBackBtn").addEventListener("click", function () {
         mapPage.classList.remove("show");
