@@ -876,7 +876,7 @@
           <div class="sp-slogan">
             <img src="assets/slogan.webp" alt="记忆，从熟悉开始。不知不觉就记住很多词！" />
           </div>
-          <div class="sp-learned" id="spLearned">已学 <b>0</b> / 1150 词</div>
+          <div class="sp-learned" id="spLearned">已学 <b>0</b> / 1147 词</div>
           <div class="sp-bar"><div class="sp-bar-fill" id="spBarFill"></div></div>
           <button class="sp-btn continue" id="spContinueBtn" type="button">继续第 1 关</button>
           <button class="sp-btn new" id="spNewBtn" type="button">新开一局</button>
@@ -10016,96 +10016,6 @@
             "...orrrrorrrrorro.......",
             "....oooooooooooo........",
             E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E
-          ]
-        },
-        trumpet: {
-          word: "TRUMPET", zh: "小号",
-          pal: { o: "#d99a0b", g: "#f5b921", y: "#ffd83d" },
-          rows: [
-            E,
-            E,
-            E,
-            E,
-            E,
-            "....oooo......oooooo....",
-            "..ooggggo..oogggggggo...",
-            ".oggggggggyyyyyyyyyygo..",
-            "..ooggggo..oogggggggo...",
-            "....oooo......oooooo....",
-            ".....oo..........oo.....",
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E
-          ]
-        },
-        flute: {
-          word: "FLUTE", zh: "笛子",
-          pal: { o: "#b08954", b: "#d9c9a8", d: "#8a6d3b" },
-          rows: [
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            ".oooooooooooooooooooo...",
-            "obbbbbbbbbbbbbbbbbbbbo..",
-            "obdbbdbbdbbdbbbbbbbbbo..",
-            ".oooooooooooooooooooo...",
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E,
-            E
-          ]
-        },
-        harp: {
-          word: "HARP", zh: "竖琴",
-          pal: { o: "#d99a0b", g: "#f5b921", s: "#f7ead0" },
-          rows: [
-            E,
-            E,
-            "....ooooooooooo.........",
-            "...ogggggggggggo........",
-            "...oggosssssssso........",
-            "...oggosssssssso........",
-            "....ogossssssso.........",
-            "....ogosssssso..........",
-            "....ogossssso...........",
-            "....ogosssso............",
-            "....oooooooo............",
             E,
             E,
             E,
@@ -34817,306 +34727,306 @@
       var TYPE_KEYS = Object.keys(ICONS);
 
       /* ============================================================
-         All 145 levels / 1150 words.
+         All 144 levels / 1147 words.
          Level 1: 8 types x 3 pairs, all new.
-         Levels 2-144: 12 types x 2 pairs = 24 pairs; each level keeps
+         Levels 2-143: 12 types x 2 pairs = 24 pairs; each level keeps
          exactly 4 types from the previous level (marked in comments)
-         and introduces 8 new ones, except L136 (2 new + 6 review).
-         Level 145: 12 types x 2 pairs; keeps 4, introduces the
-         final 4 new ones plus 8 review words.
-         8 + 142 x 8 + 2 + 4 = 1150 words total.
+         and introduces 8 new ones.
+         Level 144: 12 types x 2 pairs; keeps 4, introduces the
+         final 3 new ones plus 5 review words.
+         8 + 142 x 8 + 3 = 1147 words total.
+         (TRUMPET, FLUTE and HARP were retired from the word list;
+         the levels were re-laid in the same introduction order.)
          ============================================================ */
       var LEVELS = [
         // L1 — fruit & breakfast, all new
         ["apple", "banana", "orange", "grape", "egg", "milk", "bread", "coffee"],
-        // L2 — keeps banana / egg / milk / bread; new: cake cheese fish rice tea cup bowl spoon
-        ["banana", "egg", "milk", "bread", "cake", "cheese", "fish", "rice", "tea", "cup", "bowl", "spoon"],
+        // L2 — keeps apple / orange / milk / coffee; new: cake cheese fish rice tea cup bowl spoon
+        ["apple", "orange", "milk", "coffee", "cake", "cheese", "fish", "rice", "tea", "cup", "bowl", "spoon"],
         // L3 — keeps cake / fish / cup / spoon; new: dog cat bird duck pig cow sheep horse
         ["cake", "fish", "cup", "spoon", "dog", "cat", "bird", "duck", "pig", "cow", "sheep", "horse"],
-        // L4 — keeps dog / cat / bird / horse; new: sun moon star cloud rain snow tree flower
-        ["dog", "cat", "bird", "horse", "sun", "moon", "star", "cloud", "rain", "snow", "tree", "flower"],
-        // L5 — keeps sun / star / tree / flower; new: car bus bike boat plane train key door
-        ["sun", "star", "tree", "flower", "car", "bus", "bike", "boat", "plane", "train", "key", "door"],
-        // L6 — keeps car / bike / key / door; new: book pen pencil ruler bag desk chair bed
-        ["car", "bike", "key", "door", "book", "pen", "pencil", "ruler", "bag", "desk", "chair", "bed"],
-        // L7 — keeps book / pen / bag / chair; new: hat shoe sock shirt pants glove umbrella clock
-        ["book", "pen", "bag", "chair", "hat", "shoe", "sock", "shirt", "pants", "glove", "umbrella", "clock"],
-        // L8 — keeps hat / shoe / umbrella / clock; new: phone camera watch lamp fan radio ball kite
-        ["hat", "shoe", "umbrella", "clock", "phone", "camera", "watch", "lamp", "fan", "radio", "ball", "kite"],
-        // L9 — keeps phone / lamp / ball / kite; new: eye ear nose mouth hand foot hair tooth
-        ["phone", "lamp", "ball", "kite", "eye", "ear", "nose", "mouth", "hand", "foot", "hair", "tooth"],
-        // L10 — keeps eye / hand / hair / tooth; new: house heart water fire mountain snowman gift bell
-        ["eye", "hand", "hair", "tooth", "house", "heart", "water", "fire", "mountain", "snowman", "gift", "bell"],
-        // L11 — keeps house / water / mountain / gift; new: lemon peach pear strawberry watermelon pineapple mango cherry
-        ["house", "water", "mountain", "gift", "lemon", "peach", "pear", "strawberry", "watermelon", "pineapple", "mango", "cherry"],
-        // L12 — keeps lemon / pear / watermelon / mango; new: tomato potato carrot corn onion cucumber chili pumpkin
-        ["lemon", "pear", "watermelon", "mango", "tomato", "potato", "carrot", "corn", "onion", "cucumber", "chili", "pumpkin"],
-        // L13 — keeps tomato / carrot / onion / chili; new: noodle pizza burger sandwich salad soup candy cookie
-        ["tomato", "carrot", "onion", "chili", "noodle", "pizza", "burger", "sandwich", "salad", "soup", "candy", "cookie"],
-        // L14 — keeps noodle / burger / salad / candy; new: juice cola yogurt honey jam butter chocolate sugar
-        ["noodle", "burger", "salad", "candy", "juice", "cola", "yogurt", "honey", "jam", "butter", "chocolate", "sugar"],
-        // L15 — keeps juice / yogurt / jam / chocolate; new: fork knife plate chopsticks pot pan bottle box
-        ["juice", "yogurt", "jam", "chocolate", "fork", "knife", "plate", "chopsticks", "pot", "pan", "bottle", "box"],
-        // L16 — keeps fork / plate / pot / bottle; new: lion tiger elephant monkey bear rabbit frog snake
-        ["fork", "plate", "pot", "bottle", "lion", "tiger", "elephant", "monkey", "bear", "rabbit", "frog", "snake"],
-        // L17 — keeps lion / elephant / bear / frog; new: panda zebra giraffe kangaroo penguin owl butterfly bee
-        ["lion", "elephant", "bear", "frog", "panda", "zebra", "giraffe", "kangaroo", "penguin", "owl", "butterfly", "bee"],
-        // L18 — keeps panda / giraffe / penguin / butterfly; new: shark whale octopus crab shrimp turtle dolphin jellyfish
-        ["panda", "giraffe", "penguin", "butterfly", "shark", "whale", "octopus", "crab", "shrimp", "turtle", "dolphin", "jellyfish"],
-        // L19 — keeps shark / octopus / shrimp / dolphin; new: ant spider worm ladybug dragonfly mosquito beetle cricket
-        ["shark", "octopus", "shrimp", "dolphin", "ant", "spider", "worm", "ladybug", "dragonfly", "mosquito", "beetle", "cricket"],
-        // L20 — keeps ant / worm / dragonfly / beetle; new: head face neck arm leg finger knee shoulder
-        ["ant", "worm", "dragonfly", "beetle", "head", "face", "neck", "arm", "leg", "finger", "knee", "shoulder"],
-        // L21 — keeps head / neck / leg / knee; new: tongue chin cheek elbow thumb toe back stomach
-        ["head", "neck", "leg", "knee", "tongue", "chin", "cheek", "elbow", "thumb", "toe", "back", "stomach"],
-        // L22 — keeps tongue / cheek / thumb / back; new: dress skirt coat jacket sweater jeans scarf boots
-        ["tongue", "cheek", "thumb", "back", "dress", "skirt", "coat", "jacket", "sweater", "jeans", "scarf", "boots"],
-        // L23 — keeps dress / coat / sweater / scarf; new: pajamas uniform tie belt button pocket ring glasses
-        ["dress", "coat", "sweater", "scarf", "pajamas", "uniform", "tie", "belt", "button", "pocket", "ring", "glasses"],
-        // L24 — keeps pajamas / tie / button / ring; new: kitchen bathroom bedroom window wall floor roof stairs
-        ["pajamas", "tie", "button", "ring", "kitchen", "bathroom", "bedroom", "window", "wall", "floor", "roof", "stairs"],
-        // L25 — keeps kitchen / bedroom / wall / roof; new: table sofa mirror curtain shelf drawer closet toilet
-        ["kitchen", "bedroom", "wall", "roof", "table", "sofa", "mirror", "curtain", "shelf", "drawer", "closet", "toilet"],
-        // L26 — keeps table / mirror / shelf / closet; new: towel soap toothbrush toothpaste shampoo comb scissors needle
-        ["table", "mirror", "shelf", "closet", "towel", "soap", "toothbrush", "toothpaste", "shampoo", "comb", "scissors", "needle"],
-        // L27 — keeps towel / toothbrush / shampoo / scissors; new: hammer saw rope ladder bucket broom brush shovel
-        ["towel", "toothbrush", "shampoo", "scissors", "hammer", "saw", "rope", "ladder", "bucket", "broom", "brush", "shovel"],
-        // L28 — keeps hammer / rope / bucket / brush; new: teacher student school classroom homework exam map paper
-        ["hammer", "rope", "bucket", "brush", "teacher", "student", "school", "classroom", "homework", "exam", "map", "paper"],
-        // L29 — keeps teacher / school / homework / map; new: crayon eraser notebook dictionary letter card picture story
-        ["teacher", "school", "homework", "map", "crayon", "eraser", "notebook", "dictionary", "letter", "card", "picture", "story"],
-        // L30 — keeps crayon / notebook / letter / picture; new: park shop market hospital bank library museum zoo
-        ["crayon", "notebook", "letter", "picture", "park", "shop", "market", "hospital", "bank", "library", "museum", "zoo"],
-        // L31 — keeps park / market / bank / museum; new: farm garden beach forest river lake sea island
-        ["park", "market", "bank", "museum", "farm", "garden", "beach", "forest", "river", "lake", "sea", "island"],
-        // L32 — keeps farm / beach / river / sea; new: grass leaf rock sand sky wind ice smoke
-        ["farm", "beach", "river", "sea", "grass", "leaf", "rock", "sand", "sky", "wind", "ice", "smoke"],
-        // L33 — keeps grass / rock / sky / ice; new: thunder lightning rainbow fog storm tornado hail breeze
-        ["grass", "rock", "sky", "ice", "thunder", "lightning", "rainbow", "fog", "storm", "tornado", "hail", "breeze"],
-        // L34 — keeps thunder / rainbow / storm / hail; new: truck taxi subway ship rocket helicopter ambulance policecar
-        ["thunder", "rainbow", "storm", "hail", "truck", "taxi", "subway", "ship", "rocket", "helicopter", "ambulance", "policecar"],
-        // L35 — keeps truck / subway / rocket / ambulance; new: wheel engine seat horn steering pedal exhaust licenseplate
-        ["truck", "subway", "rocket", "ambulance", "wheel", "engine", "seat", "horn", "steering", "pedal", "exhaust", "licenseplate"],
-        // L36 — keeps wheel / seat / steering / exhaust; new: doctor nurse farmer cook driver singer dancer painter
-        ["wheel", "seat", "steering", "exhaust", "doctor", "nurse", "farmer", "cook", "driver", "singer", "dancer", "painter"],
-        // L37 — keeps doctor / farmer / driver / dancer; new: worker soldier policeman fireman actor writer pilot engineer
-        ["doctor", "farmer", "driver", "dancer", "worker", "soldier", "policeman", "fireman", "actor", "writer", "pilot", "engineer"],
-        // L38 — keeps worker / policeman / actor / pilot; new: mother father sister brother baby grandma grandpa family
-        ["worker", "policeman", "actor", "pilot", "mother", "father", "sister", "brother", "baby", "grandma", "grandpa", "family"],
-        // L39 — keeps mother / sister / baby / grandpa; new: soccer basketball tennis baseball golf boxing swimming running
-        ["mother", "sister", "baby", "grandpa", "soccer", "basketball", "tennis", "baseball", "golf", "boxing", "swimming", "running"],
-        // L40 — keeps soccer / tennis / golf / swimming; new: racket skis skateboard helmet trophy medal whistle jersey
-        ["soccer", "tennis", "golf", "swimming", "racket", "skis", "skateboard", "helmet", "trophy", "medal", "whistle", "jersey"],
-        // L41 — keeps racket / skateboard / trophy / whistle; new: piano guitar violin drum trumpet flute harp microphone
-        ["racket", "skateboard", "trophy", "whistle", "piano", "guitar", "violin", "drum", "trumpet", "flute", "harp", "microphone"],
-        // L42 — keeps piano / violin / trumpet / harp; new: doll teddy robot puzzle blocks yoyo top bubbles
-        ["piano", "violin", "trumpet", "harp", "doll", "teddy", "robot", "puzzle", "blocks", "yoyo", "top", "bubbles"],
-        // L43 — keeps doll / robot / blocks / top; new: dice chess balloon crown sword shield wand mask
-        ["doll", "robot", "blocks", "top", "dice", "chess", "balloon", "crown", "sword", "shield", "wand", "mask"],
-        // L44 — keeps dice / balloon / sword / wand; new: tv computer tablet printer speaker headphones keyboard screen
-        ["dice", "balloon", "sword", "wand", "tv", "computer", "tablet", "printer", "speaker", "headphones", "keyboard", "screen"],
-        // L45 — keeps tv / tablet / speaker / keyboard; new: fridge oven microwave washer stove kettle toaster blender
-        ["tv", "tablet", "speaker", "keyboard", "fridge", "oven", "microwave", "washer", "stove", "kettle", "toaster", "blender"],
-        // L46 — keeps fridge / microwave / stove / toaster; new: circle square triangle rectangle oval diamond cross arrow
-        ["fridge", "microwave", "stove", "toaster", "circle", "square", "triangle", "rectangle", "oval", "diamond", "cross", "arrow"],
-        // L47 — keeps circle / triangle / oval / cross; new: red blue green yellow pink purple black white
-        ["circle", "triangle", "oval", "cross", "red", "blue", "green", "yellow", "pink", "purple", "black", "white"],
-        // L48 — keeps red / green / pink / black; new: one two three four five six seven eight
-        ["red", "green", "pink", "black", "one", "two", "three", "four", "five", "six", "seven", "eight"],
-        // L49 — keeps one / three / five / seven; new: nine ten eleven twelve twenty fifty hundred zero
-        ["one", "three", "five", "seven", "nine", "ten", "eleven", "twelve", "twenty", "fifty", "hundred", "zero"],
-        // L50 — keeps nine / eleven / twenty / hundred; new: calendar spring summer autumn winter morning night noon
-        ["nine", "eleven", "twenty", "hundred", "calendar", "spring", "summer", "autumn", "winter", "morning", "night", "noon"],
-        // L51 — keeps calendar / summer / winter / night; new: seed sprout branch root feather pearl acorn pinecone
-        ["calendar", "summer", "winter", "night", "seed", "sprout", "branch", "root", "feather", "pearl", "acorn", "pinecone"],
-        // L52 — keeps seed / branch / feather / acorn; new: anchor wave shell starfish seahorse lighthouse compass coral
-        ["seed", "branch", "feather", "acorn", "anchor", "wave", "shell", "starfish", "seahorse", "lighthouse", "compass", "coral"],
-        // L53 — keeps anchor / shell / seahorse / compass; new: planet comet astronaut alien telescope satellite galaxy meteor
-        ["anchor", "shell", "seahorse", "compass", "planet", "comet", "astronaut", "alien", "telescope", "satellite", "galaxy", "meteor"],
-        // L54 — keeps planet / astronaut / telescope / galaxy; new: dumpling bun porridge chicken popcorn fries hotdog pie
-        ["planet", "astronaut", "telescope", "galaxy", "dumpling", "bun", "porridge", "chicken", "popcorn", "fries", "hotdog", "pie"],
-        // L55 — keeps dumpling / porridge / popcorn / hotdog; new: ham sausage bacon steak beef pork meat bone
-        ["dumpling", "porridge", "popcorn", "hotdog", "ham", "sausage", "bacon", "steak", "beef", "pork", "meat", "bone"],
-        // L56 — keeps ham / bacon / beef / meat; new: kiwi coconut melon plum fig avocado lime olive
-        ["ham", "bacon", "beef", "meat", "kiwi", "coconut", "melon", "plum", "fig", "avocado", "lime", "olive"],
-        // L57 — keeps kiwi / melon / fig / lime; new: cabbage lettuce broccoli cauliflower eggplant garlic ginger mushroom
-        ["kiwi", "melon", "fig", "lime", "cabbage", "lettuce", "broccoli", "cauliflower", "eggplant", "garlic", "ginger", "mushroom"],
-        // L58 — keeps cabbage / broccoli / eggplant / ginger; new: salt oil vinegar ketchup mustard sauce syrup pepper
-        ["cabbage", "broccoli", "eggplant", "ginger", "salt", "oil", "vinegar", "ketchup", "mustard", "sauce", "syrup", "pepper"],
-        // L59 — keeps salt / vinegar / mustard / syrup; new: cereal toast waffle muffin donut croissant bagel omelet
-        ["salt", "vinegar", "mustard", "syrup", "cereal", "toast", "waffle", "muffin", "donut", "croissant", "bagel", "omelet"],
-        // L60 — keeps cereal / waffle / donut / bagel; new: icecream pudding jelly lollipop marshmallow cupcake brownie mousse
-        ["cereal", "waffle", "donut", "bagel", "icecream", "pudding", "jelly", "lollipop", "marshmallow", "cupcake", "brownie", "mousse"],
-        // L61 — keeps icecream / jelly / marshmallow / brownie; new: deer fox wolf koala sloth hippo rhino camel
-        ["icecream", "jelly", "marshmallow", "brownie", "deer", "fox", "wolf", "koala", "sloth", "hippo", "rhino", "camel"],
-        // L62 — keeps deer / wolf / sloth / rhino; new: goat donkey turkey goose rooster hen chick pony
-        ["deer", "wolf", "sloth", "rhino", "goat", "donkey", "turkey", "goose", "rooster", "hen", "chick", "pony"],
-        // L63 — keeps goat / turkey / rooster / chick; new: eagle parrot swan peacock flamingo sparrow pigeon crow
-        ["goat", "turkey", "rooster", "chick", "eagle", "parrot", "swan", "peacock", "flamingo", "sparrow", "pigeon", "crow"],
-        // L64 — keeps eagle / swan / flamingo / pigeon; new: medicine pill bandage thermometer syringe stethoscope wheelchair crutch
-        ["eagle", "swan", "flamingo", "pigeon", "medicine", "pill", "bandage", "thermometer", "syringe", "stethoscope", "wheelchair", "crutch"],
-        // L65 — keeps medicine / bandage / syringe / wheelchair; new: math english science art history geography reading writing
-        ["medicine", "bandage", "syringe", "wheelchair", "math", "english", "science", "art", "history", "geography", "reading", "writing"],
-        // L66 — keeps math / science / history / reading; new: blackboard chalk globe lunchbox poster abacus flag bookmark
-        ["math", "science", "history", "reading", "blackboard", "chalk", "globe", "lunchbox", "poster", "abacus", "flag", "bookmark"],
-        // L67 — keeps blackboard / globe / poster / flag; new: building bridge road street trafficlight station airport hotel
-        ["blackboard", "globe", "poster", "flag", "building", "bridge", "road", "street", "trafficlight", "station", "airport", "hotel"],
-        // L68 — keeps building / road / trafficlight / airport; new: mailbox envelope stamp postcard package newspaper magazine sign
-        ["building", "road", "trafficlight", "airport", "mailbox", "envelope", "stamp", "postcard", "package", "newspaper", "magazine", "sign"],
-        // L69 — keeps mailbox / stamp / package / magazine; new: flowerpot fence hose rake wheelbarrow wateringcan pebble stump
-        ["mailbox", "stamp", "package", "magazine", "flowerpot", "fence", "hose", "rake", "wheelbarrow", "wateringcan", "pebble", "stump"],
-        // L70 — keeps flowerpot / hose / wheelbarrow / pebble; new: tent campfire backpack flashlight binoculars lantern hammock canoe
-        ["flowerpot", "hose", "wheelbarrow", "pebble", "tent", "campfire", "backpack", "flashlight", "binoculars", "lantern", "hammock", "canoe"],
-        // L71 — keeps tent / backpack / binoculars / hammock; new: mittens sled skates snowboard fireplace icicle igloo snowglobe
-        ["tent", "backpack", "binoculars", "hammock", "mittens", "sled", "skates", "snowboard", "fireplace", "icicle", "igloo", "snowglobe"],
-        // L72 — keeps mittens / skates / fireplace / igloo; new: ghost witch skeleton candle bat spiderweb partyhat fireworks
-        ["mittens", "skates", "fireplace", "igloo", "ghost", "witch", "skeleton", "candle", "bat", "spiderweb", "partyhat", "fireworks"],
-        // L73 — keeps ghost / skeleton / bat / partyhat; new: santa reindeer snowflake ornament stocking gingerbread ribbon wreath
-        ["ghost", "skeleton", "bat", "partyhat", "santa", "reindeer", "snowflake", "ornament", "stocking", "gingerbread", "ribbon", "wreath"],
-        // L74 — keeps santa / snowflake / stocking / ribbon; new: note record cassette cd pillow tissue gloves slippers
-        ["santa", "snowflake", "stocking", "ribbon", "note", "record", "cassette", "cd", "pillow", "tissue", "gloves", "slippers"],
-        // L75 — keeps note / cassette / pillow / gloves; new: paint paintbrush easel canvas clay glue tape yarn
-        ["note", "cassette", "pillow", "gloves", "paint", "paintbrush", "easel", "canvas", "clay", "glue", "tape", "yarn"],
-        // L76 — keeps paint / easel / clay / tape; new: bathtub shower sink faucet perfume lotion razor dryer
-        ["paint", "easel", "clay", "tape", "bathtub", "shower", "sink", "faucet", "perfume", "lotion", "razor", "dryer"],
-        // L77 — keeps bathtub / sink / perfume / razor; new: iron hanger basket clothespin detergent thread pin clothesline
-        ["bathtub", "sink", "perfume", "razor", "iron", "hanger", "basket", "clothespin", "detergent", "thread", "pin", "clothesline"],
-        // L78 — keeps iron / basket / detergent / pin; new: money coin wallet tag cart register creditcard receipt
-        ["iron", "basket", "detergent", "pin", "money", "coin", "wallet", "tag", "cart", "register", "creditcard", "receipt"],
-        // L79 — keeps money / wallet / cart / creditcard; new: stapler paperclip folder whiteboard projector briefcase clipboard calculator
-        ["money", "wallet", "cart", "creditcard", "stapler", "paperclip", "folder", "whiteboard", "projector", "briefcase", "clipboard", "calculator"],
-        // L80 — keeps stapler / folder / projector / clipboard; new: charger battery plug cable remote controller drone lightbulb
-        ["stapler", "folder", "projector", "clipboard", "charger", "battery", "plug", "cable", "remote", "controller", "drone", "lightbulb"],
-        // L81 — keeps charger / plug / remote / drone; new: apricot nectarine tangerine pomelo dragonfruit passionfruit blueberry raspberry
-        ["charger", "plug", "remote", "drone", "apricot", "nectarine", "tangerine", "pomelo", "dragonfruit", "passionfruit", "blueberry", "raspberry"],
-        // L82 — keeps apricot / tangerine / dragonfruit / blueberry; new: peas beans spinach celery radish beet zucchini leek
-        ["apricot", "tangerine", "dragonfruit", "blueberry", "peas", "beans", "spinach", "celery", "radish", "beet", "zucchini", "leek"],
-        // L83 — keeps peas / spinach / radish / zucchini; new: basil mint rosemary cinnamon vanilla curry thyme parsley
-        ["peas", "spinach", "radish", "zucchini", "basil", "mint", "rosemary", "cinnamon", "vanilla", "curry", "thyme", "parsley"],
-        // L84 — keeps basil / rosemary / vanilla / thyme; new: lobster clam oyster squid mussel scallop seaweed eel
-        ["basil", "rosemary", "vanilla", "thyme", "lobster", "clam", "oyster", "squid", "mussel", "scallop", "seaweed", "eel"],
-        // L85 — keeps lobster / oyster / mussel / seaweed; new: hamster goldfish hedgehog guineapig ferret canary gecko snail
-        ["lobster", "oyster", "mussel", "seaweed", "hamster", "goldfish", "hedgehog", "guineapig", "ferret", "canary", "gecko", "snail"],
-        // L86 — keeps hamster / hedgehog / ferret / gecko; new: barn tractor windmill hay silo beehive scarecrow haystack
-        ["hamster", "hedgehog", "ferret", "gecko", "barn", "tractor", "windmill", "hay", "silo", "beehive", "scarecrow", "haystack"],
-        // L87 — keeps barn / windmill / silo / scarecrow; new: motorcycle scooter van jeep crane forklift bulldozer mixer
-        ["barn", "windmill", "silo", "scarecrow", "motorcycle", "scooter", "van", "jeep", "crane", "forklift", "bulldozer", "mixer"],
-        // L88 — keeps motorcycle / van / crane / bulldozer; new: hotballoon blimp parachute glider jet wing propeller biplane
-        ["motorcycle", "van", "crane", "bulldozer", "hotballoon", "blimp", "parachute", "glider", "jet", "wing", "propeller", "biplane"],
-        // L89 — keeps hotballoon / parachute / jet / propeller; new: tunnel highway crosswalk gasstation garage parking barrier roundabout
-        ["hotballoon", "parachute", "jet", "propeller", "tunnel", "highway", "crosswalk", "gasstation", "garage", "parking", "barrier", "roundabout"],
-        // L90 — keeps tunnel / crosswalk / garage / barrier; new: slide swing seesaw carousel sandbox trampoline climber bench
-        ["tunnel", "crosswalk", "garage", "barrier", "slide", "swing", "seesaw", "carousel", "sandbox", "trampoline", "climber", "bench"],
-        // L91 — keeps slide / seesaw / sandbox / climber; new: sunglasses sunscreen surfboard snorkel lifebuoy swimsuit flipflops beachball
-        ["slide", "seesaw", "sandbox", "climber", "sunglasses", "sunscreen", "surfboard", "snorkel", "lifebuoy", "swimsuit", "flipflops", "beachball"],
-        // L92 — keeps sunglasses / surfboard / lifebuoy / flipflops; new: apron board whisk spatula ladle grater rollingpin mitt
-        ["sunglasses", "surfboard", "lifebuoy", "flipflops", "apron", "board", "whisk", "spatula", "ladle", "grater", "rollingpin", "mitt"],
-        // L93 — keeps apron / whisk / ladle / rollingpin; new: grill skewer charcoal cooler thermos blanket frisbee picnic
-        ["apron", "whisk", "ladle", "rollingpin", "grill", "skewer", "charcoal", "cooler", "thermos", "blanket", "frisbee", "picnic"],
-        // L94 — keeps grill / charcoal / thermos / frisbee; new: espresso latte cappuccino mocha teapot coffeepot mug straw
-        ["grill", "charcoal", "thermos", "frisbee", "espresso", "latte", "cappuccino", "mocha", "teapot", "coffeepot", "mug", "straw"],
-        // L95 — keeps espresso / cappuccino / teapot / mug; new: nachos burrito drumstick nuggets onionrings taco wrap chips
-        ["espresso", "cappuccino", "teapot", "mug", "nachos", "burrito", "drumstick", "nuggets", "onionrings", "taco", "wrap", "chips"],
-        // L96 — keeps nachos / drumstick / onionrings / wrap; new: sushi ramen springroll baozi mooncake tanghulu zongzi tofu
-        ["nachos", "drumstick", "onionrings", "wrap", "sushi", "ramen", "springroll", "baozi", "mooncake", "tanghulu", "zongzi", "tofu"],
-        // L97 — keeps sushi / springroll / mooncake / zongzi; new: pretzel scone eclair macaron tart brioche pita strudel
-        ["sushi", "springroll", "mooncake", "zongzi", "pretzel", "scone", "eclair", "macaron", "tart", "brioche", "pita", "strudel"],
-        // L98 — keeps pretzel / eclair / tart / pita; new: gummy jellybean taffy fudge cotton_candy peppermint rockcandy caramel
-        ["pretzel", "eclair", "tart", "pita", "gummy", "jellybean", "taffy", "fudge", "cotton_candy", "peppermint", "rockcandy", "caramel"],
-        // L99 — keeps gummy / taffy / cotton_candy / rockcandy; new: sundae popsicle icecreamcone gelato milkshake bananasplit softserve snowcone
-        ["gummy", "taffy", "cotton_candy", "rockcandy", "sundae", "popsicle", "icecreamcone", "gelato", "milkshake", "bananasplit", "softserve", "snowcone"],
-        // L100 — keeps sundae / icecreamcone / milkshake / softserve; new: rose tulip sunflower daisy lavender orchid lily lotus
-        ["sundae", "icecreamcone", "milkshake", "softserve", "rose", "tulip", "sunflower", "daisy", "lavender", "orchid", "lily", "lotus"],
-        // L101 — keeps rose / sunflower / lavender / lily; new: palm pine bamboo cactus maple oak willow bonsai
-        ["rose", "sunflower", "lavender", "lily", "palm", "pine", "bamboo", "cactus", "maple", "oak", "willow", "bonsai"],
-        // L102 — keeps palm / bamboo / maple / willow; new: sunrise sunset dawn dusk seedling aurora twilight nebula
-        ["palm", "bamboo", "maple", "willow", "sunrise", "sunset", "dawn", "dusk", "seedling", "aurora", "twilight", "nebula"],
-        // L103 — keeps sunrise / dawn / seedling / twilight; new: coriander chives candycane doughnut churro noodles bubbletea smoothie
-        ["sunrise", "dawn", "seedling", "twilight", "coriander", "chives", "candycane", "doughnut", "churro", "noodles", "bubbletea", "smoothie"],
-        // L104 — keeps coriander / candycane / churro / bubbletea; new: wrench screwdriver drill pliers measure axe nail screw
-        ["coriander", "candycane", "churro", "bubbletea", "wrench", "screwdriver", "drill", "pliers", "measure", "axe", "nail", "screw"],
-        // L105 — keeps wrench / drill / measure / nail; new: hardhat goggles earmuffs vest firstaid extinguisher cast ointment
-        ["wrench", "drill", "measure", "nail", "hardhat", "goggles", "earmuffs", "vest", "firstaid", "extinguisher", "cast", "ointment"],
-        // L106 — keeps hardhat / earmuffs / firstaid / cast; new: sleepingbag hotpot matches firewood pocketknife tarp mallet hatchet
-        ["hardhat", "earmuffs", "firstaid", "cast", "sleepingbag", "hotpot", "matches", "firewood", "pocketknife", "tarp", "mallet", "hatchet"],
-        // L107 — keeps sleepingbag / matches / pocketknife / mallet; new: rod shoes sandals hoodie cuttingboard dishsoap router lemonade
-        ["sleepingbag", "matches", "pocketknife", "mallet", "rod", "shoes", "sandals", "hoodie", "cuttingboard", "dishsoap", "router", "lemonade"],
-        // L108 — keeps rod / sandals / cuttingboard / router; new: socks cap hairdryer washingmachine stool sheet carpet vase
-        ["rod", "sandals", "cuttingboard", "router", "socks", "cap", "hairdryer", "washingmachine", "stool", "sheet", "carpet", "vase"],
-        // L109 — keeps socks / hairdryer / stool / carpet; new: confetti popper banner invitation timer garland comic microscope
-        ["socks", "hairdryer", "stool", "carpet", "confetti", "popper", "banner", "invitation", "timer", "garland", "comic", "microscope"],
-        // L110 — keeps confetti / banner / timer / comic; new: napkin tablecloth mouse laptop powerbank alarm soda firetruck
-        ["confetti", "banner", "timer", "comic", "napkin", "tablecloth", "mouse", "laptop", "powerbank", "alarm", "soda", "firetruck"],
-        // L111 — keeps napkin / mouse / powerbank / soda; new: bib pacifier diaper rattle crib stroller onesie mobile
-        ["napkin", "mouse", "powerbank", "soda", "bib", "pacifier", "diaper", "rattle", "crib", "stroller", "onesie", "mobile"],
-        // L112 — keeps bib / diaper / crib / onesie; new: mop dustpan sponge spray vacuum duster trash recycle
-        ["bib", "diaper", "crib", "onesie", "mop", "dustpan", "sponge", "spray", "vacuum", "duster", "trash", "recycle"],
-        // L113 — keeps mop / sponge / vacuum / trash; new: toiletpaper plunger scale tweezers swab clipper floss bathmat
-        ["mop", "sponge", "vacuum", "trash", "toiletpaper", "plunger", "scale", "tweezers", "swab", "clipper", "floss", "bathmat"],
-        // L114 — keeps toiletpaper / scale / swab / floss; new: leash collar cage aquarium scratcher petbed carrier litterbox
-        ["toiletpaper", "scale", "swab", "floss", "leash", "collar", "cage", "aquarium", "scratcher", "petbed", "carrier", "litterbox"],
-        // L115 — keeps leash / cage / scratcher / carrier; new: hockey curling bobsled snowmobile snowshoe lift iceberg glacier
-        ["leash", "cage", "scratcher", "carrier", "hockey", "curling", "bobsled", "snowmobile", "snowshoe", "lift", "iceberg", "glacier"],
-        // L116 — keeps hockey / bobsled / snowshoe / iceberg; new: pool diving waterslide sprinkler floatie sandcastle paddleboard kayak
-        ["hockey", "bobsled", "snowshoe", "iceberg", "pool", "diving", "waterslide", "sprinkler", "floatie", "sandcastle", "paddleboard", "kayak"],
-        // L117 — keeps pool / waterslide / floatie / paddleboard; new: yacht sailboat submarine ferry raft seashell houseboat speedboat
-        ["pool", "waterslide", "floatie", "paddleboard", "yacht", "sailboat", "submarine", "ferry", "raft", "seashell", "houseboat", "speedboat"],
-        // L118 — keeps yacht / submarine / raft / houseboat; new: tram monorail cablecar decker rickshaw trolley segway unicycle
-        ["yacht", "submarine", "raft", "houseboat", "tram", "monorail", "cablecar", "decker", "rickshaw", "trolley", "segway", "unicycle"],
-        // L119 — keeps tram / cablecar / rickshaw / segway; new: moose coyote raccoon skunk squirrel chipmunk colander peeler
-        ["tram", "cablecar", "rickshaw", "segway", "moose", "coyote", "raccoon", "skunk", "squirrel", "chipmunk", "colander", "peeler"],
-        // L120 — keeps moose / raccoon / squirrel / colander; new: tongs fryingpan lighter freezer steamer wok papaya lychee
-        ["moose", "raccoon", "squirrel", "colander", "tongs", "fryingpan", "lighter", "freezer", "steamer", "wok", "papaya", "lychee"],
-        // L121 — keeps tongs / lighter / steamer / papaya; new: guava doormat blackberry almond walnut cashew peanut pistachio
-        ["tongs", "lighter", "steamer", "papaya", "guava", "doormat", "blackberry", "almond", "walnut", "cashew", "peanut", "pistachio"],
-        // L122 — keeps guava / blackberry / walnut / peanut; new: sneakers necklace earring handbag raincoat overalls shorts cardigan
-        ["guava", "blackberry", "walnut", "peanut", "sneakers", "necklace", "earring", "handbag", "raincoat", "overalls", "shorts", "cardigan"],
-        // L123 — keeps sneakers / earring / raincoat / shorts; new: ankle wrist forehead eyebrow lip waist armchair dishrack
-        ["sneakers", "earring", "raincoat", "shorts", "ankle", "wrist", "forehead", "eyebrow", "lip", "waist", "armchair", "dishrack"],
-        // L124 — keeps ankle / forehead / lip / armchair; new: ovenmitt dresser nightstand mattress conditioner trashcan marker vitamin
-        ["ankle", "forehead", "lip", "armchair", "ovenmitt", "dresser", "nightstand", "mattress", "conditioner", "trashcan", "marker", "vitamin"],
-        // L125 — keeps ovenmitt / nightstand / conditioner / marker; new: doorbell lock volleyball badminton cycling gym cinema restaurant
-        ["ovenmitt", "nightstand", "conditioner", "marker", "doorbell", "lock", "volleyball", "badminton", "cycling", "gym", "cinema", "restaurant"],
-        // L126 — keeps doorbell / volleyball / cycling / cinema; new: boy girl man woman child aunt grandmother grandfather
-        ["doorbell", "volleyball", "cycling", "cinema", "boy", "girl", "man", "woman", "child", "aunt", "grandmother", "grandfather"],
-        // L127 — keeps boy / man / child / grandmother; new: artist author actress lawyer dentist captain businessman castle
-        ["boy", "man", "child", "grandmother", "artist", "author", "actress", "lawyer", "dentist", "captain", "businessman", "castle"],
-        // L128 — keeps artist / actress / dentist / businessman; new: church drugstore elevator alphabet bay beard beer block
-        ["artist", "actress", "dentist", "businessman", "church", "drugstore", "elevator", "alphabet", "bay", "beard", "beer", "block"],
-        // L129 — keeps church / elevator / bay / beer; new: brick bubble cabinet chain breakfast heel moustache chest
-        ["church", "elevator", "bay", "beer", "brick", "bubble", "cabinet", "chain", "breakfast", "heel", "moustache", "chest"],
-        // L130 — keeps brick / cabinet / breakfast / moustache; new: love time music weather peace luck danger idea
-        ["brick", "cabinet", "breakfast", "moustache", "love", "time", "music", "weather", "peace", "luck", "danger", "idea"],
-        // L131 — keeps love / music / peace / danger; new: dream hope anger fear joy happiness health freedom
-        ["love", "music", "peace", "danger", "dream", "hope", "anger", "fear", "joy", "happiness", "health", "freedom"],
-        // L132 — keeps dream / anger / joy / health; new: confidence energy speed strength beauty fun game sport
-        ["dream", "anger", "joy", "health", "confidence", "energy", "speed", "strength", "beauty", "fun", "game", "sport"],
-        // L133 — keeps confidence / speed / beauty / game; new: knowledge nature future past truth friendship marriage holiday
-        ["confidence", "speed", "beauty", "game", "knowledge", "nature", "future", "past", "truth", "friendship", "marriage", "holiday"],
-        // L134 — keeps knowledge / future / truth / marriage; new: journey adventure success victory safety pride memory mind
-        ["knowledge", "future", "truth", "marriage", "journey", "adventure", "success", "victory", "safety", "pride", "memory", "mind"],
-        // L135 — keeps journey / success / safety / memory; new: courage noise kindness trust silence job language education
-        ["journey", "success", "safety", "memory", "courage", "noise", "kindness", "trust", "silence", "job", "language", "education"],
-        // L136 — keeps courage / kindness / silence / language; new: earth food; review: boy girl man woman child aunt
-        ["courage", "kindness", "silence", "language", "earth", "food", "boy", "girl", "man", "woman", "child", "aunt"],
-        // L137 — keeps earth / boy / man / child; new: apartment birthday band audience cooker cottage cotton crack
-        ["earth", "boy", "man", "child", "apartment", "birthday", "band", "audience", "cooker", "cottage", "cotton", "crack"],
-        // L138 — keeps apartment / band / cooker / cotton; new: cream creature crop flour fur gate giant goal
-        ["apartment", "band", "cooker", "cotton", "cream", "creature", "crop", "flour", "fur", "gate", "giant", "goal"],
-        // L139 — keeps cream / crop / fur / giant; new: gold harbor accident anniversary balance bar battle beak
-        ["cream", "crop", "fur", "giant", "gold", "harbor", "accident", "anniversary", "balance", "bar", "battle", "beak"],
-        // L140 — keeps gold / accident / balance / battle; new: bill blade body border bunch bush camp camping
-        ["gold", "accident", "balance", "battle", "bill", "blade", "body", "border", "bunch", "bush", "camp", "camping"],
-        // L141 — keeps bill / body / bunch / camp; new: cardboard cell ceremony certificate channel charity chart chemical
-        ["bill", "body", "bunch", "camp", "cardboard", "cell", "ceremony", "certificate", "channel", "charity", "chart", "chemical"],
-        // L142 — keeps cardboard / ceremony / channel / chart; new: chemist city cloth coast code college column comedy
-        ["cardboard", "ceremony", "channel", "chart", "chemist", "city", "cloth", "coast", "code", "college", "column", "comedy"],
-        // L143 — keeps chemist / cloth / code / column; new: concert concrete continent cooking corner council counter county
-        ["chemist", "cloth", "code", "column", "concert", "concrete", "continent", "cooking", "corner", "council", "counter", "county"],
-        // L144 — keeps concert / continent / corner / counter; new: couple court craft credit crime crisis dancing crowd
-        ["concert", "continent", "corner", "counter", "couple", "court", "craft", "credit", "crime", "crisis", "dancing", "crowd"],
-        // L145 — keeps couple / craft / crime / dancing; new: culture cupboard curve customer; review: apartment birthday band audience
-        ["couple", "craft", "crime", "dancing", "culture", "cupboard", "curve", "customer", "apartment", "birthday", "band", "audience"]
+        // L4 — keeps dog / bird / cow / horse; new: sun moon star cloud rain snow tree flower
+        ["dog", "bird", "cow", "horse", "sun", "moon", "star", "cloud", "rain", "snow", "tree", "flower"],
+        // L5 — keeps sun / star / snow / flower; new: car bus bike boat plane train key door
+        ["sun", "star", "snow", "flower", "car", "bus", "bike", "boat", "plane", "train", "key", "door"],
+        // L6 — keeps car / bike / train / door; new: book pen pencil ruler bag desk chair bed
+        ["car", "bike", "train", "door", "book", "pen", "pencil", "ruler", "bag", "desk", "chair", "bed"],
+        // L7 — keeps book / pencil / desk / bed; new: hat shoe sock shirt pants glove umbrella clock
+        ["book", "pencil", "desk", "bed", "hat", "shoe", "sock", "shirt", "pants", "glove", "umbrella", "clock"],
+        // L8 — keeps hat / sock / glove / clock; new: phone camera watch lamp fan radio ball kite
+        ["hat", "sock", "glove", "clock", "phone", "camera", "watch", "lamp", "fan", "radio", "ball", "kite"],
+        // L9 — keeps phone / watch / radio / kite; new: eye ear nose mouth hand foot hair tooth
+        ["phone", "watch", "radio", "kite", "eye", "ear", "nose", "mouth", "hand", "foot", "hair", "tooth"],
+        // L10 — keeps eye / nose / foot / tooth; new: house heart water fire mountain snowman gift bell
+        ["eye", "nose", "foot", "tooth", "house", "heart", "water", "fire", "mountain", "snowman", "gift", "bell"],
+        // L11 — keeps house / water / snowman / bell; new: lemon peach pear strawberry watermelon pineapple mango cherry
+        ["house", "water", "snowman", "bell", "lemon", "peach", "pear", "strawberry", "watermelon", "pineapple", "mango", "cherry"],
+        // L12 — keeps lemon / pear / pineapple / cherry; new: tomato potato carrot corn onion cucumber chili pumpkin
+        ["lemon", "pear", "pineapple", "cherry", "tomato", "potato", "carrot", "corn", "onion", "cucumber", "chili", "pumpkin"],
+        // L13 — keeps tomato / carrot / cucumber / pumpkin; new: noodle pizza burger sandwich salad soup candy cookie
+        ["tomato", "carrot", "cucumber", "pumpkin", "noodle", "pizza", "burger", "sandwich", "salad", "soup", "candy", "cookie"],
+        // L14 — keeps noodle / burger / soup / cookie; new: juice cola yogurt honey jam butter chocolate sugar
+        ["noodle", "burger", "soup", "cookie", "juice", "cola", "yogurt", "honey", "jam", "butter", "chocolate", "sugar"],
+        // L15 — keeps juice / yogurt / butter / sugar; new: fork knife plate chopsticks pot pan bottle box
+        ["juice", "yogurt", "butter", "sugar", "fork", "knife", "plate", "chopsticks", "pot", "pan", "bottle", "box"],
+        // L16 — keeps fork / plate / pan / box; new: lion tiger elephant monkey bear rabbit frog snake
+        ["fork", "plate", "pan", "box", "lion", "tiger", "elephant", "monkey", "bear", "rabbit", "frog", "snake"],
+        // L17 — keeps lion / elephant / rabbit / snake; new: panda zebra giraffe kangaroo penguin owl butterfly bee
+        ["lion", "elephant", "rabbit", "snake", "panda", "zebra", "giraffe", "kangaroo", "penguin", "owl", "butterfly", "bee"],
+        // L18 — keeps panda / giraffe / owl / bee; new: shark whale octopus crab shrimp turtle dolphin jellyfish
+        ["panda", "giraffe", "owl", "bee", "shark", "whale", "octopus", "crab", "shrimp", "turtle", "dolphin", "jellyfish"],
+        // L19 — keeps shark / octopus / turtle / jellyfish; new: ant spider worm ladybug dragonfly mosquito beetle cricket
+        ["shark", "octopus", "turtle", "jellyfish", "ant", "spider", "worm", "ladybug", "dragonfly", "mosquito", "beetle", "cricket"],
+        // L20 — keeps ant / worm / mosquito / cricket; new: head face neck arm leg finger knee shoulder
+        ["ant", "worm", "mosquito", "cricket", "head", "face", "neck", "arm", "leg", "finger", "knee", "shoulder"],
+        // L21 — keeps head / neck / finger / shoulder; new: tongue chin cheek elbow thumb toe back stomach
+        ["head", "neck", "finger", "shoulder", "tongue", "chin", "cheek", "elbow", "thumb", "toe", "back", "stomach"],
+        // L22 — keeps tongue / cheek / toe / stomach; new: dress skirt coat jacket sweater jeans scarf boots
+        ["tongue", "cheek", "toe", "stomach", "dress", "skirt", "coat", "jacket", "sweater", "jeans", "scarf", "boots"],
+        // L23 — keeps dress / coat / jeans / boots; new: pajamas uniform tie belt button pocket ring glasses
+        ["dress", "coat", "jeans", "boots", "pajamas", "uniform", "tie", "belt", "button", "pocket", "ring", "glasses"],
+        // L24 — keeps pajamas / tie / pocket / glasses; new: kitchen bathroom bedroom window wall floor roof stairs
+        ["pajamas", "tie", "pocket", "glasses", "kitchen", "bathroom", "bedroom", "window", "wall", "floor", "roof", "stairs"],
+        // L25 — keeps kitchen / bedroom / floor / stairs; new: table sofa mirror curtain shelf drawer closet toilet
+        ["kitchen", "bedroom", "floor", "stairs", "table", "sofa", "mirror", "curtain", "shelf", "drawer", "closet", "toilet"],
+        // L26 — keeps table / mirror / drawer / toilet; new: towel soap toothbrush toothpaste shampoo comb scissors needle
+        ["table", "mirror", "drawer", "toilet", "towel", "soap", "toothbrush", "toothpaste", "shampoo", "comb", "scissors", "needle"],
+        // L27 — keeps towel / toothbrush / comb / needle; new: hammer saw rope ladder bucket broom brush shovel
+        ["towel", "toothbrush", "comb", "needle", "hammer", "saw", "rope", "ladder", "bucket", "broom", "brush", "shovel"],
+        // L28 — keeps hammer / rope / broom / shovel; new: teacher student school classroom homework exam map paper
+        ["hammer", "rope", "broom", "shovel", "teacher", "student", "school", "classroom", "homework", "exam", "map", "paper"],
+        // L29 — keeps teacher / school / exam / paper; new: crayon eraser notebook dictionary letter card picture story
+        ["teacher", "school", "exam", "paper", "crayon", "eraser", "notebook", "dictionary", "letter", "card", "picture", "story"],
+        // L30 — keeps crayon / notebook / card / story; new: park shop market hospital bank library museum zoo
+        ["crayon", "notebook", "card", "story", "park", "shop", "market", "hospital", "bank", "library", "museum", "zoo"],
+        // L31 — keeps park / market / library / zoo; new: farm garden beach forest river lake sea island
+        ["park", "market", "library", "zoo", "farm", "garden", "beach", "forest", "river", "lake", "sea", "island"],
+        // L32 — keeps farm / beach / lake / island; new: grass leaf rock sand sky wind ice smoke
+        ["farm", "beach", "lake", "island", "grass", "leaf", "rock", "sand", "sky", "wind", "ice", "smoke"],
+        // L33 — keeps grass / rock / wind / smoke; new: thunder lightning rainbow fog storm tornado hail breeze
+        ["grass", "rock", "wind", "smoke", "thunder", "lightning", "rainbow", "fog", "storm", "tornado", "hail", "breeze"],
+        // L34 — keeps thunder / rainbow / tornado / breeze; new: truck taxi subway ship rocket helicopter ambulance policecar
+        ["thunder", "rainbow", "tornado", "breeze", "truck", "taxi", "subway", "ship", "rocket", "helicopter", "ambulance", "policecar"],
+        // L35 — keeps truck / subway / helicopter / policecar; new: wheel engine seat horn steering pedal exhaust licenseplate
+        ["truck", "subway", "helicopter", "policecar", "wheel", "engine", "seat", "horn", "steering", "pedal", "exhaust", "licenseplate"],
+        // L36 — keeps wheel / seat / pedal / licenseplate; new: doctor nurse farmer cook driver singer dancer painter
+        ["wheel", "seat", "pedal", "licenseplate", "doctor", "nurse", "farmer", "cook", "driver", "singer", "dancer", "painter"],
+        // L37 — keeps doctor / farmer / singer / painter; new: worker soldier policeman fireman actor writer pilot engineer
+        ["doctor", "farmer", "singer", "painter", "worker", "soldier", "policeman", "fireman", "actor", "writer", "pilot", "engineer"],
+        // L38 — keeps worker / policeman / writer / engineer; new: mother father sister brother baby grandma grandpa family
+        ["worker", "policeman", "writer", "engineer", "mother", "father", "sister", "brother", "baby", "grandma", "grandpa", "family"],
+        // L39 — keeps mother / sister / grandma / family; new: soccer basketball tennis baseball golf boxing swimming running
+        ["mother", "sister", "grandma", "family", "soccer", "basketball", "tennis", "baseball", "golf", "boxing", "swimming", "running"],
+        // L40 — keeps soccer / tennis / boxing / running; new: racket skis skateboard helmet trophy medal whistle jersey
+        ["soccer", "tennis", "boxing", "running", "racket", "skis", "skateboard", "helmet", "trophy", "medal", "whistle", "jersey"],
+        // L41 — keeps racket / skateboard / medal / jersey; new: piano guitar violin drum microphone doll teddy robot
+        ["racket", "skateboard", "medal", "jersey", "piano", "guitar", "violin", "drum", "microphone", "doll", "teddy", "robot"],
+        // L42 — keeps piano / violin / doll / robot; new: puzzle blocks yoyo top bubbles dice chess balloon
+        ["piano", "violin", "doll", "robot", "puzzle", "blocks", "yoyo", "top", "bubbles", "dice", "chess", "balloon"],
+        // L43 — keeps puzzle / yoyo / dice / balloon; new: crown sword shield wand mask tv computer tablet
+        ["puzzle", "yoyo", "dice", "balloon", "crown", "sword", "shield", "wand", "mask", "tv", "computer", "tablet"],
+        // L44 — keeps crown / shield / tv / tablet; new: printer speaker headphones keyboard screen fridge oven microwave
+        ["crown", "shield", "tv", "tablet", "printer", "speaker", "headphones", "keyboard", "screen", "fridge", "oven", "microwave"],
+        // L45 — keeps printer / headphones / fridge / microwave; new: washer stove kettle toaster blender circle square triangle
+        ["printer", "headphones", "fridge", "microwave", "washer", "stove", "kettle", "toaster", "blender", "circle", "square", "triangle"],
+        // L46 — keeps washer / kettle / circle / triangle; new: rectangle oval diamond cross arrow red blue green
+        ["washer", "kettle", "circle", "triangle", "rectangle", "oval", "diamond", "cross", "arrow", "red", "blue", "green"],
+        // L47 — keeps rectangle / diamond / red / green; new: yellow pink purple black white one two three
+        ["rectangle", "diamond", "red", "green", "yellow", "pink", "purple", "black", "white", "one", "two", "three"],
+        // L48 — keeps yellow / purple / one / three; new: four five six seven eight nine ten eleven
+        ["yellow", "purple", "one", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven"],
+        // L49 — keeps four / six / nine / eleven; new: twelve twenty fifty hundred zero calendar spring summer
+        ["four", "six", "nine", "eleven", "twelve", "twenty", "fifty", "hundred", "zero", "calendar", "spring", "summer"],
+        // L50 — keeps twelve / fifty / calendar / summer; new: autumn winter morning night noon seed sprout branch
+        ["twelve", "fifty", "calendar", "summer", "autumn", "winter", "morning", "night", "noon", "seed", "sprout", "branch"],
+        // L51 — keeps autumn / morning / seed / branch; new: root feather pearl acorn pinecone anchor wave shell
+        ["autumn", "morning", "seed", "branch", "root", "feather", "pearl", "acorn", "pinecone", "anchor", "wave", "shell"],
+        // L52 — keeps root / pearl / anchor / shell; new: starfish seahorse lighthouse compass coral planet comet astronaut
+        ["root", "pearl", "anchor", "shell", "starfish", "seahorse", "lighthouse", "compass", "coral", "planet", "comet", "astronaut"],
+        // L53 — keeps starfish / lighthouse / planet / astronaut; new: alien telescope satellite galaxy meteor dumpling bun porridge
+        ["starfish", "lighthouse", "planet", "astronaut", "alien", "telescope", "satellite", "galaxy", "meteor", "dumpling", "bun", "porridge"],
+        // L54 — keeps alien / satellite / dumpling / porridge; new: chicken popcorn fries hotdog pie ham sausage bacon
+        ["alien", "satellite", "dumpling", "porridge", "chicken", "popcorn", "fries", "hotdog", "pie", "ham", "sausage", "bacon"],
+        // L55 — keeps chicken / fries / ham / bacon; new: steak beef pork meat bone kiwi coconut melon
+        ["chicken", "fries", "ham", "bacon", "steak", "beef", "pork", "meat", "bone", "kiwi", "coconut", "melon"],
+        // L56 — keeps steak / pork / kiwi / melon; new: plum fig avocado lime olive cabbage lettuce broccoli
+        ["steak", "pork", "kiwi", "melon", "plum", "fig", "avocado", "lime", "olive", "cabbage", "lettuce", "broccoli"],
+        // L57 — keeps plum / avocado / cabbage / broccoli; new: cauliflower eggplant garlic ginger mushroom salt oil vinegar
+        ["plum", "avocado", "cabbage", "broccoli", "cauliflower", "eggplant", "garlic", "ginger", "mushroom", "salt", "oil", "vinegar"],
+        // L58 — keeps cauliflower / garlic / salt / vinegar; new: ketchup mustard sauce syrup pepper cereal toast waffle
+        ["cauliflower", "garlic", "salt", "vinegar", "ketchup", "mustard", "sauce", "syrup", "pepper", "cereal", "toast", "waffle"],
+        // L59 — keeps ketchup / sauce / cereal / waffle; new: muffin donut croissant bagel omelet icecream pudding jelly
+        ["ketchup", "sauce", "cereal", "waffle", "muffin", "donut", "croissant", "bagel", "omelet", "icecream", "pudding", "jelly"],
+        // L60 — keeps muffin / croissant / icecream / jelly; new: lollipop marshmallow cupcake brownie mousse deer fox wolf
+        ["muffin", "croissant", "icecream", "jelly", "lollipop", "marshmallow", "cupcake", "brownie", "mousse", "deer", "fox", "wolf"],
+        // L61 — keeps lollipop / cupcake / deer / wolf; new: koala sloth hippo rhino camel goat donkey turkey
+        ["lollipop", "cupcake", "deer", "wolf", "koala", "sloth", "hippo", "rhino", "camel", "goat", "donkey", "turkey"],
+        // L62 — keeps koala / hippo / goat / turkey; new: goose rooster hen chick pony eagle parrot swan
+        ["koala", "hippo", "goat", "turkey", "goose", "rooster", "hen", "chick", "pony", "eagle", "parrot", "swan"],
+        // L63 — keeps goose / hen / eagle / swan; new: peacock flamingo sparrow pigeon crow medicine pill bandage
+        ["goose", "hen", "eagle", "swan", "peacock", "flamingo", "sparrow", "pigeon", "crow", "medicine", "pill", "bandage"],
+        // L64 — keeps peacock / sparrow / medicine / bandage; new: thermometer syringe stethoscope wheelchair crutch math english science
+        ["peacock", "sparrow", "medicine", "bandage", "thermometer", "syringe", "stethoscope", "wheelchair", "crutch", "math", "english", "science"],
+        // L65 — keeps thermometer / stethoscope / math / science; new: art history geography reading writing blackboard chalk globe
+        ["thermometer", "stethoscope", "math", "science", "art", "history", "geography", "reading", "writing", "blackboard", "chalk", "globe"],
+        // L66 — keeps art / geography / blackboard / globe; new: lunchbox poster abacus flag bookmark building bridge road
+        ["art", "geography", "blackboard", "globe", "lunchbox", "poster", "abacus", "flag", "bookmark", "building", "bridge", "road"],
+        // L67 — keeps lunchbox / abacus / building / road; new: street trafficlight station airport hotel mailbox envelope stamp
+        ["lunchbox", "abacus", "building", "road", "street", "trafficlight", "station", "airport", "hotel", "mailbox", "envelope", "stamp"],
+        // L68 — keeps street / station / mailbox / stamp; new: postcard package newspaper magazine sign flowerpot fence hose
+        ["street", "station", "mailbox", "stamp", "postcard", "package", "newspaper", "magazine", "sign", "flowerpot", "fence", "hose"],
+        // L69 — keeps postcard / newspaper / flowerpot / hose; new: rake wheelbarrow wateringcan pebble stump tent campfire backpack
+        ["postcard", "newspaper", "flowerpot", "hose", "rake", "wheelbarrow", "wateringcan", "pebble", "stump", "tent", "campfire", "backpack"],
+        // L70 — keeps rake / wateringcan / tent / backpack; new: flashlight binoculars lantern hammock canoe mittens sled skates
+        ["rake", "wateringcan", "tent", "backpack", "flashlight", "binoculars", "lantern", "hammock", "canoe", "mittens", "sled", "skates"],
+        // L71 — keeps flashlight / lantern / mittens / skates; new: snowboard fireplace icicle igloo snowglobe ghost witch skeleton
+        ["flashlight", "lantern", "mittens", "skates", "snowboard", "fireplace", "icicle", "igloo", "snowglobe", "ghost", "witch", "skeleton"],
+        // L72 — keeps snowboard / icicle / ghost / skeleton; new: candle bat spiderweb partyhat fireworks santa reindeer snowflake
+        ["snowboard", "icicle", "ghost", "skeleton", "candle", "bat", "spiderweb", "partyhat", "fireworks", "santa", "reindeer", "snowflake"],
+        // L73 — keeps candle / spiderweb / santa / snowflake; new: ornament stocking gingerbread ribbon wreath note record cassette
+        ["candle", "spiderweb", "santa", "snowflake", "ornament", "stocking", "gingerbread", "ribbon", "wreath", "note", "record", "cassette"],
+        // L74 — keeps ornament / gingerbread / note / cassette; new: cd pillow tissue gloves slippers paint paintbrush easel
+        ["ornament", "gingerbread", "note", "cassette", "cd", "pillow", "tissue", "gloves", "slippers", "paint", "paintbrush", "easel"],
+        // L75 — keeps cd / tissue / paint / easel; new: canvas clay glue tape yarn bathtub shower sink
+        ["cd", "tissue", "paint", "easel", "canvas", "clay", "glue", "tape", "yarn", "bathtub", "shower", "sink"],
+        // L76 — keeps canvas / glue / bathtub / sink; new: faucet perfume lotion razor dryer iron hanger basket
+        ["canvas", "glue", "bathtub", "sink", "faucet", "perfume", "lotion", "razor", "dryer", "iron", "hanger", "basket"],
+        // L77 — keeps faucet / lotion / iron / basket; new: clothespin detergent thread pin clothesline money coin wallet
+        ["faucet", "lotion", "iron", "basket", "clothespin", "detergent", "thread", "pin", "clothesline", "money", "coin", "wallet"],
+        // L78 — keeps clothespin / thread / money / wallet; new: tag cart register creditcard receipt stapler paperclip folder
+        ["clothespin", "thread", "money", "wallet", "tag", "cart", "register", "creditcard", "receipt", "stapler", "paperclip", "folder"],
+        // L79 — keeps tag / register / stapler / folder; new: whiteboard projector briefcase clipboard calculator charger battery plug
+        ["tag", "register", "stapler", "folder", "whiteboard", "projector", "briefcase", "clipboard", "calculator", "charger", "battery", "plug"],
+        // L80 — keeps whiteboard / briefcase / charger / plug; new: cable remote controller drone lightbulb apricot nectarine tangerine
+        ["whiteboard", "briefcase", "charger", "plug", "cable", "remote", "controller", "drone", "lightbulb", "apricot", "nectarine", "tangerine"],
+        // L81 — keeps cable / controller / apricot / tangerine; new: pomelo dragonfruit passionfruit blueberry raspberry peas beans spinach
+        ["cable", "controller", "apricot", "tangerine", "pomelo", "dragonfruit", "passionfruit", "blueberry", "raspberry", "peas", "beans", "spinach"],
+        // L82 — keeps pomelo / passionfruit / peas / spinach; new: celery radish beet zucchini leek basil mint rosemary
+        ["pomelo", "passionfruit", "peas", "spinach", "celery", "radish", "beet", "zucchini", "leek", "basil", "mint", "rosemary"],
+        // L83 — keeps celery / beet / basil / rosemary; new: cinnamon vanilla curry thyme parsley lobster clam oyster
+        ["celery", "beet", "basil", "rosemary", "cinnamon", "vanilla", "curry", "thyme", "parsley", "lobster", "clam", "oyster"],
+        // L84 — keeps cinnamon / curry / lobster / oyster; new: squid mussel scallop seaweed eel hamster goldfish hedgehog
+        ["cinnamon", "curry", "lobster", "oyster", "squid", "mussel", "scallop", "seaweed", "eel", "hamster", "goldfish", "hedgehog"],
+        // L85 — keeps squid / scallop / hamster / hedgehog; new: guineapig ferret canary gecko snail barn tractor windmill
+        ["squid", "scallop", "hamster", "hedgehog", "guineapig", "ferret", "canary", "gecko", "snail", "barn", "tractor", "windmill"],
+        // L86 — keeps guineapig / canary / barn / windmill; new: hay silo beehive scarecrow haystack motorcycle scooter van
+        ["guineapig", "canary", "barn", "windmill", "hay", "silo", "beehive", "scarecrow", "haystack", "motorcycle", "scooter", "van"],
+        // L87 — keeps hay / beehive / motorcycle / van; new: jeep crane forklift bulldozer mixer hotballoon blimp parachute
+        ["hay", "beehive", "motorcycle", "van", "jeep", "crane", "forklift", "bulldozer", "mixer", "hotballoon", "blimp", "parachute"],
+        // L88 — keeps jeep / forklift / hotballoon / parachute; new: glider jet wing propeller biplane tunnel highway crosswalk
+        ["jeep", "forklift", "hotballoon", "parachute", "glider", "jet", "wing", "propeller", "biplane", "tunnel", "highway", "crosswalk"],
+        // L89 — keeps glider / wing / tunnel / crosswalk; new: gasstation garage parking barrier roundabout slide swing seesaw
+        ["glider", "wing", "tunnel", "crosswalk", "gasstation", "garage", "parking", "barrier", "roundabout", "slide", "swing", "seesaw"],
+        // L90 — keeps gasstation / parking / slide / seesaw; new: carousel sandbox trampoline climber bench sunglasses sunscreen surfboard
+        ["gasstation", "parking", "slide", "seesaw", "carousel", "sandbox", "trampoline", "climber", "bench", "sunglasses", "sunscreen", "surfboard"],
+        // L91 — keeps carousel / trampoline / sunglasses / surfboard; new: snorkel lifebuoy swimsuit flipflops beachball apron board whisk
+        ["carousel", "trampoline", "sunglasses", "surfboard", "snorkel", "lifebuoy", "swimsuit", "flipflops", "beachball", "apron", "board", "whisk"],
+        // L92 — keeps snorkel / swimsuit / apron / whisk; new: spatula ladle grater rollingpin mitt grill skewer charcoal
+        ["snorkel", "swimsuit", "apron", "whisk", "spatula", "ladle", "grater", "rollingpin", "mitt", "grill", "skewer", "charcoal"],
+        // L93 — keeps spatula / grater / grill / charcoal; new: cooler thermos blanket frisbee picnic espresso latte cappuccino
+        ["spatula", "grater", "grill", "charcoal", "cooler", "thermos", "blanket", "frisbee", "picnic", "espresso", "latte", "cappuccino"],
+        // L94 — keeps cooler / blanket / espresso / cappuccino; new: mocha teapot coffeepot mug straw nachos burrito drumstick
+        ["cooler", "blanket", "espresso", "cappuccino", "mocha", "teapot", "coffeepot", "mug", "straw", "nachos", "burrito", "drumstick"],
+        // L95 — keeps mocha / coffeepot / nachos / drumstick; new: nuggets onionrings taco wrap chips sushi ramen springroll
+        ["mocha", "coffeepot", "nachos", "drumstick", "nuggets", "onionrings", "taco", "wrap", "chips", "sushi", "ramen", "springroll"],
+        // L96 — keeps nuggets / taco / sushi / springroll; new: baozi mooncake tanghulu zongzi tofu pretzel scone eclair
+        ["nuggets", "taco", "sushi", "springroll", "baozi", "mooncake", "tanghulu", "zongzi", "tofu", "pretzel", "scone", "eclair"],
+        // L97 — keeps baozi / tanghulu / pretzel / eclair; new: macaron tart brioche pita strudel gummy jellybean taffy
+        ["baozi", "tanghulu", "pretzel", "eclair", "macaron", "tart", "brioche", "pita", "strudel", "gummy", "jellybean", "taffy"],
+        // L98 — keeps macaron / brioche / gummy / taffy; new: fudge cotton_candy peppermint rockcandy caramel sundae popsicle icecreamcone
+        ["macaron", "brioche", "gummy", "taffy", "fudge", "cotton_candy", "peppermint", "rockcandy", "caramel", "sundae", "popsicle", "icecreamcone"],
+        // L99 — keeps fudge / peppermint / sundae / icecreamcone; new: gelato milkshake bananasplit softserve snowcone rose tulip sunflower
+        ["fudge", "peppermint", "sundae", "icecreamcone", "gelato", "milkshake", "bananasplit", "softserve", "snowcone", "rose", "tulip", "sunflower"],
+        // L100 — keeps gelato / bananasplit / rose / sunflower; new: daisy lavender orchid lily lotus palm pine bamboo
+        ["gelato", "bananasplit", "rose", "sunflower", "daisy", "lavender", "orchid", "lily", "lotus", "palm", "pine", "bamboo"],
+        // L101 — keeps daisy / orchid / palm / bamboo; new: cactus maple oak willow bonsai sunrise sunset dawn
+        ["daisy", "orchid", "palm", "bamboo", "cactus", "maple", "oak", "willow", "bonsai", "sunrise", "sunset", "dawn"],
+        // L102 — keeps cactus / oak / sunrise / dawn; new: dusk seedling aurora twilight nebula coriander chives candycane
+        ["cactus", "oak", "sunrise", "dawn", "dusk", "seedling", "aurora", "twilight", "nebula", "coriander", "chives", "candycane"],
+        // L103 — keeps dusk / aurora / coriander / candycane; new: doughnut churro noodles bubbletea smoothie wrench screwdriver drill
+        ["dusk", "aurora", "coriander", "candycane", "doughnut", "churro", "noodles", "bubbletea", "smoothie", "wrench", "screwdriver", "drill"],
+        // L104 — keeps doughnut / noodles / wrench / drill; new: pliers measure axe nail screw hardhat goggles earmuffs
+        ["doughnut", "noodles", "wrench", "drill", "pliers", "measure", "axe", "nail", "screw", "hardhat", "goggles", "earmuffs"],
+        // L105 — keeps pliers / axe / hardhat / earmuffs; new: vest firstaid extinguisher cast ointment sleepingbag hotpot matches
+        ["pliers", "axe", "hardhat", "earmuffs", "vest", "firstaid", "extinguisher", "cast", "ointment", "sleepingbag", "hotpot", "matches"],
+        // L106 — keeps vest / extinguisher / sleepingbag / matches; new: firewood pocketknife tarp mallet hatchet rod shoes sandals
+        ["vest", "extinguisher", "sleepingbag", "matches", "firewood", "pocketknife", "tarp", "mallet", "hatchet", "rod", "shoes", "sandals"],
+        // L107 — keeps firewood / tarp / rod / sandals; new: hoodie cuttingboard dishsoap router lemonade socks cap hairdryer
+        ["firewood", "tarp", "rod", "sandals", "hoodie", "cuttingboard", "dishsoap", "router", "lemonade", "socks", "cap", "hairdryer"],
+        // L108 — keeps hoodie / dishsoap / socks / hairdryer; new: washingmachine stool sheet carpet vase confetti popper banner
+        ["hoodie", "dishsoap", "socks", "hairdryer", "washingmachine", "stool", "sheet", "carpet", "vase", "confetti", "popper", "banner"],
+        // L109 — keeps washingmachine / sheet / confetti / banner; new: invitation timer garland comic microscope napkin tablecloth mouse
+        ["washingmachine", "sheet", "confetti", "banner", "invitation", "timer", "garland", "comic", "microscope", "napkin", "tablecloth", "mouse"],
+        // L110 — keeps invitation / garland / napkin / mouse; new: laptop powerbank alarm soda firetruck bib pacifier diaper
+        ["invitation", "garland", "napkin", "mouse", "laptop", "powerbank", "alarm", "soda", "firetruck", "bib", "pacifier", "diaper"],
+        // L111 — keeps laptop / alarm / bib / diaper; new: rattle crib stroller onesie mobile mop dustpan sponge
+        ["laptop", "alarm", "bib", "diaper", "rattle", "crib", "stroller", "onesie", "mobile", "mop", "dustpan", "sponge"],
+        // L112 — keeps rattle / stroller / mop / sponge; new: spray vacuum duster trash recycle toiletpaper plunger scale
+        ["rattle", "stroller", "mop", "sponge", "spray", "vacuum", "duster", "trash", "recycle", "toiletpaper", "plunger", "scale"],
+        // L113 — keeps spray / duster / toiletpaper / scale; new: tweezers swab clipper floss bathmat leash collar cage
+        ["spray", "duster", "toiletpaper", "scale", "tweezers", "swab", "clipper", "floss", "bathmat", "leash", "collar", "cage"],
+        // L114 — keeps tweezers / clipper / leash / cage; new: aquarium scratcher petbed carrier litterbox hockey curling bobsled
+        ["tweezers", "clipper", "leash", "cage", "aquarium", "scratcher", "petbed", "carrier", "litterbox", "hockey", "curling", "bobsled"],
+        // L115 — keeps aquarium / petbed / hockey / bobsled; new: snowmobile snowshoe lift iceberg glacier pool diving waterslide
+        ["aquarium", "petbed", "hockey", "bobsled", "snowmobile", "snowshoe", "lift", "iceberg", "glacier", "pool", "diving", "waterslide"],
+        // L116 — keeps snowmobile / lift / pool / waterslide; new: sprinkler floatie sandcastle paddleboard kayak yacht sailboat submarine
+        ["snowmobile", "lift", "pool", "waterslide", "sprinkler", "floatie", "sandcastle", "paddleboard", "kayak", "yacht", "sailboat", "submarine"],
+        // L117 — keeps sprinkler / sandcastle / yacht / submarine; new: ferry raft seashell houseboat speedboat tram monorail cablecar
+        ["sprinkler", "sandcastle", "yacht", "submarine", "ferry", "raft", "seashell", "houseboat", "speedboat", "tram", "monorail", "cablecar"],
+        // L118 — keeps ferry / seashell / tram / cablecar; new: decker rickshaw trolley segway unicycle moose coyote raccoon
+        ["ferry", "seashell", "tram", "cablecar", "decker", "rickshaw", "trolley", "segway", "unicycle", "moose", "coyote", "raccoon"],
+        // L119 — keeps decker / trolley / moose / raccoon; new: skunk squirrel chipmunk colander peeler tongs fryingpan lighter
+        ["decker", "trolley", "moose", "raccoon", "skunk", "squirrel", "chipmunk", "colander", "peeler", "tongs", "fryingpan", "lighter"],
+        // L120 — keeps skunk / chipmunk / tongs / lighter; new: freezer steamer wok papaya lychee guava doormat blackberry
+        ["skunk", "chipmunk", "tongs", "lighter", "freezer", "steamer", "wok", "papaya", "lychee", "guava", "doormat", "blackberry"],
+        // L121 — keeps freezer / wok / guava / blackberry; new: almond walnut cashew peanut pistachio sneakers necklace earring
+        ["freezer", "wok", "guava", "blackberry", "almond", "walnut", "cashew", "peanut", "pistachio", "sneakers", "necklace", "earring"],
+        // L122 — keeps almond / cashew / sneakers / earring; new: handbag raincoat overalls shorts cardigan ankle wrist forehead
+        ["almond", "cashew", "sneakers", "earring", "handbag", "raincoat", "overalls", "shorts", "cardigan", "ankle", "wrist", "forehead"],
+        // L123 — keeps handbag / overalls / ankle / forehead; new: eyebrow lip waist armchair dishrack ovenmitt dresser nightstand
+        ["handbag", "overalls", "ankle", "forehead", "eyebrow", "lip", "waist", "armchair", "dishrack", "ovenmitt", "dresser", "nightstand"],
+        // L124 — keeps eyebrow / waist / ovenmitt / nightstand; new: mattress conditioner trashcan marker vitamin doorbell lock volleyball
+        ["eyebrow", "waist", "ovenmitt", "nightstand", "mattress", "conditioner", "trashcan", "marker", "vitamin", "doorbell", "lock", "volleyball"],
+        // L125 — keeps mattress / trashcan / doorbell / volleyball; new: badminton cycling gym cinema restaurant boy girl man
+        ["mattress", "trashcan", "doorbell", "volleyball", "badminton", "cycling", "gym", "cinema", "restaurant", "boy", "girl", "man"],
+        // L126 — keeps badminton / gym / boy / man; new: woman child aunt grandmother grandfather artist author actress
+        ["badminton", "gym", "boy", "man", "woman", "child", "aunt", "grandmother", "grandfather", "artist", "author", "actress"],
+        // L127 — keeps woman / aunt / artist / actress; new: lawyer dentist captain businessman castle church drugstore elevator
+        ["woman", "aunt", "artist", "actress", "lawyer", "dentist", "captain", "businessman", "castle", "church", "drugstore", "elevator"],
+        // L128 — keeps lawyer / captain / church / elevator; new: alphabet bay beard beer block brick bubble cabinet
+        ["lawyer", "captain", "church", "elevator", "alphabet", "bay", "beard", "beer", "block", "brick", "bubble", "cabinet"],
+        // L129 — keeps alphabet / beard / brick / cabinet; new: chain breakfast heel moustache chest love time music
+        ["alphabet", "beard", "brick", "cabinet", "chain", "breakfast", "heel", "moustache", "chest", "love", "time", "music"],
+        // L130 — keeps chain / heel / love / music; new: weather peace luck danger idea dream hope anger
+        ["chain", "heel", "love", "music", "weather", "peace", "luck", "danger", "idea", "dream", "hope", "anger"],
+        // L131 — keeps weather / luck / dream / anger; new: fear joy happiness health freedom confidence energy speed
+        ["weather", "luck", "dream", "anger", "fear", "joy", "happiness", "health", "freedom", "confidence", "energy", "speed"],
+        // L132 — keeps fear / happiness / confidence / speed; new: strength beauty fun game sport knowledge nature future
+        ["fear", "happiness", "confidence", "speed", "strength", "beauty", "fun", "game", "sport", "knowledge", "nature", "future"],
+        // L133 — keeps strength / fun / knowledge / future; new: past truth friendship marriage holiday journey adventure success
+        ["strength", "fun", "knowledge", "future", "past", "truth", "friendship", "marriage", "holiday", "journey", "adventure", "success"],
+        // L134 — keeps past / friendship / journey / success; new: victory safety pride memory mind courage noise kindness
+        ["past", "friendship", "journey", "success", "victory", "safety", "pride", "memory", "mind", "courage", "noise", "kindness"],
+        // L135 — keeps victory / pride / courage / kindness; new: trust silence job language education earth food apartment
+        ["victory", "pride", "courage", "kindness", "trust", "silence", "job", "language", "education", "earth", "food", "apartment"],
+        // L136 — keeps trust / job / earth / apartment; new: birthday band audience cooker cottage cotton crack cream
+        ["trust", "job", "earth", "apartment", "birthday", "band", "audience", "cooker", "cottage", "cotton", "crack", "cream"],
+        // L137 — keeps birthday / audience / cotton / cream; new: creature crop flour fur gate giant goal gold
+        ["birthday", "audience", "cotton", "cream", "creature", "crop", "flour", "fur", "gate", "giant", "goal", "gold"],
+        // L138 — keeps creature / flour / giant / gold; new: harbor accident anniversary balance bar battle beak bill
+        ["creature", "flour", "giant", "gold", "harbor", "accident", "anniversary", "balance", "bar", "battle", "beak", "bill"],
+        // L139 — keeps harbor / anniversary / battle / bill; new: blade body border bunch bush camp camping cardboard
+        ["harbor", "anniversary", "battle", "bill", "blade", "body", "border", "bunch", "bush", "camp", "camping", "cardboard"],
+        // L140 — keeps blade / border / camp / cardboard; new: cell ceremony certificate channel charity chart chemical chemist
+        ["blade", "border", "camp", "cardboard", "cell", "ceremony", "certificate", "channel", "charity", "chart", "chemical", "chemist"],
+        // L141 — keeps cell / certificate / chart / chemist; new: city cloth coast code college column comedy concert
+        ["cell", "certificate", "chart", "chemist", "city", "cloth", "coast", "code", "college", "column", "comedy", "concert"],
+        // L142 — keeps city / coast / column / concert; new: concrete continent cooking corner council counter county couple
+        ["city", "coast", "column", "concert", "concrete", "continent", "cooking", "corner", "council", "counter", "county", "couple"],
+        // L143 — keeps concrete / cooking / counter / couple; new: court craft credit crime crisis dancing crowd culture
+        ["concrete", "cooking", "counter", "couple", "court", "craft", "credit", "crime", "crisis", "dancing", "crowd", "culture"],
+        // L144 — keeps court / credit / dancing / culture; new: cupboard curve customer; review: apartment birthday band audience cooker
+        ["court", "credit", "dancing", "culture", "cupboard", "curve", "customer", "apartment", "birthday", "band", "audience", "cooker"]
       ];
 
       /* ============================================================
@@ -35202,6 +35112,17 @@
             var p = JSON.parse(raw);
             if (p && p.words && p.currentLevel) {
               if (!p.difficulty) p.difficulty = "normal";
+              /* Words retired from the list (TRUMPET / FLUTE /
+                 HARP) can still sit in an older memory book: drop
+                 them so they are never dealt again as reviews and
+                 the learned count stays honest, and keep the saved
+                 level inside the current level count. All other
+                 words keep their progress untouched. */
+              Object.keys(p.words).forEach(function (k) {
+                if (!ICONS[k]) delete p.words[k];
+              });
+              if (p.currentLevel > LEVELS.length) p.currentLevel = LEVELS.length;
+              if (p.currentLevel < 1) p.currentLevel = 1;
               return p;
             }
           }
@@ -35259,7 +35180,7 @@
         seededShuffle(idx, rng);
         return idx.map(function (i) { return BATCHES[i]; });
       }
-      /* Difficulty bands split the 1150 words by how common they
+      /* Difficulty bands split the 1147 words by how common they
          are, following the frequency idea behind the Oxford 3000 /
          CEFR levels: NEW_ORDER_BASE runs from the most everyday
          words to the least common ones, so 简单 (A1) takes the
@@ -35267,7 +35188,7 @@
          the whole list. The band only steers which NEW words a
          level deals; due reviews and the memory book are
          untouched. */
-      var DIFF_BANDS = { easy: [0, 400], normal: [0, 1150], hard: [600, 1150] };
+      var DIFF_BANDS = { easy: [0, 400], normal: [0, 1147], hard: [600, 1147] };
       function bandWords() {
         var b = DIFF_BANDS[progress.difficulty] || DIFF_BANDS.normal;
         return NEW_ORDER_BASE.slice(b[0], b[1]);
@@ -35514,13 +35435,17 @@
          All other words keep their code-drawn icons. */
       var IMG_ICONS = ["apple","coffee","umbrella","clock","key","book","banana","orange","grape","egg","milk","bread","cake","cheese","fish","rice","tea","cup","bowl","spoon","dog","cat","bird","duck","pig","cow","sheep","horse","sun","moon","star","cloud","rain","snow","tree","flower","car","bus","bike","boat","plane","train","door","pen","pencil","ruler","bag","desk","chair","bed","hat","shoe","sock","shirt","pants","glove","phone","camera","watch","lamp","fan","radio","ball","kite","eye","ear","nose","mouth","hand","foot","hair","tooth","house","heart","water","fire","mountain","snowman","gift","bell","lemon","peach","pear","strawberry","watermelon","pineapple","mango","cherry","tomato","potato","carrot","corn","onion","cucumber","chili","pumpkin","noodle","pizza","burger","sandwich","salad","soup","candy","cookie","juice","cola","yogurt","honey","jam","butter","chocolate","sugar","fork","knife","plate","chopsticks","pot","pan","bottle","box","lion","tiger","elephant","monkey","bear","rabbit","frog","snake","panda","zebra","giraffe","kangaroo","penguin","owl","butterfly","bee","shark","whale","octopus","crab","shrimp","turtle","dolphin","jellyfish","ant","spider","worm","ladybug","dragonfly","mosquito","beetle","cricket","head","face","neck","arm","leg","finger","knee","shoulder","tongue","chin","cheek","elbow","thumb","toe","back","stomach","dress","skirt","coat","jacket","sweater","jeans","scarf","boots","pajamas","uniform","tie","belt","button","pocket","ring","glasses","kitchen","bathroom","bedroom","window","wall","floor","roof","stairs","table","sofa","mirror","curtain","shelf","drawer","closet","toilet","towel","soap","toothbrush","toothpaste","shampoo","comb","scissors","needle","hammer","saw","rope","ladder","bucket","broom","brush","shovel","teacher","student","school","classroom","homework","exam","map","paper","crayon","eraser","notebook","dictionary","letter","card","picture","story","park","shop","market","hospital","bank","library","museum","zoo","farm","garden","beach","forest","river","lake","sea","island","grass","leaf","rock","sand","sky","wind","ice","smoke","thunder","lightning","rainbow","fog","storm","tornado","hail","breeze","truck","taxi","subway","ship","rocket","helicopter","ambulance","policecar","wheel","engine","seat","horn","steering","pedal","exhaust","licenseplate","doctor","nurse","farmer","cook","driver","singer","dancer","painter","worker","soldier","policeman","fireman","actor","writer","pilot","engineer","mother","father","sister","brother","baby","grandma","grandpa","family","soccer","basketball","tennis","baseball","golf","boxing","swimming","running","racket","skis","skateboard","helmet","trophy","medal","whistle","jersey","piano","guitar","violin","drum","trumpet","flute","harp","microphone","doll","teddy","robot","puzzle","blocks","yoyo","top","bubbles","dice","chess","balloon","crown","sword","shield","wand","mask","tv","computer","tablet","printer","speaker","headphones","keyboard","screen","fridge","oven","microwave","washer","stove","kettle","toaster","blender","circle","square","triangle","rectangle","oval","diamond","cross","arrow","red","blue","green","yellow","pink","purple","black","white","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","twenty","fifty","hundred","zero","calendar","spring","summer","autumn","winter","morning","night","noon","seed","sprout","branch","root","feather","pearl","acorn","pinecone","anchor","wave","shell","starfish","seahorse","lighthouse","compass","coral","planet","comet","astronaut","alien","telescope","satellite","galaxy","meteor","dumpling","bun","porridge","chicken","popcorn","fries","hotdog","pie","ham","sausage","bacon","steak","beef","pork","meat","bone","kiwi","coconut","melon","plum","fig","avocado","lime","olive","cabbage","lettuce","broccoli","cauliflower","eggplant","garlic","ginger","mushroom","salt","oil","vinegar","ketchup","mustard","sauce","syrup","pepper","cereal","toast","waffle","muffin","donut","croissant","bagel","omelet","icecream","pudding","jelly","lollipop","marshmallow","cupcake","brownie","mousse","deer","fox","wolf","koala","sloth","hippo","rhino","camel","goat","donkey","turkey","goose","rooster","hen","chick","pony","eagle","parrot","swan","peacock","flamingo","sparrow","pigeon","crow","medicine","pill","bandage","thermometer","syringe","stethoscope","wheelchair","crutch","math","english","science","art","history","geography","reading","writing","blackboard","chalk","globe","lunchbox","poster","abacus","flag","bookmark","building","bridge","road","street","trafficlight","station","airport","hotel","mailbox","envelope","stamp","postcard","package","newspaper","magazine","sign","flowerpot","fence","hose","rake","wheelbarrow","wateringcan","pebble","stump","tent","campfire","backpack","flashlight","binoculars","lantern","hammock","canoe","mittens","sled","skates","snowboard","fireplace","icicle","igloo","snowglobe","ghost","witch","skeleton","candle","bat","spiderweb","partyhat","fireworks","santa","reindeer","snowflake","ornament","stocking","gingerbread","ribbon","wreath","note","record","cassette","cd","pillow","tissue","gloves","slippers","paint","paintbrush","easel","canvas","clay","glue","tape","yarn","bathtub","shower","sink","faucet","perfume","lotion","razor","dryer","iron","hanger","basket","clothespin","detergent","thread","pin","clothesline","money","coin","wallet","tag","cart","register","creditcard","receipt","stapler","paperclip","folder","whiteboard","projector","briefcase","calculator","charger","battery","plug","cable","remote","controller","drone","lightbulb","apricot","nectarine","tangerine","pomelo","dragonfruit","passionfruit","blueberry","raspberry","peas","beans","spinach","celery","radish","beet","zucchini","leek","basil","mint","rosemary","cinnamon","vanilla","curry","thyme","parsley","lobster","clam","oyster","squid","mussel","scallop","seaweed","eel","hamster","goldfish","hedgehog","guineapig","ferret","canary","gecko","snail","barn","tractor","windmill","hay","silo","beehive","scarecrow","haystack","motorcycle","scooter","van","jeep","crane","forklift","bulldozer","mixer","hotballoon","blimp","parachute","glider","jet","wing","propeller","biplane","tunnel","highway","crosswalk","gasstation","garage","parking","barrier","roundabout","slide","swing","seesaw","carousel","sandbox","trampoline","climber","bench","sunglasses","sunscreen","surfboard","snorkel","lifebuoy","swimsuit","flipflops","beachball","apron","board","whisk","spatula","ladle","grater","rollingpin","mitt","grill","skewer","charcoal","cooler","thermos","blanket","frisbee","picnic","espresso","latte","cappuccino","mocha","teapot","coffeepot","mug","straw","nachos","burrito","drumstick","nuggets","onionrings","taco","wrap","chips","sushi","ramen","springroll","baozi","mooncake","tanghulu","zongzi","tofu","pretzel","scone","eclair","macaron","tart","brioche","pita","strudel","gummy","jellybean","taffy","fudge","cotton_candy","peppermint","rockcandy","caramel","sundae","popsicle","icecreamcone","gelato","milkshake","bananasplit","softserve","snowcone","rose","tulip","sunflower","daisy","lavender","orchid","lily","lotus","palm","pine","bamboo","cactus","maple","oak","willow","bonsai","sunrise","sunset","dawn","dusk","seedling","aurora","twilight","nebula","coriander","chives","candycane","doughnut","churro","noodles","bubbletea","smoothie","wrench","screwdriver","drill","pliers","measure","axe","nail","screw","hardhat","goggles","earmuffs","vest","firstaid","extinguisher","cast","ointment","sleepingbag","hotpot","matches","firewood","pocketknife","tarp","mallet","hatchet","rod","shoes","sandals","hoodie","cuttingboard","dishsoap","router","lemonade","socks","cap","hairdryer","washingmachine","stool","sheet","carpet","vase","confetti","popper","banner","invitation","timer","garland","comic","microscope","napkin","tablecloth","mouse","laptop","powerbank","alarm","soda","firetruck","bib","pacifier","diaper","rattle","crib","stroller","onesie","mobile","mop","dustpan","sponge","spray","vacuum","duster","trash","recycle","toiletpaper","plunger","scale","tweezers","swab","clipper","floss","bathmat","leash","collar","cage","aquarium","scratcher","petbed","carrier","litterbox","hockey","curling","bobsled","snowmobile","snowshoe","lift","iceberg","glacier","pool","diving","waterslide","sprinkler","floatie","sandcastle","paddleboard","kayak","yacht","sailboat","submarine","ferry","raft","seashell","houseboat","speedboat","tram","monorail","cablecar","decker","rickshaw","trolley","segway","unicycle","moose","coyote","raccoon","skunk","squirrel","chipmunk","colander","peeler","tongs","fryingpan","lighter","freezer","steamer","wok","papaya","lychee","guava","doormat","blackberry","almond","walnut","cashew","peanut","pistachio","sneakers","necklace","earring","handbag","raincoat","overalls","shorts","cardigan","ankle","wrist","forehead","eyebrow","lip","waist","armchair","dishrack","ovenmitt","dresser","nightstand","mattress","conditioner","trashcan","marker","vitamin","doorbell","lock","volleyball","badminton","cycling","gym","cinema","restaurant","clipboard","boy","girl","man","woman","child","aunt","grandmother","grandfather","artist","author","actress","lawyer","dentist","captain","businessman","castle","church","drugstore","elevator","alphabet","bay","beard","beer","block","brick","bubble","cabinet","chain","breakfast","heel","moustache","chest","love","time","music","weather","peace","luck","danger","idea","dream","hope","anger","fear","joy","happiness","health","freedom","confidence","energy","speed","strength","beauty","fun","game","sport","knowledge","nature","future","past","truth","friendship","marriage","holiday","journey","adventure","success","victory","safety","pride","memory","mind","courage","noise","kindness","trust","silence","job","language","education","earth","food","apartment","birthday","band","audience","cooker","cottage","cotton","crack","cream","creature","crop","flour","fur","gate","giant","goal","gold","harbor","accident","anniversary","balance","bar","battle","beak","bill","blade","body","border","bunch","bush","camp","camping","cardboard","cell","ceremony","certificate","channel","charity","chart","chemical","chemist","city","cloth","coast","code","college","column","comedy","concert","concrete","continent","cooking","corner","council","counter","county","couple","court","craft","credit","crime","crisis","dancing","crowd","culture","cupboard","curve","customer"];
       /* Batched sprite icons: the approved artwork no longer sits
-         in this file as 1150 base64 data URIs — that made the page
+         in this file as 1147 base64 data URIs — that made the page
          19.6 MB and forced players to download every icon before
          the first tile could appear. The artwork now lives in 23
          sprite sheets under assets/icons/, one sheet per approved
          batch of 50 icons in IMG_ICONS order, and SPRITE_POS is
          the index table: for each icon key, [sheet, x, y, w, h] of
-         its cell inside that sheet. Sheets download on demand:
+         its cell inside that sheet. TRUMPET, FLUTE and HARP were
+         retired from the word list: their cells stay in the sheet
+         files (and in IMG_ICONS, so every other icon keeps its
+         sheet and offset) but they have no SPRITE_POS entry, no
+         pixel icon and no level, so they are never cut out or dealt. Sheets download on demand:
          the sheets covering the level-1 entry pool load first,
          each level waits only for its own icons (the loading gate
          shows meanwhile), and the remaining sheets keep
@@ -35543,7 +35468,7 @@
         }
       }, true);
 
-      var SPRITE_POS = {"apple":[0,0,0,120,135],"coffee":[0,186,0,129,145],"umbrella":[0,372,0,146,149],"clock":[0,558,0,126,141],"key":[0,744,0,128,146],"book":[0,930,0,138,123],"banana":[0,1116,0,134,131],"orange":[0,1302,0,119,137],"grape":[0,1488,0,128,139],"egg":[0,1674,0,111,138],"milk":[0,0,186,107,143],"bread":[0,186,186,146,102],"cake":[0,372,186,136,186],"cheese":[0,558,186,128,134],"fish":[0,744,186,135,106],"rice":[0,930,186,124,143],"tea":[0,1116,186,130,141],"cup":[0,1302,186,133,97],"bowl":[0,1488,186,133,94],"spoon":[0,1674,186,110,137],"dog":[0,0,372,152,114],"cat":[0,186,372,148,123],"bird":[0,372,372,134,117],"duck":[0,558,372,119,127],"pig":[0,744,372,135,118],"cow":[0,930,372,138,138],"sheep":[0,1116,372,128,137],"horse":[0,1302,372,142,135],"sun":[0,1488,372,140,136],"moon":[0,1674,372,115,124],"star":[0,0,558,119,116],"cloud":[0,186,558,145,124],"rain":[0,372,558,137,125],"snow":[0,558,558,115,125],"tree":[0,744,558,129,129],"flower":[0,930,558,86,118],"car":[0,1116,558,151,89],"bus":[0,1302,558,155,95],"bike":[0,1488,558,154,100],"boat":[0,1674,558,162,107],"plane":[0,0,744,143,111],"train":[0,186,744,157,143],"door":[0,372,744,107,143],"pen":[0,558,744,128,142],"pencil":[0,744,744,135,138],"ruler":[0,930,744,141,143],"bag":[0,1116,744,124,144],"desk":[0,1302,744,150,111],"chair":[0,1488,744,109,148],"bed":[0,1674,744,156,122],"hat":[1,0,0,142,107],"shoe":[1,159,0,141,98],"sock":[1,318,0,100,136],"shirt":[1,477,0,154,127],"pants":[1,636,0,100,136],"glove":[1,795,0,137,102],"phone":[1,954,0,157,116],"camera":[1,1113,0,140,111],"watch":[1,1272,0,91,148],"lamp":[1,1431,0,113,139],"fan":[1,0,159,115,146],"radio":[1,159,159,134,149],"ball":[1,318,159,126,125],"kite":[1,477,159,101,154],"eye":[1,636,159,134,71],"ear":[1,795,159,89,125],"nose":[1,954,159,95,116],"mouth":[1,1113,159,128,79],"hand":[1,1272,159,117,133],"foot":[1,1431,159,88,142],"hair":[1,0,318,143,113],"tooth":[1,159,318,109,122],"house":[1,318,318,129,116],"heart":[1,477,318,125,111],"water":[1,636,318,102,127],"fire":[1,795,318,103,129],"mountain":[1,954,318,154,99],"snowman":[1,1113,318,135,143],"gift":[1,1272,318,115,129],"bell":[1,1431,318,106,134],"lemon":[1,0,477,117,103],"peach":[1,159,477,115,124],"pear":[1,318,477,92,133],"strawberry":[1,477,477,101,127],"watermelon":[1,636,477,143,86],"pineapple":[1,795,477,139,131],"mango":[1,954,477,111,123],"cherry":[1,1113,477,119,120],"tomato":[1,1272,477,159,103],"potato":[1,1431,477,123,114],"carrot":[1,0,636,141,129],"corn":[1,159,636,120,148],"onion":[1,318,636,108,130],"cucumber":[1,477,636,125,128],"chili":[1,636,636,117,129],"pumpkin":[1,795,636,135,133],"noodle":[1,954,636,138,138],"pizza":[1,1113,636,135,131],"burger":[1,1272,636,139,123],"sandwich":[1,1431,636,146,116],"salad":[2,0,0,138,126],"soup":[2,192,0,129,136],"candy":[2,384,0,137,126],"cookie":[2,576,0,121,122],"juice":[2,768,0,133,134],"cola":[2,960,0,108,143],"yogurt":[2,1152,0,112,132],"honey":[2,1344,0,134,131],"jam":[2,1536,0,113,147],"butter":[2,1728,0,149,107],"chocolate":[2,0,192,146,121],"sugar":[2,192,192,132,121],"fork":[2,384,192,118,127],"knife":[2,576,192,120,127],"plate":[2,768,192,139,89],"chopsticks":[2,960,192,124,123],"pot":[2,1152,192,142,139],"pan":[2,1344,192,161,106],"bottle":[2,1536,192,74,139],"box":[2,1728,192,134,121],"lion":[2,0,384,134,141],"tiger":[2,192,384,129,137],"elephant":[2,384,384,144,127],"monkey":[2,576,384,142,142],"bear":[2,768,384,105,138],"rabbit":[2,960,384,87,118],"frog":[2,1152,384,125,108],"snake":[2,1344,384,116,114],"panda":[2,1536,384,94,114],"zebra":[2,1728,384,112,118],"giraffe":[2,0,576,105,149],"kangaroo":[2,192,576,122,145],"penguin":[2,384,576,122,131],"owl":[2,576,576,115,138],"butterfly":[2,768,576,192,143],"bee":[2,960,576,192,177],"shark":[2,1152,576,192,110],"whale":[2,1344,576,192,158],"octopus":[2,1536,576,192,166],"crab":[2,1728,576,192,140],"shrimp":[2,0,768,134,121],"turtle":[2,192,768,134,124],"dolphin":[2,384,768,157,138],"jellyfish":[2,576,768,106,138],"ant":[2,768,768,124,118],"spider":[2,960,768,141,135],"worm":[2,1152,768,145,95],"ladybug":[2,1344,768,129,133],"dragonfly":[2,1536,768,153,124],"mosquito":[2,1728,768,136,108],"beetle":[3,0,0,132,139],"cricket":[3,154,0,128,144],"head":[3,308,0,130,136],"face":[3,462,0,135,129],"neck":[3,616,0,146,87],"arm":[3,770,0,130,143],"leg":[3,924,0,91,142],"finger":[3,1078,0,102,144],"knee":[3,1232,0,78,142],"shoulder":[3,1386,0,141,106],"tongue":[3,0,154,130,107],"chin":[3,154,154,136,79],"cheek":[3,308,154,132,98],"elbow":[3,462,154,130,125],"thumb":[3,616,154,106,138],"toe":[3,770,154,94,146],"back":[3,924,154,136,137],"stomach":[3,1078,154,130,135],"dress":[3,1232,154,122,140],"skirt":[3,1386,154,137,111],"coat":[3,0,308,146,135],"jacket":[3,154,308,154,130],"sweater":[3,308,308,152,135],"jeans":[3,462,308,99,136],"scarf":[3,616,308,125,126],"boots":[3,770,308,108,81],"pajamas":[3,924,308,132,129],"uniform":[3,1078,308,146,116],"tie":[3,1232,308,68,128],"belt":[3,1386,308,138,73],"button":[3,0,462,107,107],"pocket":[3,154,462,96,97],"ring":[3,308,462,100,122],"glasses":[3,462,462,141,53],"kitchen":[3,616,462,143,119],"bathroom":[3,770,462,139,129],"bedroom":[3,924,462,141,130],"window":[3,1078,462,110,115],"wall":[3,1232,462,137,128],"floor":[3,1386,462,142,125],"roof":[3,0,616,148,98],"stairs":[3,154,616,138,114],"table":[3,308,616,143,94],"sofa":[3,462,616,154,102],"mirror":[3,616,616,120,142],"curtain":[3,770,616,139,142],"shelf":[3,924,616,139,147],"drawer":[3,1078,616,136,127],"closet":[3,1232,616,136,147],"toilet":[3,1386,616,89,146],"towel":[4,0,0,141,117],"soap":[4,175,0,138,132],"toothbrush":[4,350,0,136,151],"toothpaste":[4,525,0,143,161],"shampoo":[4,700,0,94,159],"comb":[4,875,0,137,141],"scissors":[4,1050,0,127,137],"needle":[4,1225,0,132,145],"hammer":[4,1400,0,137,143],"saw":[4,1575,0,144,147],"rope":[4,0,175,148,150],"ladder":[4,175,175,107,159],"bucket":[4,350,175,134,155],"broom":[4,525,175,142,154],"brush":[4,700,175,137,144],"shovel":[4,875,175,140,152],"teacher":[4,1050,175,118,165],"student":[4,1225,175,114,165],"school":[4,1400,175,150,143],"classroom":[4,1575,175,152,144],"homework":[4,0,350,129,140],"exam":[4,175,350,108,144],"map":[4,350,350,148,131],"paper":[4,525,350,116,141],"crayon":[4,700,350,126,131],"eraser":[4,875,350,118,115],"notebook":[4,1050,350,110,149],"dictionary":[4,1225,350,106,149],"letter":[4,1400,350,126,123],"card":[4,1575,350,107,130],"picture":[4,0,525,132,101],"story":[4,175,525,140,98],"park":[4,350,525,155,106],"shop":[4,525,525,153,103],"market":[4,700,525,159,103],"hospital":[4,875,525,148,122],"bank":[4,1050,525,129,140],"library":[4,1225,525,148,127],"museum":[4,1400,525,150,121],"zoo":[4,1575,525,152,128],"farm":[4,0,700,156,141],"garden":[4,175,700,154,175],"beach":[4,350,700,156,143],"forest":[4,525,700,156,157],"river":[4,700,700,153,158],"lake":[4,875,700,155,143],"sea":[4,1050,700,155,168],"island":[4,1225,700,154,146],"grass":[4,1400,700,147,115],"leaf":[4,1575,700,117,134],"rock":[5,0,0,143,109],"sand":[5,176,0,146,78],"sky":[5,352,0,144,132],"wind":[5,528,0,143,117],"ice":[5,704,0,142,139],"smoke":[5,880,0,125,145],"thunder":[5,1056,0,142,148],"lightning":[5,1232,0,96,149],"rainbow":[5,1408,0,147,81],"fog":[5,1584,0,155,105],"storm":[5,0,176,142,145],"tornado":[5,176,176,126,152],"hail":[5,352,176,140,120],"breeze":[5,528,176,135,116],"truck":[5,704,176,146,91],"taxi":[5,880,176,141,112],"subway":[5,1056,176,145,71],"ship":[5,1232,176,138,130],"rocket":[5,1408,176,108,126],"helicopter":[5,1584,176,138,97],"ambulance":[5,0,352,142,110],"policecar":[5,176,352,144,106],"wheel":[5,352,352,113,114],"engine":[5,528,352,125,111],"seat":[5,704,352,97,113],"horn":[5,880,352,102,54],"steering":[5,1056,352,76,68],"pedal":[5,1232,352,43,53],"exhaust":[5,1408,352,114,32],"licenseplate":[5,1584,352,102,52],"doctor":[5,0,528,103,161],"nurse":[5,176,528,105,162],"farmer":[5,352,528,140,164],"cook":[5,528,528,129,167],"driver":[5,704,528,122,160],"singer":[5,880,528,109,163],"dancer":[5,1056,528,133,171],"painter":[5,1232,528,144,165],"worker":[5,1408,528,131,167],"soldier":[5,1584,528,114,167],"policeman":[5,0,704,120,170],"fireman":[5,176,704,136,174],"actor":[5,352,704,144,175],"writer":[5,528,704,138,170],"pilot":[5,704,704,119,171],"engineer":[5,880,704,149,176],"mother":[5,1056,704,100,175],"father":[5,1232,704,117,175],"sister":[5,1408,704,145,160],"brother":[5,1584,704,114,176],"baby":[6,0,0,110,147],"grandma":[6,172,0,123,147],"grandpa":[6,344,0,124,147],"family":[6,516,0,171,138],"soccer":[6,688,0,130,131],"basketball":[6,860,0,124,126],"tennis":[6,1032,0,123,125],"baseball":[6,1204,0,125,126],"golf":[6,1376,0,153,140],"boxing":[6,1548,0,109,129],"swimming":[6,0,172,172,147],"running":[6,172,172,126,141],"racket":[6,344,172,132,138],"skis":[6,516,172,148,143],"skateboard":[6,688,172,163,122],"helmet":[6,860,172,128,121],"trophy":[6,1032,172,132,121],"medal":[6,1204,172,111,133],"whistle":[6,1376,172,143,115],"jersey":[6,1548,172,149,125],"piano":[6,0,344,122,129],"guitar":[6,172,344,126,133],"violin":[6,344,344,133,132],"drum":[6,516,344,105,123],"trumpet":[6,688,344,147,125],"flute":[6,860,344,126,119],"harp":[6,1032,344,107,119],"microphone":[6,1204,344,95,114],"doll":[6,1376,344,113,120],"teddy":[6,1548,344,105,134],"robot":[6,0,516,106,108],"puzzle":[6,172,516,127,105],"blocks":[6,344,516,123,104],"yoyo":[6,516,516,124,90],"top":[6,688,516,116,108],"bubbles":[6,860,516,120,127],"dice":[6,1032,516,114,129],"chess":[6,1204,516,75,150],"balloon":[6,1376,516,83,143],"crown":[6,1548,516,126,100],"sword":[6,0,688,123,125],"shield":[6,172,688,111,132],"wand":[6,344,688,128,138],"mask":[6,516,688,163,109],"tv":[6,688,688,135,142],"computer":[6,860,688,131,133],"tablet":[6,1032,688,119,135],"printer":[6,1204,688,136,132],"speaker":[6,1376,688,97,132],"headphones":[6,1548,688,137,122],"keyboard":[7,0,0,142,79],"screen":[7,164,0,133,132],"fridge":[7,328,0,94,148],"oven":[7,492,0,121,141],"microwave":[7,656,0,144,107],"washer":[7,820,0,117,146],"stove":[7,984,0,133,118],"kettle":[7,1148,0,157,130],"toaster":[7,1312,0,140,140],"blender":[7,1476,0,98,164],"circle":[7,0,164,120,118],"square":[7,164,164,122,120],"triangle":[7,328,164,128,115],"rectangle":[7,492,164,144,92],"oval":[7,656,164,139,118],"diamond":[7,820,164,122,126],"cross":[7,984,164,125,125],"arrow":[7,1148,164,126,108],"red":[7,1312,164,128,124],"blue":[7,1476,164,151,103],"green":[7,0,328,149,102],"yellow":[7,164,328,149,102],"pink":[7,328,328,149,102],"purple":[7,492,328,149,102],"black":[7,656,328,150,102],"white":[7,820,328,144,98],"one":[7,984,328,64,111],"two":[7,1148,328,79,111],"three":[7,1312,328,78,111],"four":[7,1476,328,86,111],"five":[7,0,492,76,109],"six":[7,164,492,76,109],"seven":[7,328,492,78,109],"eight":[7,492,492,78,109],"nine":[7,656,492,76,109],"ten":[7,820,492,125,101],"eleven":[7,984,492,117,101],"twelve":[7,1148,492,127,101],"twenty":[7,1312,492,136,101],"fifty":[7,1476,492,138,101],"hundred":[7,0,656,151,85],"zero":[7,164,656,79,116],"calendar":[7,328,656,139,122],"spring":[7,492,656,150,133],"summer":[7,656,656,149,139],"autumn":[7,820,656,150,152],"winter":[7,984,656,147,141],"morning":[7,1148,656,147,146],"night":[7,1312,656,146,148],"noon":[7,1476,656,122,158],"seed":[8,0,0,85,118],"sprout":[8,192,0,95,95],"branch":[8,384,0,118,118],"root":[8,576,0,134,116],"feather":[8,768,0,120,130],"pearl":[8,960,0,102,103],"acorn":[8,1152,0,107,139],"pinecone":[8,1344,0,104,130],"anchor":[8,1536,0,120,138],"wave":[8,1728,0,151,124],"shell":[8,0,192,123,110],"starfish":[8,192,192,129,126],"seahorse":[8,384,192,85,147],"lighthouse":[8,576,192,108,150],"compass":[8,768,192,124,149],"coral":[8,960,192,130,127],"planet":[8,1152,192,148,103],"comet":[8,1344,192,140,119],"astronaut":[8,1536,192,107,140],"alien":[8,1728,192,113,140],"telescope":[8,0,384,127,135],"satellite":[8,192,384,142,132],"galaxy":[8,384,384,168,131],"meteor":[8,576,384,126,119],"dumpling":[8,768,384,143,105],"bun":[8,960,384,121,103],"porridge":[8,1152,384,119,113],"chicken":[8,1344,384,152,192],"popcorn":[8,1536,384,96,118],"fries":[8,1728,384,101,115],"hotdog":[8,0,576,138,97],"pie":[8,192,576,138,94],"ham":[8,384,576,123,94],"sausage":[8,576,576,145,100],"bacon":[8,768,576,137,94],"steak":[8,960,576,131,102],"beef":[8,1152,576,133,100],"pork":[8,1344,576,135,102],"meat":[8,1536,576,132,103],"bone":[8,1728,576,129,101],"kiwi":[8,0,768,124,122],"coconut":[8,192,768,126,123],"melon":[8,384,768,146,136],"plum":[8,576,768,105,128],"fig":[8,768,768,116,132],"avocado":[8,960,768,115,130],"lime":[8,1152,768,125,119],"olive":[8,1344,768,108,122],"cabbage":[8,1536,768,135,126],"lettuce":[8,1728,768,132,130],"broccoli":[9,0,0,144,148],"cauliflower":[9,174,0,156,136],"eggplant":[9,348,0,141,146],"garlic":[9,522,0,157,146],"ginger":[9,696,0,143,133],"mushroom":[9,870,0,162,126],"salt":[9,1044,0,92,143],"oil":[9,1218,0,94,164],"vinegar":[9,1392,0,83,164],"ketchup":[9,1566,0,160,157],"mustard":[9,0,174,155,153],"sauce":[9,174,174,140,107],"syrup":[9,348,174,95,158],"pepper":[9,522,174,167,131],"cereal":[9,696,174,156,116],"toast":[9,870,174,148,129],"waffle":[9,1044,174,156,134],"muffin":[9,1218,174,137,129],"donut":[9,1392,174,148,125],"croissant":[9,1566,174,170,107],"bagel":[9,0,348,147,117],"omelet":[9,174,348,173,104],"icecream":[9,348,348,95,150],"pudding":[9,522,348,168,126],"jelly":[9,696,348,127,124],"lollipop":[9,870,348,113,144],"marshmallow":[9,1044,348,102,148],"cupcake":[9,1218,348,117,147],"brownie":[9,1392,348,153,124],"mousse":[9,1566,348,126,141],"deer":[9,0,522,123,127],"fox":[9,174,522,139,126],"wolf":[9,348,522,147,124],"koala":[9,522,522,155,125],"sloth":[9,696,522,165,124],"hippo":[9,870,522,157,126],"rhino":[9,1044,522,170,112],"camel":[9,1218,522,170,127],"goat":[9,1392,522,128,128],"donkey":[9,1566,522,133,131],"turkey":[9,0,696,164,149],"goose":[9,174,696,123,152],"rooster":[9,348,696,152,154],"hen":[9,522,696,121,156],"chick":[9,696,696,113,140],"pony":[9,870,696,150,149],"eagle":[9,1044,696,174,148],"parrot":[9,1218,696,118,159],"swan":[9,1392,696,155,147],"peacock":[9,1566,696,172,160],"flamingo":[10,0,0,110,154],"sparrow":[10,192,0,134,125],"pigeon":[10,384,0,135,134],"crow":[10,576,0,143,131],"medicine":[10,768,0,84,139],"pill":[10,960,0,138,129],"bandage":[10,1152,0,126,129],"thermometer":[10,1344,0,68,144],"syringe":[10,1536,0,132,139],"stethoscope":[10,1728,0,119,134],"wheelchair":[10,0,192,125,133],"crutch":[10,192,192,75,149],"math":[10,384,192,120,92],"english":[10,576,192,112,135],"science":[10,768,192,95,137],"art":[10,960,192,142,129],"history":[10,1152,192,109,133],"geography":[10,1344,192,147,119],"reading":[10,1536,192,146,102],"writing":[10,1728,192,124,142],"blackboard":[10,0,384,131,127],"chalk":[10,192,384,130,111],"globe":[10,384,384,115,139],"lunchbox":[10,576,384,130,130],"poster":[10,768,384,106,145],"abacus":[10,960,384,129,130],"flag":[10,1152,384,97,131],"bookmark":[10,1344,384,88,192],"building":[10,1536,384,124,125],"bridge":[10,1728,384,145,116],"road":[10,0,576,143,129],"street":[10,192,576,141,127],"trafficlight":[10,384,576,96,135],"station":[10,576,576,146,114],"airport":[10,768,576,150,98],"hotel":[10,960,576,134,116],"mailbox":[10,1152,576,107,129],"envelope":[10,1344,576,122,91],"stamp":[10,1536,576,127,113],"postcard":[10,1728,576,144,114],"package":[10,0,768,121,104],"newspaper":[10,192,768,138,113],"magazine":[10,384,768,106,137],"sign":[10,576,768,130,135],"flowerpot":[10,768,768,96,142],"fence":[10,960,768,153,86],"hose":[10,1152,768,137,132],"rake":[10,1344,768,140,143],"wheelbarrow":[10,1536,768,146,100],"wateringcan":[10,1728,768,140,107],"pebble":[11,0,0,153,118],"stump":[11,192,0,166,137],"tent":[11,384,0,177,123],"campfire":[11,576,0,142,153],"backpack":[11,768,0,135,153],"flashlight":[11,960,0,143,145],"binoculars":[11,1152,0,164,118],"lantern":[11,1344,0,105,165],"hammock":[11,1536,0,179,95],"canoe":[11,1728,0,170,94],"mittens":[11,0,192,176,117],"sled":[11,192,192,181,111],"skates":[11,384,192,179,141],"snowboard":[11,576,192,170,145],"fireplace":[11,768,192,158,164],"icicle":[11,960,192,126,160],"igloo":[11,1152,192,183,131],"snowglobe":[11,1344,192,143,161],"ghost":[11,1536,192,142,143],"witch":[11,1728,192,153,166],"skeleton":[11,0,384,122,140],"candle":[11,192,384,81,142],"bat":[11,384,384,183,88],"spiderweb":[11,576,384,150,145],"partyhat":[11,768,384,111,146],"fireworks":[11,960,384,177,145],"santa":[11,1152,384,150,148],"reindeer":[11,1344,384,139,146],"snowflake":[11,1536,384,130,146],"ornament":[11,1728,384,112,146],"stocking":[11,0,576,98,131],"gingerbread":[11,192,576,127,151],"ribbon":[11,384,576,185,99],"wreath":[11,576,576,136,130],"note":[11,768,576,104,112],"record":[11,960,576,128,129],"cassette":[11,1152,576,155,105],"cd":[11,1344,576,138,137],"pillow":[11,1536,576,192,155],"tissue":[11,1728,576,192,165],"gloves":[11,0,768,192,155],"slippers":[11,192,768,192,165],"paint":[11,384,768,162,115],"paintbrush":[11,576,768,135,142],"easel":[11,768,768,114,161],"canvas":[11,960,768,140,140],"clay":[11,1152,768,192,168],"glue":[11,1344,768,99,161],"tape":[11,1536,768,151,114],"yarn":[11,1728,768,152,136],"bathtub":[12,0,0,166,192],"shower":[12,192,0,169,192],"sink":[12,384,0,168,192],"faucet":[12,576,0,170,192],"perfume":[12,768,0,167,192],"lotion":[12,960,0,165,192],"razor":[12,1152,0,121,160],"dryer":[12,1344,0,178,159],"iron":[12,1536,0,169,146],"hanger":[12,1728,0,170,192],"basket":[12,0,192,175,192],"clothespin":[12,192,192,118,160],"detergent":[12,384,192,138,175],"thread":[12,576,192,192,143],"pin":[12,768,192,173,192],"clothesline":[12,960,192,187,192],"money":[12,1152,192,154,104],"coin":[12,1344,192,137,140],"wallet":[12,1536,192,145,147],"tag":[12,1728,192,178,192],"cart":[12,0,384,188,192],"register":[12,192,384,156,145],"creditcard":[12,384,384,154,113],"receipt":[12,576,384,110,147],"stapler":[12,768,384,192,188],"paperclip":[12,960,384,152,139],"folder":[12,1152,384,142,109],"whiteboard":[12,1344,384,166,141],"projector":[12,1536,384,129,72],"briefcase":[12,1728,384,154,128],"calculator":[12,0,576,94,98],"charger":[12,192,576,111,65],"battery":[12,384,576,90,139],"plug":[12,576,576,141,84],"cable":[12,768,576,181,192],"remote":[12,960,576,116,150],"controller":[12,1152,576,168,138],"drone":[12,1344,576,192,99],"lightbulb":[12,1536,576,171,192],"apricot":[12,1728,576,170,192],"nectarine":[12,0,768,141,149],"tangerine":[12,192,768,141,152],"pomelo":[12,384,768,141,163],"dragonfruit":[12,576,768,162,192],"passionfruit":[12,768,768,173,192],"blueberry":[12,960,768,175,192],"raspberry":[12,1152,768,171,192],"peas":[12,1344,768,171,192],"beans":[12,1536,768,192,103],"spinach":[12,1728,768,164,192],"celery":[13,0,0,165,192],"radish":[13,192,0,164,192],"beet":[13,384,0,165,192],"zucchini":[13,576,0,166,192],"leek":[13,768,0,166,192],"basil":[13,960,0,124,155],"mint":[13,1152,0,129,146],"rosemary":[13,1344,0,139,156],"cinnamon":[13,1536,0,166,192],"vanilla":[13,1728,0,168,192],"curry":[13,0,192,151,120],"thyme":[13,192,192,113,145],"parsley":[13,384,192,192,166],"lobster":[13,576,192,169,192],"clam":[13,768,192,185,192],"oyster":[13,960,192,147,122],"squid":[13,1152,192,128,148],"mussel":[13,1344,192,135,124],"scallop":[13,1536,192,185,192],"seaweed":[13,1728,192,192,192],"eel":[13,0,384,155,105],"hamster":[13,192,384,124,112],"goldfish":[13,384,384,148,117],"hedgehog":[13,576,384,192,189],"guineapig":[13,768,384,172,112],"ferret":[13,960,384,178,81],"canary":[13,1152,384,171,108],"gecko":[13,1344,384,192,116],"snail":[13,1536,384,173,94],"barn":[13,1728,384,137,99],"tractor":[13,0,576,169,149],"windmill":[13,192,576,155,152],"hay":[13,384,576,150,98],"silo":[13,576,576,148,137],"beehive":[13,768,576,192,163],"scarecrow":[13,960,576,167,192],"haystack":[13,1152,576,192,157],"motorcycle":[13,1344,576,192,144],"scooter":[13,1536,576,192,176],"van":[13,1728,576,174,192],"jeep":[13,0,768,169,120],"crane":[13,192,768,165,144],"forklift":[13,384,768,151,127],"bulldozer":[13,576,768,171,192],"mixer":[13,768,768,165,192],"hotballoon":[13,960,768,165,192],"blimp":[13,1152,768,165,192],"parachute":[13,1344,768,165,192],"glider":[13,1536,768,165,192],"jet":[13,1728,768,172,192],"wing":[14,0,0,171,192],"propeller":[14,192,0,173,192],"biplane":[14,384,0,173,192],"tunnel":[14,576,0,170,192],"highway":[14,768,0,169,192],"crosswalk":[14,960,0,175,137],"gasstation":[14,1152,0,175,150],"garage":[14,1344,0,165,152],"parking":[14,1536,0,171,192],"barrier":[14,1728,0,172,192],"roundabout":[14,0,192,169,161],"slide":[14,192,192,166,149],"swing":[14,384,192,161,145],"seesaw":[14,576,192,173,192],"carousel":[14,768,192,170,192],"sandbox":[14,960,192,178,192],"trampoline":[14,1152,192,164,149],"climber":[14,1344,192,154,153],"bench":[14,1536,192,174,192],"sunglasses":[14,1728,192,180,192],"sunscreen":[14,0,384,96,153],"surfboard":[14,192,384,125,155],"snorkel":[14,384,384,162,151],"lifebuoy":[14,576,384,170,192],"swimsuit":[14,768,384,180,192],"flipflops":[14,960,384,148,142],"beachball":[14,1152,384,137,142],"apron":[14,1344,384,142,154],"board":[14,1536,384,180,192],"whisk":[14,1728,384,165,192],"spatula":[14,0,576,183,192],"ladle":[14,192,576,192,165],"grater":[14,384,576,162,192],"rollingpin":[14,576,576,184,192],"mitt":[14,768,576,120,136],"grill":[14,960,576,137,139],"skewer":[14,1152,576,141,142],"charcoal":[14,1344,576,167,136],"cooler":[14,1536,576,187,192],"thermos":[14,1728,576,174,192],"blanket":[14,0,768,158,135],"frisbee":[14,192,768,157,122],"picnic":[14,384,768,160,143],"espresso":[14,576,768,178,192],"latte":[14,768,768,176,192],"cappuccino":[14,960,768,174,192],"mocha":[14,1152,768,174,192],"teapot":[14,1344,768,180,192],"coffeepot":[14,1536,768,172,192],"mug":[14,1728,768,169,192],"straw":[15,0,0,175,192],"nachos":[15,192,0,174,192],"burrito":[15,384,0,165,192],"drumstick":[15,576,0,182,192],"nuggets":[15,768,0,173,192],"onionrings":[15,960,0,156,153],"taco":[15,1152,0,169,145],"wrap":[15,1344,0,163,141],"chips":[15,1536,0,178,192],"sushi":[15,1728,0,185,192],"ramen":[15,0,192,191,167],"springroll":[15,192,192,167,144],"baozi":[15,384,192,192,176],"mooncake":[15,576,192,180,192],"tanghulu":[15,768,192,181,192],"zongzi":[15,960,192,191,159],"tofu":[15,1152,192,164,129],"pretzel":[15,1344,192,182,133],"scone":[15,1536,192,192,185],"eclair":[15,1728,192,191,192],"macaron":[15,0,384,140,124],"tart":[15,192,384,162,133],"brioche":[15,384,384,185,164],"pita":[15,576,384,184,192],"strudel":[15,768,384,192,189],"gummy":[15,960,384,191,158],"jellybean":[15,1152,384,184,150],"taffy":[15,1344,384,168,144],"fudge":[15,1536,384,181,192],"cotton_candy":[15,1728,384,149,192],"peppermint":[15,0,576,165,137],"rockcandy":[15,192,576,144,156],"caramel":[15,384,576,176,192],"sundae":[15,576,576,108,192],"popsicle":[15,768,576,174,192],"icecreamcone":[15,960,576,111,192],"gelato":[15,1152,576,190,192],"milkshake":[15,1344,576,145,192],"bananasplit":[15,1536,576,176,192],"softserve":[15,1728,576,156,192],"snowcone":[15,0,768,156,167],"rose":[15,192,768,186,182],"tulip":[15,384,768,163,165],"sunflower":[15,576,768,174,192],"daisy":[15,768,768,162,192],"lavender":[15,960,768,172,192],"orchid":[15,1152,768,176,192],"lily":[15,1344,768,176,192],"lotus":[15,1536,768,181,192],"palm":[15,1728,768,132,149],"pine":[16,0,0,118,154],"bamboo":[16,192,0,140,154],"cactus":[16,384,0,137,152],"maple":[16,576,0,141,155],"oak":[16,768,0,155,154],"willow":[16,960,0,151,150],"bonsai":[16,1152,0,156,151],"sunrise":[16,1344,0,163,150],"sunset":[16,1536,0,162,150],"dawn":[16,1728,0,161,142],"dusk":[16,0,192,165,144],"seedling":[16,192,192,138,188],"aurora":[16,384,192,165,145],"twilight":[16,576,192,163,143],"nebula":[16,768,192,167,134],"coriander":[16,960,192,190,192],"chives":[16,1152,192,132,192],"candycane":[16,1344,192,144,192],"doughnut":[16,1536,192,192,167],"churro":[16,1728,192,192,185],"noodles":[16,0,384,192,183],"bubbletea":[16,192,384,134,192],"smoothie":[16,384,384,142,192],"wrench":[16,576,384,104,104],"screwdriver":[16,768,384,118,121],"drill":[16,960,384,149,118],"pliers":[16,1152,384,90,127],"measure":[16,1344,384,141,89],"axe":[16,1536,384,132,120],"nail":[16,1728,384,123,99],"screw":[16,0,576,55,102],"hardhat":[16,192,576,174,82],"goggles":[16,384,576,143,79],"earmuffs":[16,576,576,125,109],"vest":[16,768,576,114,125],"firstaid":[16,960,576,127,122],"extinguisher":[16,1152,576,144,132],"cast":[16,1344,576,114,130],"ointment":[16,1536,576,104,122],"sleepingbag":[16,1728,576,165,110],"hotpot":[16,0,768,192,124],"matches":[16,192,768,158,132],"firewood":[16,384,768,160,121],"pocketknife":[16,576,768,133,138],"tarp":[16,768,768,170,108],"mallet":[16,960,768,133,142],"hatchet":[16,1152,768,144,134],"rod":[16,1344,768,157,147],"shoes":[16,1536,768,192,74],"sandals":[16,1728,768,192,148],"hoodie":[17,0,0,192,178],"cuttingboard":[17,192,0,192,174],"dishsoap":[17,384,0,121,192],"router":[17,576,0,192,171],"lemonade":[17,768,0,147,192],"socks":[17,960,0,136,151],"cap":[17,1152,0,159,111],"hairdryer":[17,1344,0,142,142],"washingmachine":[17,1536,0,117,147],"stool":[17,1728,0,125,130],"sheet":[17,0,192,170,124],"carpet":[17,192,192,173,129],"vase":[17,384,192,102,147],"confetti":[17,576,192,152,102],"popper":[17,768,192,141,153],"banner":[17,960,192,172,79],"invitation":[17,1152,192,117,150],"timer":[17,1344,192,192,129],"garland":[17,1536,192,173,118],"comic":[17,1728,192,165,192],"microscope":[17,0,384,129,192],"napkin":[17,192,384,135,122],"tablecloth":[17,384,384,172,116],"mouse":[17,576,384,160,115],"laptop":[17,768,384,180,107],"powerbank":[17,960,384,192,131],"alarm":[17,1152,384,107,127],"soda":[17,1344,384,69,120],"firetruck":[17,1536,384,182,92],"bib":[17,1728,384,106,116],"pacifier":[17,0,576,97,116],"diaper":[17,192,576,136,97],"rattle":[17,384,576,105,115],"crib":[17,576,576,125,106],"stroller":[17,768,576,127,133],"onesie":[17,960,576,132,124],"mobile":[17,1152,576,141,135],"mop":[17,1344,576,128,139],"dustpan":[17,1536,576,170,128],"sponge":[17,1728,576,154,124],"spray":[17,0,768,139,133],"vacuum":[17,192,768,161,123],"duster":[17,384,768,130,129],"trash":[17,576,768,122,131],"recycle":[17,768,768,111,129],"toiletpaper":[17,960,768,134,120],"plunger":[17,1152,768,123,133],"scale":[17,1344,768,121,123],"tweezers":[17,1536,768,123,129],"swab":[17,1728,768,137,141],"clipper":[18,0,0,124,138],"floss":[18,324,0,150,121],"bathmat":[18,648,0,157,102],"leash":[18,972,0,148,136],"collar":[18,1296,0,127,118],"cage":[18,1620,0,152,144],"aquarium":[18,1944,0,159,138],"scratcher":[18,2268,0,144,145],"petbed":[18,2592,0,166,127],"carrier":[18,2916,0,151,139],"litterbox":[18,0,324,167,128],"hockey":[18,324,324,168,132],"curling":[18,648,324,140,127],"bobsled":[18,972,324,167,120],"snowmobile":[18,1296,324,161,104],"snowshoe":[18,1620,324,159,129],"lift":[18,1944,324,167,130],"iceberg":[18,2268,324,166,135],"glacier":[18,2592,324,168,132],"pool":[18,2916,324,324,252],"diving":[18,0,648,166,137],"waterslide":[18,324,648,171,137],"sprinkler":[18,648,648,168,133],"floatie":[18,972,648,169,114],"sandcastle":[18,1296,648,161,129],"paddleboard":[18,1620,648,159,124],"kayak":[18,1944,648,166,115],"yacht":[18,2268,648,280,320],"sailboat":[18,2592,648,156,126],"submarine":[18,2916,648,154,102],"ferry":[18,0,972,298,320],"raft":[18,324,972,284,320],"seashell":[18,648,972,324,257],"houseboat":[18,972,972,270,320],"speedboat":[18,1296,972,304,320],"tram":[18,1620,972,160,117],"monorail":[18,1944,972,169,116],"cablecar":[18,2268,972,164,114],"decker":[18,2592,972,156,118],"rickshaw":[18,2916,972,159,143],"trolley":[18,0,1296,154,135],"segway":[18,324,1296,142,139],"unicycle":[18,648,1296,87,145],"moose":[18,972,1296,134,150],"coyote":[18,1296,1296,324,261],"raccoon":[18,1620,1296,140,141],"skunk":[18,1944,1296,163,135],"squirrel":[18,2268,1296,151,137],"chipmunk":[18,2592,1296,158,144],"colander":[18,2916,1296,161,101],"peeler":[19,0,0,134,137],"tongs":[19,324,0,134,139],"fryingpan":[19,648,0,161,102],"lighter":[19,972,0,230,324],"freezer":[19,1296,0,99,146],"steamer":[19,1620,0,136,129],"wok":[19,1944,0,162,90],"papaya":[19,2268,0,150,146],"lychee":[19,2592,0,129,127],"guava":[19,2916,0,118,138],"doormat":[19,0,324,143,92],"blackberry":[19,324,324,109,131],"almond":[19,648,324,115,124],"walnut":[19,972,324,124,127],"cashew":[19,1296,324,90,123],"peanut":[19,1620,324,324,284],"pistachio":[19,1944,324,120,117],"sneakers":[19,2268,324,161,105],"necklace":[19,2592,324,113,124],"earring":[19,2916,324,134,99],"handbag":[19,0,648,119,127],"raincoat":[19,324,648,117,129],"overalls":[19,648,648,100,129],"shorts":[19,972,648,128,97],"cardigan":[19,1296,648,324,251],"ankle":[19,1620,648,91,73],"wrist":[19,1944,648,132,73],"forehead":[19,2268,648,114,66],"eyebrow":[19,2592,648,119,45],"lip":[19,2916,648,110,66],"waist":[19,0,972,243,324],"armchair":[19,324,972,144,136],"dishrack":[19,648,972,147,152],"ovenmitt":[19,972,972,158,122],"dresser":[19,1296,972,161,159],"nightstand":[19,1620,972,216,324],"mattress":[19,1944,972,324,234],"conditioner":[19,2268,972,184,324],"trashcan":[19,2592,972,270,324],"marker":[19,2916,972,132,135],"vitamin":[19,0,1296,153,131],"doorbell":[19,324,1296,113,135],"lock":[19,648,1296,105,140],"volleyball":[19,972,1296,131,132],"badminton":[19,1296,1296,159,140],"cycling":[19,1620,1296,148,106],"gym":[19,1944,1296,122,120],"cinema":[19,2268,1296,147,146],"restaurant":[19,2592,1296,153,126],"clipboard":[19,2916,1296,324,258],"boy":[20,0,0,141,198],"girl":[20,324,0,196,183],"man":[20,648,0,141,198],"woman":[20,972,0,148,198],"child":[20,1296,0,145,197],"aunt":[20,1620,0,173,197],"grandmother":[20,1944,0,146,198],"grandfather":[20,2268,0,159,197],"artist":[20,2592,0,209,197],"author":[20,2916,0,170,197],"actress":[20,0,324,200,194],"lawyer":[20,324,324,155,195],"dentist":[20,648,324,205,194],"captain":[20,972,324,193,195],"businessman":[20,1296,324,158,194],"castle":[20,1620,324,189,146],"church":[20,1944,324,161,145],"drugstore":[20,2268,324,185,146],"elevator":[20,2592,324,174,146],"alphabet":[20,2916,324,168,131],"bay":[20,0,648,215,173],"beard":[20,324,648,152,169],"beer":[20,648,648,190,150],"block":[20,972,648,173,162],"brick":[20,1296,648,161,111],"bubble":[20,1620,648,167,164],"cabinet":[20,1944,648,173,164],"chain":[20,2268,648,188,169],"breakfast":[20,2592,648,208,126],"heel":[20,2916,648,324,262],"moustache":[20,0,972,324,257],"chest":[20,324,972,324,231],"love":[20,648,972,148,125],"time":[20,972,972,133,134],"music":[20,1296,972,150,134],"weather":[20,1620,972,163,123],"peace":[20,1944,972,160,138],"luck":[20,2268,972,130,149],"danger":[20,2592,972,138,128],"idea":[20,2916,972,146,150],"dream":[20,0,1296,324,242],"hope":[20,324,1296,324,229],"anger":[20,648,1296,135,133],"fear":[20,972,1296,135,133],"joy":[20,1296,1296,134,133],"happiness":[20,1620,1296,324,221],"health":[20,1944,1296,144,127],"freedom":[20,2268,1296,152,128],"confidence":[20,2592,1296,94,147],"energy":[20,2916,1296,97,140],"speed":[21,0,0,157,102],"strength":[21,324,0,166,125],"beauty":[21,648,0,163,121],"fun":[21,972,0,139,131],"game":[21,1296,0,158,121],"sport":[21,1620,0,144,131],"knowledge":[21,1944,0,160,106],"nature":[21,2268,0,165,136],"future":[21,2592,0,124,129],"past":[21,2916,0,87,120],"truth":[21,0,324,133,120],"friendship":[21,324,324,166,109],"marriage":[21,648,324,133,94],"holiday":[21,972,324,167,92],"journey":[21,1296,324,160,92],"adventure":[21,1620,324,98,91],"success":[21,1944,324,82,100],"victory":[21,2268,324,153,123],"safety":[21,2592,324,109,124],"pride":[21,2916,324,118,130],"memory":[21,0,648,144,123],"mind":[21,324,648,152,125],"courage":[21,648,648,276,324],"noise":[21,972,648,165,116],"kindness":[21,1296,648,144,120],"trust":[21,1620,648,167,114],"silence":[21,1944,648,102,151],"job":[21,2268,648,324,297],"language":[21,2592,648,156,133],"education":[21,2916,648,162,112],"earth":[21,0,972,139,139],"food":[21,324,972,164,111],"apartment":[21,648,972,219,203],"birthday":[21,972,972,214,205],"band":[21,1296,972,254,172],"audience":[21,1620,972,256,187],"cooker":[21,1944,972,183,234],"cottage":[21,2268,972,240,208],"cotton":[21,2592,972,217,189],"crack":[21,2916,972,223,210],"cream":[21,0,1296,212,208],"creature":[21,324,1296,224,211],"crop":[21,648,1296,250,198],"flour":[21,972,1296,209,212],"fur":[21,1296,1296,237,191],"gate":[21,1620,1296,239,216],"giant":[21,1944,1296,324,297],"goal":[21,2268,1296,245,183],"gold":[21,2592,1296,248,181],"harbor":[21,2916,1296,248,209],"accident":[22,0,0,162,135],"anniversary":[22,324,0,132,139],"balance":[22,648,0,161,137],"bar":[22,972,0,152,121],"battle":[22,1296,0,148,137],"beak":[22,1620,0,121,91],"bill":[22,1944,0,158,137],"blade":[22,2268,0,133,136],"body":[22,2592,0,76,146],"border":[22,2916,0,324,227],"bunch":[22,0,324,324,316],"bush":[22,324,324,159,110],"camp":[22,648,324,164,90],"camping":[22,972,324,165,129],"cardboard":[22,1296,324,153,133],"cell":[22,1620,324,137,136],"ceremony":[22,1944,324,164,131],"certificate":[22,2268,324,134,128],"channel":[22,2592,324,131,142],"charity":[22,2916,324,140,132],"chart":[22,0,648,148,125],"chemical":[22,324,648,132,130],"chemist":[22,648,648,113,130],"city":[22,972,648,164,123],"cloth":[22,1296,648,149,110],"coast":[22,1620,648,157,116],"code":[22,1944,648,135,120],"college":[22,2268,648,164,121],"column":[22,2592,648,92,123],"comedy":[22,2916,648,153,116],"concert":[22,0,972,165,147],"concrete":[22,324,972,324,272],"continent":[22,648,972,150,142],"cooking":[22,972,972,324,266],"corner":[22,1296,972,324,302],"council":[22,1620,972,324,279],"counter":[22,1944,972,157,146],"county":[22,2268,972,324,287],"couple":[22,2592,972,160,146],"court":[22,2916,972,144,147],"craft":[22,0,1296,142,137],"credit":[22,324,1296,160,112],"crime":[22,648,1296,164,144],"crisis":[22,972,1296,324,266],"dancing":[22,1296,1296,148,142],"crowd":[22,1620,1296,165,141],"culture":[22,1944,1296,164,142],"cupboard":[22,2268,1296,136,142],"curve":[22,2592,1296,128,105],"customer":[22,2916,1296,92,143]};
+      var SPRITE_POS = {"apple":[0,0,0,120,135],"coffee":[0,186,0,129,145],"umbrella":[0,372,0,146,149],"clock":[0,558,0,126,141],"key":[0,744,0,128,146],"book":[0,930,0,138,123],"banana":[0,1116,0,134,131],"orange":[0,1302,0,119,137],"grape":[0,1488,0,128,139],"egg":[0,1674,0,111,138],"milk":[0,0,186,107,143],"bread":[0,186,186,146,102],"cake":[0,372,186,136,186],"cheese":[0,558,186,128,134],"fish":[0,744,186,135,106],"rice":[0,930,186,124,143],"tea":[0,1116,186,130,141],"cup":[0,1302,186,133,97],"bowl":[0,1488,186,133,94],"spoon":[0,1674,186,110,137],"dog":[0,0,372,152,114],"cat":[0,186,372,148,123],"bird":[0,372,372,134,117],"duck":[0,558,372,119,127],"pig":[0,744,372,135,118],"cow":[0,930,372,138,138],"sheep":[0,1116,372,128,137],"horse":[0,1302,372,142,135],"sun":[0,1488,372,140,136],"moon":[0,1674,372,115,124],"star":[0,0,558,119,116],"cloud":[0,186,558,145,124],"rain":[0,372,558,137,125],"snow":[0,558,558,115,125],"tree":[0,744,558,129,129],"flower":[0,930,558,86,118],"car":[0,1116,558,151,89],"bus":[0,1302,558,155,95],"bike":[0,1488,558,154,100],"boat":[0,1674,558,162,107],"plane":[0,0,744,143,111],"train":[0,186,744,157,143],"door":[0,372,744,107,143],"pen":[0,558,744,128,142],"pencil":[0,744,744,135,138],"ruler":[0,930,744,141,143],"bag":[0,1116,744,124,144],"desk":[0,1302,744,150,111],"chair":[0,1488,744,109,148],"bed":[0,1674,744,156,122],"hat":[1,0,0,142,107],"shoe":[1,159,0,141,98],"sock":[1,318,0,100,136],"shirt":[1,477,0,154,127],"pants":[1,636,0,100,136],"glove":[1,795,0,137,102],"phone":[1,954,0,157,116],"camera":[1,1113,0,140,111],"watch":[1,1272,0,91,148],"lamp":[1,1431,0,113,139],"fan":[1,0,159,115,146],"radio":[1,159,159,134,149],"ball":[1,318,159,126,125],"kite":[1,477,159,101,154],"eye":[1,636,159,134,71],"ear":[1,795,159,89,125],"nose":[1,954,159,95,116],"mouth":[1,1113,159,128,79],"hand":[1,1272,159,117,133],"foot":[1,1431,159,88,142],"hair":[1,0,318,143,113],"tooth":[1,159,318,109,122],"house":[1,318,318,129,116],"heart":[1,477,318,125,111],"water":[1,636,318,102,127],"fire":[1,795,318,103,129],"mountain":[1,954,318,154,99],"snowman":[1,1113,318,135,143],"gift":[1,1272,318,115,129],"bell":[1,1431,318,106,134],"lemon":[1,0,477,117,103],"peach":[1,159,477,115,124],"pear":[1,318,477,92,133],"strawberry":[1,477,477,101,127],"watermelon":[1,636,477,143,86],"pineapple":[1,795,477,139,131],"mango":[1,954,477,111,123],"cherry":[1,1113,477,119,120],"tomato":[1,1272,477,159,103],"potato":[1,1431,477,123,114],"carrot":[1,0,636,141,129],"corn":[1,159,636,120,148],"onion":[1,318,636,108,130],"cucumber":[1,477,636,125,128],"chili":[1,636,636,117,129],"pumpkin":[1,795,636,135,133],"noodle":[1,954,636,138,138],"pizza":[1,1113,636,135,131],"burger":[1,1272,636,139,123],"sandwich":[1,1431,636,146,116],"salad":[2,0,0,138,126],"soup":[2,192,0,129,136],"candy":[2,384,0,137,126],"cookie":[2,576,0,121,122],"juice":[2,768,0,133,134],"cola":[2,960,0,108,143],"yogurt":[2,1152,0,112,132],"honey":[2,1344,0,134,131],"jam":[2,1536,0,113,147],"butter":[2,1728,0,149,107],"chocolate":[2,0,192,146,121],"sugar":[2,192,192,132,121],"fork":[2,384,192,118,127],"knife":[2,576,192,120,127],"plate":[2,768,192,139,89],"chopsticks":[2,960,192,124,123],"pot":[2,1152,192,142,139],"pan":[2,1344,192,161,106],"bottle":[2,1536,192,74,139],"box":[2,1728,192,134,121],"lion":[2,0,384,134,141],"tiger":[2,192,384,129,137],"elephant":[2,384,384,144,127],"monkey":[2,576,384,142,142],"bear":[2,768,384,105,138],"rabbit":[2,960,384,87,118],"frog":[2,1152,384,125,108],"snake":[2,1344,384,116,114],"panda":[2,1536,384,94,114],"zebra":[2,1728,384,112,118],"giraffe":[2,0,576,105,149],"kangaroo":[2,192,576,122,145],"penguin":[2,384,576,122,131],"owl":[2,576,576,115,138],"butterfly":[2,768,576,192,143],"bee":[2,960,576,192,177],"shark":[2,1152,576,192,110],"whale":[2,1344,576,192,158],"octopus":[2,1536,576,192,166],"crab":[2,1728,576,192,140],"shrimp":[2,0,768,134,121],"turtle":[2,192,768,134,124],"dolphin":[2,384,768,157,138],"jellyfish":[2,576,768,106,138],"ant":[2,768,768,124,118],"spider":[2,960,768,141,135],"worm":[2,1152,768,145,95],"ladybug":[2,1344,768,129,133],"dragonfly":[2,1536,768,153,124],"mosquito":[2,1728,768,136,108],"beetle":[3,0,0,132,139],"cricket":[3,154,0,128,144],"head":[3,308,0,130,136],"face":[3,462,0,135,129],"neck":[3,616,0,146,87],"arm":[3,770,0,130,143],"leg":[3,924,0,91,142],"finger":[3,1078,0,102,144],"knee":[3,1232,0,78,142],"shoulder":[3,1386,0,141,106],"tongue":[3,0,154,130,107],"chin":[3,154,154,136,79],"cheek":[3,308,154,132,98],"elbow":[3,462,154,130,125],"thumb":[3,616,154,106,138],"toe":[3,770,154,94,146],"back":[3,924,154,136,137],"stomach":[3,1078,154,130,135],"dress":[3,1232,154,122,140],"skirt":[3,1386,154,137,111],"coat":[3,0,308,146,135],"jacket":[3,154,308,154,130],"sweater":[3,308,308,152,135],"jeans":[3,462,308,99,136],"scarf":[3,616,308,125,126],"boots":[3,770,308,108,81],"pajamas":[3,924,308,132,129],"uniform":[3,1078,308,146,116],"tie":[3,1232,308,68,128],"belt":[3,1386,308,138,73],"button":[3,0,462,107,107],"pocket":[3,154,462,96,97],"ring":[3,308,462,100,122],"glasses":[3,462,462,141,53],"kitchen":[3,616,462,143,119],"bathroom":[3,770,462,139,129],"bedroom":[3,924,462,141,130],"window":[3,1078,462,110,115],"wall":[3,1232,462,137,128],"floor":[3,1386,462,142,125],"roof":[3,0,616,148,98],"stairs":[3,154,616,138,114],"table":[3,308,616,143,94],"sofa":[3,462,616,154,102],"mirror":[3,616,616,120,142],"curtain":[3,770,616,139,142],"shelf":[3,924,616,139,147],"drawer":[3,1078,616,136,127],"closet":[3,1232,616,136,147],"toilet":[3,1386,616,89,146],"towel":[4,0,0,141,117],"soap":[4,175,0,138,132],"toothbrush":[4,350,0,136,151],"toothpaste":[4,525,0,143,161],"shampoo":[4,700,0,94,159],"comb":[4,875,0,137,141],"scissors":[4,1050,0,127,137],"needle":[4,1225,0,132,145],"hammer":[4,1400,0,137,143],"saw":[4,1575,0,144,147],"rope":[4,0,175,148,150],"ladder":[4,175,175,107,159],"bucket":[4,350,175,134,155],"broom":[4,525,175,142,154],"brush":[4,700,175,137,144],"shovel":[4,875,175,140,152],"teacher":[4,1050,175,118,165],"student":[4,1225,175,114,165],"school":[4,1400,175,150,143],"classroom":[4,1575,175,152,144],"homework":[4,0,350,129,140],"exam":[4,175,350,108,144],"map":[4,350,350,148,131],"paper":[4,525,350,116,141],"crayon":[4,700,350,126,131],"eraser":[4,875,350,118,115],"notebook":[4,1050,350,110,149],"dictionary":[4,1225,350,106,149],"letter":[4,1400,350,126,123],"card":[4,1575,350,107,130],"picture":[4,0,525,132,101],"story":[4,175,525,140,98],"park":[4,350,525,155,106],"shop":[4,525,525,153,103],"market":[4,700,525,159,103],"hospital":[4,875,525,148,122],"bank":[4,1050,525,129,140],"library":[4,1225,525,148,127],"museum":[4,1400,525,150,121],"zoo":[4,1575,525,152,128],"farm":[4,0,700,156,141],"garden":[4,175,700,154,175],"beach":[4,350,700,156,143],"forest":[4,525,700,156,157],"river":[4,700,700,153,158],"lake":[4,875,700,155,143],"sea":[4,1050,700,155,168],"island":[4,1225,700,154,146],"grass":[4,1400,700,147,115],"leaf":[4,1575,700,117,134],"rock":[5,0,0,143,109],"sand":[5,176,0,146,78],"sky":[5,352,0,144,132],"wind":[5,528,0,143,117],"ice":[5,704,0,142,139],"smoke":[5,880,0,125,145],"thunder":[5,1056,0,142,148],"lightning":[5,1232,0,96,149],"rainbow":[5,1408,0,147,81],"fog":[5,1584,0,155,105],"storm":[5,0,176,142,145],"tornado":[5,176,176,126,152],"hail":[5,352,176,140,120],"breeze":[5,528,176,135,116],"truck":[5,704,176,146,91],"taxi":[5,880,176,141,112],"subway":[5,1056,176,145,71],"ship":[5,1232,176,138,130],"rocket":[5,1408,176,108,126],"helicopter":[5,1584,176,138,97],"ambulance":[5,0,352,142,110],"policecar":[5,176,352,144,106],"wheel":[5,352,352,113,114],"engine":[5,528,352,125,111],"seat":[5,704,352,97,113],"horn":[5,880,352,102,54],"steering":[5,1056,352,76,68],"pedal":[5,1232,352,43,53],"exhaust":[5,1408,352,114,32],"licenseplate":[5,1584,352,102,52],"doctor":[5,0,528,103,161],"nurse":[5,176,528,105,162],"farmer":[5,352,528,140,164],"cook":[5,528,528,129,167],"driver":[5,704,528,122,160],"singer":[5,880,528,109,163],"dancer":[5,1056,528,133,171],"painter":[5,1232,528,144,165],"worker":[5,1408,528,131,167],"soldier":[5,1584,528,114,167],"policeman":[5,0,704,120,170],"fireman":[5,176,704,136,174],"actor":[5,352,704,144,175],"writer":[5,528,704,138,170],"pilot":[5,704,704,119,171],"engineer":[5,880,704,149,176],"mother":[5,1056,704,100,175],"father":[5,1232,704,117,175],"sister":[5,1408,704,145,160],"brother":[5,1584,704,114,176],"baby":[6,0,0,110,147],"grandma":[6,172,0,123,147],"grandpa":[6,344,0,124,147],"family":[6,516,0,171,138],"soccer":[6,688,0,130,131],"basketball":[6,860,0,124,126],"tennis":[6,1032,0,123,125],"baseball":[6,1204,0,125,126],"golf":[6,1376,0,153,140],"boxing":[6,1548,0,109,129],"swimming":[6,0,172,172,147],"running":[6,172,172,126,141],"racket":[6,344,172,132,138],"skis":[6,516,172,148,143],"skateboard":[6,688,172,163,122],"helmet":[6,860,172,128,121],"trophy":[6,1032,172,132,121],"medal":[6,1204,172,111,133],"whistle":[6,1376,172,143,115],"jersey":[6,1548,172,149,125],"piano":[6,0,344,122,129],"guitar":[6,172,344,126,133],"violin":[6,344,344,133,132],"drum":[6,516,344,105,123],"microphone":[6,1204,344,95,114],"doll":[6,1376,344,113,120],"teddy":[6,1548,344,105,134],"robot":[6,0,516,106,108],"puzzle":[6,172,516,127,105],"blocks":[6,344,516,123,104],"yoyo":[6,516,516,124,90],"top":[6,688,516,116,108],"bubbles":[6,860,516,120,127],"dice":[6,1032,516,114,129],"chess":[6,1204,516,75,150],"balloon":[6,1376,516,83,143],"crown":[6,1548,516,126,100],"sword":[6,0,688,123,125],"shield":[6,172,688,111,132],"wand":[6,344,688,128,138],"mask":[6,516,688,163,109],"tv":[6,688,688,135,142],"computer":[6,860,688,131,133],"tablet":[6,1032,688,119,135],"printer":[6,1204,688,136,132],"speaker":[6,1376,688,97,132],"headphones":[6,1548,688,137,122],"keyboard":[7,0,0,142,79],"screen":[7,164,0,133,132],"fridge":[7,328,0,94,148],"oven":[7,492,0,121,141],"microwave":[7,656,0,144,107],"washer":[7,820,0,117,146],"stove":[7,984,0,133,118],"kettle":[7,1148,0,157,130],"toaster":[7,1312,0,140,140],"blender":[7,1476,0,98,164],"circle":[7,0,164,120,118],"square":[7,164,164,122,120],"triangle":[7,328,164,128,115],"rectangle":[7,492,164,144,92],"oval":[7,656,164,139,118],"diamond":[7,820,164,122,126],"cross":[7,984,164,125,125],"arrow":[7,1148,164,126,108],"red":[7,1312,164,128,124],"blue":[7,1476,164,151,103],"green":[7,0,328,149,102],"yellow":[7,164,328,149,102],"pink":[7,328,328,149,102],"purple":[7,492,328,149,102],"black":[7,656,328,150,102],"white":[7,820,328,144,98],"one":[7,984,328,64,111],"two":[7,1148,328,79,111],"three":[7,1312,328,78,111],"four":[7,1476,328,86,111],"five":[7,0,492,76,109],"six":[7,164,492,76,109],"seven":[7,328,492,78,109],"eight":[7,492,492,78,109],"nine":[7,656,492,76,109],"ten":[7,820,492,125,101],"eleven":[7,984,492,117,101],"twelve":[7,1148,492,127,101],"twenty":[7,1312,492,136,101],"fifty":[7,1476,492,138,101],"hundred":[7,0,656,151,85],"zero":[7,164,656,79,116],"calendar":[7,328,656,139,122],"spring":[7,492,656,150,133],"summer":[7,656,656,149,139],"autumn":[7,820,656,150,152],"winter":[7,984,656,147,141],"morning":[7,1148,656,147,146],"night":[7,1312,656,146,148],"noon":[7,1476,656,122,158],"seed":[8,0,0,85,118],"sprout":[8,192,0,95,95],"branch":[8,384,0,118,118],"root":[8,576,0,134,116],"feather":[8,768,0,120,130],"pearl":[8,960,0,102,103],"acorn":[8,1152,0,107,139],"pinecone":[8,1344,0,104,130],"anchor":[8,1536,0,120,138],"wave":[8,1728,0,151,124],"shell":[8,0,192,123,110],"starfish":[8,192,192,129,126],"seahorse":[8,384,192,85,147],"lighthouse":[8,576,192,108,150],"compass":[8,768,192,124,149],"coral":[8,960,192,130,127],"planet":[8,1152,192,148,103],"comet":[8,1344,192,140,119],"astronaut":[8,1536,192,107,140],"alien":[8,1728,192,113,140],"telescope":[8,0,384,127,135],"satellite":[8,192,384,142,132],"galaxy":[8,384,384,168,131],"meteor":[8,576,384,126,119],"dumpling":[8,768,384,143,105],"bun":[8,960,384,121,103],"porridge":[8,1152,384,119,113],"chicken":[8,1344,384,152,192],"popcorn":[8,1536,384,96,118],"fries":[8,1728,384,101,115],"hotdog":[8,0,576,138,97],"pie":[8,192,576,138,94],"ham":[8,384,576,123,94],"sausage":[8,576,576,145,100],"bacon":[8,768,576,137,94],"steak":[8,960,576,131,102],"beef":[8,1152,576,133,100],"pork":[8,1344,576,135,102],"meat":[8,1536,576,132,103],"bone":[8,1728,576,129,101],"kiwi":[8,0,768,124,122],"coconut":[8,192,768,126,123],"melon":[8,384,768,146,136],"plum":[8,576,768,105,128],"fig":[8,768,768,116,132],"avocado":[8,960,768,115,130],"lime":[8,1152,768,125,119],"olive":[8,1344,768,108,122],"cabbage":[8,1536,768,135,126],"lettuce":[8,1728,768,132,130],"broccoli":[9,0,0,144,148],"cauliflower":[9,174,0,156,136],"eggplant":[9,348,0,141,146],"garlic":[9,522,0,157,146],"ginger":[9,696,0,143,133],"mushroom":[9,870,0,162,126],"salt":[9,1044,0,92,143],"oil":[9,1218,0,94,164],"vinegar":[9,1392,0,83,164],"ketchup":[9,1566,0,160,157],"mustard":[9,0,174,155,153],"sauce":[9,174,174,140,107],"syrup":[9,348,174,95,158],"pepper":[9,522,174,167,131],"cereal":[9,696,174,156,116],"toast":[9,870,174,148,129],"waffle":[9,1044,174,156,134],"muffin":[9,1218,174,137,129],"donut":[9,1392,174,148,125],"croissant":[9,1566,174,170,107],"bagel":[9,0,348,147,117],"omelet":[9,174,348,173,104],"icecream":[9,348,348,95,150],"pudding":[9,522,348,168,126],"jelly":[9,696,348,127,124],"lollipop":[9,870,348,113,144],"marshmallow":[9,1044,348,102,148],"cupcake":[9,1218,348,117,147],"brownie":[9,1392,348,153,124],"mousse":[9,1566,348,126,141],"deer":[9,0,522,123,127],"fox":[9,174,522,139,126],"wolf":[9,348,522,147,124],"koala":[9,522,522,155,125],"sloth":[9,696,522,165,124],"hippo":[9,870,522,157,126],"rhino":[9,1044,522,170,112],"camel":[9,1218,522,170,127],"goat":[9,1392,522,128,128],"donkey":[9,1566,522,133,131],"turkey":[9,0,696,164,149],"goose":[9,174,696,123,152],"rooster":[9,348,696,152,154],"hen":[9,522,696,121,156],"chick":[9,696,696,113,140],"pony":[9,870,696,150,149],"eagle":[9,1044,696,174,148],"parrot":[9,1218,696,118,159],"swan":[9,1392,696,155,147],"peacock":[9,1566,696,172,160],"flamingo":[10,0,0,110,154],"sparrow":[10,192,0,134,125],"pigeon":[10,384,0,135,134],"crow":[10,576,0,143,131],"medicine":[10,768,0,84,139],"pill":[10,960,0,138,129],"bandage":[10,1152,0,126,129],"thermometer":[10,1344,0,68,144],"syringe":[10,1536,0,132,139],"stethoscope":[10,1728,0,119,134],"wheelchair":[10,0,192,125,133],"crutch":[10,192,192,75,149],"math":[10,384,192,120,92],"english":[10,576,192,112,135],"science":[10,768,192,95,137],"art":[10,960,192,142,129],"history":[10,1152,192,109,133],"geography":[10,1344,192,147,119],"reading":[10,1536,192,146,102],"writing":[10,1728,192,124,142],"blackboard":[10,0,384,131,127],"chalk":[10,192,384,130,111],"globe":[10,384,384,115,139],"lunchbox":[10,576,384,130,130],"poster":[10,768,384,106,145],"abacus":[10,960,384,129,130],"flag":[10,1152,384,97,131],"bookmark":[10,1344,384,88,192],"building":[10,1536,384,124,125],"bridge":[10,1728,384,145,116],"road":[10,0,576,143,129],"street":[10,192,576,141,127],"trafficlight":[10,384,576,96,135],"station":[10,576,576,146,114],"airport":[10,768,576,150,98],"hotel":[10,960,576,134,116],"mailbox":[10,1152,576,107,129],"envelope":[10,1344,576,122,91],"stamp":[10,1536,576,127,113],"postcard":[10,1728,576,144,114],"package":[10,0,768,121,104],"newspaper":[10,192,768,138,113],"magazine":[10,384,768,106,137],"sign":[10,576,768,130,135],"flowerpot":[10,768,768,96,142],"fence":[10,960,768,153,86],"hose":[10,1152,768,137,132],"rake":[10,1344,768,140,143],"wheelbarrow":[10,1536,768,146,100],"wateringcan":[10,1728,768,140,107],"pebble":[11,0,0,153,118],"stump":[11,192,0,166,137],"tent":[11,384,0,177,123],"campfire":[11,576,0,142,153],"backpack":[11,768,0,135,153],"flashlight":[11,960,0,143,145],"binoculars":[11,1152,0,164,118],"lantern":[11,1344,0,105,165],"hammock":[11,1536,0,179,95],"canoe":[11,1728,0,170,94],"mittens":[11,0,192,176,117],"sled":[11,192,192,181,111],"skates":[11,384,192,179,141],"snowboard":[11,576,192,170,145],"fireplace":[11,768,192,158,164],"icicle":[11,960,192,126,160],"igloo":[11,1152,192,183,131],"snowglobe":[11,1344,192,143,161],"ghost":[11,1536,192,142,143],"witch":[11,1728,192,153,166],"skeleton":[11,0,384,122,140],"candle":[11,192,384,81,142],"bat":[11,384,384,183,88],"spiderweb":[11,576,384,150,145],"partyhat":[11,768,384,111,146],"fireworks":[11,960,384,177,145],"santa":[11,1152,384,150,148],"reindeer":[11,1344,384,139,146],"snowflake":[11,1536,384,130,146],"ornament":[11,1728,384,112,146],"stocking":[11,0,576,98,131],"gingerbread":[11,192,576,127,151],"ribbon":[11,384,576,185,99],"wreath":[11,576,576,136,130],"note":[11,768,576,104,112],"record":[11,960,576,128,129],"cassette":[11,1152,576,155,105],"cd":[11,1344,576,138,137],"pillow":[11,1536,576,192,155],"tissue":[11,1728,576,192,165],"gloves":[11,0,768,192,155],"slippers":[11,192,768,192,165],"paint":[11,384,768,162,115],"paintbrush":[11,576,768,135,142],"easel":[11,768,768,114,161],"canvas":[11,960,768,140,140],"clay":[11,1152,768,192,168],"glue":[11,1344,768,99,161],"tape":[11,1536,768,151,114],"yarn":[11,1728,768,152,136],"bathtub":[12,0,0,166,192],"shower":[12,192,0,169,192],"sink":[12,384,0,168,192],"faucet":[12,576,0,170,192],"perfume":[12,768,0,167,192],"lotion":[12,960,0,165,192],"razor":[12,1152,0,121,160],"dryer":[12,1344,0,178,159],"iron":[12,1536,0,169,146],"hanger":[12,1728,0,170,192],"basket":[12,0,192,175,192],"clothespin":[12,192,192,118,160],"detergent":[12,384,192,138,175],"thread":[12,576,192,192,143],"pin":[12,768,192,173,192],"clothesline":[12,960,192,187,192],"money":[12,1152,192,154,104],"coin":[12,1344,192,137,140],"wallet":[12,1536,192,145,147],"tag":[12,1728,192,178,192],"cart":[12,0,384,188,192],"register":[12,192,384,156,145],"creditcard":[12,384,384,154,113],"receipt":[12,576,384,110,147],"stapler":[12,768,384,192,188],"paperclip":[12,960,384,152,139],"folder":[12,1152,384,142,109],"whiteboard":[12,1344,384,166,141],"projector":[12,1536,384,129,72],"briefcase":[12,1728,384,154,128],"calculator":[12,0,576,94,98],"charger":[12,192,576,111,65],"battery":[12,384,576,90,139],"plug":[12,576,576,141,84],"cable":[12,768,576,181,192],"remote":[12,960,576,116,150],"controller":[12,1152,576,168,138],"drone":[12,1344,576,192,99],"lightbulb":[12,1536,576,171,192],"apricot":[12,1728,576,170,192],"nectarine":[12,0,768,141,149],"tangerine":[12,192,768,141,152],"pomelo":[12,384,768,141,163],"dragonfruit":[12,576,768,162,192],"passionfruit":[12,768,768,173,192],"blueberry":[12,960,768,175,192],"raspberry":[12,1152,768,171,192],"peas":[12,1344,768,171,192],"beans":[12,1536,768,192,103],"spinach":[12,1728,768,164,192],"celery":[13,0,0,165,192],"radish":[13,192,0,164,192],"beet":[13,384,0,165,192],"zucchini":[13,576,0,166,192],"leek":[13,768,0,166,192],"basil":[13,960,0,124,155],"mint":[13,1152,0,129,146],"rosemary":[13,1344,0,139,156],"cinnamon":[13,1536,0,166,192],"vanilla":[13,1728,0,168,192],"curry":[13,0,192,151,120],"thyme":[13,192,192,113,145],"parsley":[13,384,192,192,166],"lobster":[13,576,192,169,192],"clam":[13,768,192,185,192],"oyster":[13,960,192,147,122],"squid":[13,1152,192,128,148],"mussel":[13,1344,192,135,124],"scallop":[13,1536,192,185,192],"seaweed":[13,1728,192,192,192],"eel":[13,0,384,155,105],"hamster":[13,192,384,124,112],"goldfish":[13,384,384,148,117],"hedgehog":[13,576,384,192,189],"guineapig":[13,768,384,172,112],"ferret":[13,960,384,178,81],"canary":[13,1152,384,171,108],"gecko":[13,1344,384,192,116],"snail":[13,1536,384,173,94],"barn":[13,1728,384,137,99],"tractor":[13,0,576,169,149],"windmill":[13,192,576,155,152],"hay":[13,384,576,150,98],"silo":[13,576,576,148,137],"beehive":[13,768,576,192,163],"scarecrow":[13,960,576,167,192],"haystack":[13,1152,576,192,157],"motorcycle":[13,1344,576,192,144],"scooter":[13,1536,576,192,176],"van":[13,1728,576,174,192],"jeep":[13,0,768,169,120],"crane":[13,192,768,165,144],"forklift":[13,384,768,151,127],"bulldozer":[13,576,768,171,192],"mixer":[13,768,768,165,192],"hotballoon":[13,960,768,165,192],"blimp":[13,1152,768,165,192],"parachute":[13,1344,768,165,192],"glider":[13,1536,768,165,192],"jet":[13,1728,768,172,192],"wing":[14,0,0,171,192],"propeller":[14,192,0,173,192],"biplane":[14,384,0,173,192],"tunnel":[14,576,0,170,192],"highway":[14,768,0,169,192],"crosswalk":[14,960,0,175,137],"gasstation":[14,1152,0,175,150],"garage":[14,1344,0,165,152],"parking":[14,1536,0,171,192],"barrier":[14,1728,0,172,192],"roundabout":[14,0,192,169,161],"slide":[14,192,192,166,149],"swing":[14,384,192,161,145],"seesaw":[14,576,192,173,192],"carousel":[14,768,192,170,192],"sandbox":[14,960,192,178,192],"trampoline":[14,1152,192,164,149],"climber":[14,1344,192,154,153],"bench":[14,1536,192,174,192],"sunglasses":[14,1728,192,180,192],"sunscreen":[14,0,384,96,153],"surfboard":[14,192,384,125,155],"snorkel":[14,384,384,162,151],"lifebuoy":[14,576,384,170,192],"swimsuit":[14,768,384,180,192],"flipflops":[14,960,384,148,142],"beachball":[14,1152,384,137,142],"apron":[14,1344,384,142,154],"board":[14,1536,384,180,192],"whisk":[14,1728,384,165,192],"spatula":[14,0,576,183,192],"ladle":[14,192,576,192,165],"grater":[14,384,576,162,192],"rollingpin":[14,576,576,184,192],"mitt":[14,768,576,120,136],"grill":[14,960,576,137,139],"skewer":[14,1152,576,141,142],"charcoal":[14,1344,576,167,136],"cooler":[14,1536,576,187,192],"thermos":[14,1728,576,174,192],"blanket":[14,0,768,158,135],"frisbee":[14,192,768,157,122],"picnic":[14,384,768,160,143],"espresso":[14,576,768,178,192],"latte":[14,768,768,176,192],"cappuccino":[14,960,768,174,192],"mocha":[14,1152,768,174,192],"teapot":[14,1344,768,180,192],"coffeepot":[14,1536,768,172,192],"mug":[14,1728,768,169,192],"straw":[15,0,0,175,192],"nachos":[15,192,0,174,192],"burrito":[15,384,0,165,192],"drumstick":[15,576,0,182,192],"nuggets":[15,768,0,173,192],"onionrings":[15,960,0,156,153],"taco":[15,1152,0,169,145],"wrap":[15,1344,0,163,141],"chips":[15,1536,0,178,192],"sushi":[15,1728,0,185,192],"ramen":[15,0,192,191,167],"springroll":[15,192,192,167,144],"baozi":[15,384,192,192,176],"mooncake":[15,576,192,180,192],"tanghulu":[15,768,192,181,192],"zongzi":[15,960,192,191,159],"tofu":[15,1152,192,164,129],"pretzel":[15,1344,192,182,133],"scone":[15,1536,192,192,185],"eclair":[15,1728,192,191,192],"macaron":[15,0,384,140,124],"tart":[15,192,384,162,133],"brioche":[15,384,384,185,164],"pita":[15,576,384,184,192],"strudel":[15,768,384,192,189],"gummy":[15,960,384,191,158],"jellybean":[15,1152,384,184,150],"taffy":[15,1344,384,168,144],"fudge":[15,1536,384,181,192],"cotton_candy":[15,1728,384,149,192],"peppermint":[15,0,576,165,137],"rockcandy":[15,192,576,144,156],"caramel":[15,384,576,176,192],"sundae":[15,576,576,108,192],"popsicle":[15,768,576,174,192],"icecreamcone":[15,960,576,111,192],"gelato":[15,1152,576,190,192],"milkshake":[15,1344,576,145,192],"bananasplit":[15,1536,576,176,192],"softserve":[15,1728,576,156,192],"snowcone":[15,0,768,156,167],"rose":[15,192,768,186,182],"tulip":[15,384,768,163,165],"sunflower":[15,576,768,174,192],"daisy":[15,768,768,162,192],"lavender":[15,960,768,172,192],"orchid":[15,1152,768,176,192],"lily":[15,1344,768,176,192],"lotus":[15,1536,768,181,192],"palm":[15,1728,768,132,149],"pine":[16,0,0,118,154],"bamboo":[16,192,0,140,154],"cactus":[16,384,0,137,152],"maple":[16,576,0,141,155],"oak":[16,768,0,155,154],"willow":[16,960,0,151,150],"bonsai":[16,1152,0,156,151],"sunrise":[16,1344,0,163,150],"sunset":[16,1536,0,162,150],"dawn":[16,1728,0,161,142],"dusk":[16,0,192,165,144],"seedling":[16,192,192,138,188],"aurora":[16,384,192,165,145],"twilight":[16,576,192,163,143],"nebula":[16,768,192,167,134],"coriander":[16,960,192,190,192],"chives":[16,1152,192,132,192],"candycane":[16,1344,192,144,192],"doughnut":[16,1536,192,192,167],"churro":[16,1728,192,192,185],"noodles":[16,0,384,192,183],"bubbletea":[16,192,384,134,192],"smoothie":[16,384,384,142,192],"wrench":[16,576,384,104,104],"screwdriver":[16,768,384,118,121],"drill":[16,960,384,149,118],"pliers":[16,1152,384,90,127],"measure":[16,1344,384,141,89],"axe":[16,1536,384,132,120],"nail":[16,1728,384,123,99],"screw":[16,0,576,55,102],"hardhat":[16,192,576,174,82],"goggles":[16,384,576,143,79],"earmuffs":[16,576,576,125,109],"vest":[16,768,576,114,125],"firstaid":[16,960,576,127,122],"extinguisher":[16,1152,576,144,132],"cast":[16,1344,576,114,130],"ointment":[16,1536,576,104,122],"sleepingbag":[16,1728,576,165,110],"hotpot":[16,0,768,192,124],"matches":[16,192,768,158,132],"firewood":[16,384,768,160,121],"pocketknife":[16,576,768,133,138],"tarp":[16,768,768,170,108],"mallet":[16,960,768,133,142],"hatchet":[16,1152,768,144,134],"rod":[16,1344,768,157,147],"shoes":[16,1536,768,192,74],"sandals":[16,1728,768,192,148],"hoodie":[17,0,0,192,178],"cuttingboard":[17,192,0,192,174],"dishsoap":[17,384,0,121,192],"router":[17,576,0,192,171],"lemonade":[17,768,0,147,192],"socks":[17,960,0,136,151],"cap":[17,1152,0,159,111],"hairdryer":[17,1344,0,142,142],"washingmachine":[17,1536,0,117,147],"stool":[17,1728,0,125,130],"sheet":[17,0,192,170,124],"carpet":[17,192,192,173,129],"vase":[17,384,192,102,147],"confetti":[17,576,192,152,102],"popper":[17,768,192,141,153],"banner":[17,960,192,172,79],"invitation":[17,1152,192,117,150],"timer":[17,1344,192,192,129],"garland":[17,1536,192,173,118],"comic":[17,1728,192,165,192],"microscope":[17,0,384,129,192],"napkin":[17,192,384,135,122],"tablecloth":[17,384,384,172,116],"mouse":[17,576,384,160,115],"laptop":[17,768,384,180,107],"powerbank":[17,960,384,192,131],"alarm":[17,1152,384,107,127],"soda":[17,1344,384,69,120],"firetruck":[17,1536,384,182,92],"bib":[17,1728,384,106,116],"pacifier":[17,0,576,97,116],"diaper":[17,192,576,136,97],"rattle":[17,384,576,105,115],"crib":[17,576,576,125,106],"stroller":[17,768,576,127,133],"onesie":[17,960,576,132,124],"mobile":[17,1152,576,141,135],"mop":[17,1344,576,128,139],"dustpan":[17,1536,576,170,128],"sponge":[17,1728,576,154,124],"spray":[17,0,768,139,133],"vacuum":[17,192,768,161,123],"duster":[17,384,768,130,129],"trash":[17,576,768,122,131],"recycle":[17,768,768,111,129],"toiletpaper":[17,960,768,134,120],"plunger":[17,1152,768,123,133],"scale":[17,1344,768,121,123],"tweezers":[17,1536,768,123,129],"swab":[17,1728,768,137,141],"clipper":[18,0,0,124,138],"floss":[18,324,0,150,121],"bathmat":[18,648,0,157,102],"leash":[18,972,0,148,136],"collar":[18,1296,0,127,118],"cage":[18,1620,0,152,144],"aquarium":[18,1944,0,159,138],"scratcher":[18,2268,0,144,145],"petbed":[18,2592,0,166,127],"carrier":[18,2916,0,151,139],"litterbox":[18,0,324,167,128],"hockey":[18,324,324,168,132],"curling":[18,648,324,140,127],"bobsled":[18,972,324,167,120],"snowmobile":[18,1296,324,161,104],"snowshoe":[18,1620,324,159,129],"lift":[18,1944,324,167,130],"iceberg":[18,2268,324,166,135],"glacier":[18,2592,324,168,132],"pool":[18,2916,324,324,252],"diving":[18,0,648,166,137],"waterslide":[18,324,648,171,137],"sprinkler":[18,648,648,168,133],"floatie":[18,972,648,169,114],"sandcastle":[18,1296,648,161,129],"paddleboard":[18,1620,648,159,124],"kayak":[18,1944,648,166,115],"yacht":[18,2268,648,280,320],"sailboat":[18,2592,648,156,126],"submarine":[18,2916,648,154,102],"ferry":[18,0,972,298,320],"raft":[18,324,972,284,320],"seashell":[18,648,972,324,257],"houseboat":[18,972,972,270,320],"speedboat":[18,1296,972,304,320],"tram":[18,1620,972,160,117],"monorail":[18,1944,972,169,116],"cablecar":[18,2268,972,164,114],"decker":[18,2592,972,156,118],"rickshaw":[18,2916,972,159,143],"trolley":[18,0,1296,154,135],"segway":[18,324,1296,142,139],"unicycle":[18,648,1296,87,145],"moose":[18,972,1296,134,150],"coyote":[18,1296,1296,324,261],"raccoon":[18,1620,1296,140,141],"skunk":[18,1944,1296,163,135],"squirrel":[18,2268,1296,151,137],"chipmunk":[18,2592,1296,158,144],"colander":[18,2916,1296,161,101],"peeler":[19,0,0,134,137],"tongs":[19,324,0,134,139],"fryingpan":[19,648,0,161,102],"lighter":[19,972,0,230,324],"freezer":[19,1296,0,99,146],"steamer":[19,1620,0,136,129],"wok":[19,1944,0,162,90],"papaya":[19,2268,0,150,146],"lychee":[19,2592,0,129,127],"guava":[19,2916,0,118,138],"doormat":[19,0,324,143,92],"blackberry":[19,324,324,109,131],"almond":[19,648,324,115,124],"walnut":[19,972,324,124,127],"cashew":[19,1296,324,90,123],"peanut":[19,1620,324,324,284],"pistachio":[19,1944,324,120,117],"sneakers":[19,2268,324,161,105],"necklace":[19,2592,324,113,124],"earring":[19,2916,324,134,99],"handbag":[19,0,648,119,127],"raincoat":[19,324,648,117,129],"overalls":[19,648,648,100,129],"shorts":[19,972,648,128,97],"cardigan":[19,1296,648,324,251],"ankle":[19,1620,648,91,73],"wrist":[19,1944,648,132,73],"forehead":[19,2268,648,114,66],"eyebrow":[19,2592,648,119,45],"lip":[19,2916,648,110,66],"waist":[19,0,972,243,324],"armchair":[19,324,972,144,136],"dishrack":[19,648,972,147,152],"ovenmitt":[19,972,972,158,122],"dresser":[19,1296,972,161,159],"nightstand":[19,1620,972,216,324],"mattress":[19,1944,972,324,234],"conditioner":[19,2268,972,184,324],"trashcan":[19,2592,972,270,324],"marker":[19,2916,972,132,135],"vitamin":[19,0,1296,153,131],"doorbell":[19,324,1296,113,135],"lock":[19,648,1296,105,140],"volleyball":[19,972,1296,131,132],"badminton":[19,1296,1296,159,140],"cycling":[19,1620,1296,148,106],"gym":[19,1944,1296,122,120],"cinema":[19,2268,1296,147,146],"restaurant":[19,2592,1296,153,126],"clipboard":[19,2916,1296,324,258],"boy":[20,0,0,141,198],"girl":[20,324,0,196,183],"man":[20,648,0,141,198],"woman":[20,972,0,148,198],"child":[20,1296,0,145,197],"aunt":[20,1620,0,173,197],"grandmother":[20,1944,0,146,198],"grandfather":[20,2268,0,159,197],"artist":[20,2592,0,209,197],"author":[20,2916,0,170,197],"actress":[20,0,324,200,194],"lawyer":[20,324,324,155,195],"dentist":[20,648,324,205,194],"captain":[20,972,324,193,195],"businessman":[20,1296,324,158,194],"castle":[20,1620,324,189,146],"church":[20,1944,324,161,145],"drugstore":[20,2268,324,185,146],"elevator":[20,2592,324,174,146],"alphabet":[20,2916,324,168,131],"bay":[20,0,648,215,173],"beard":[20,324,648,152,169],"beer":[20,648,648,190,150],"block":[20,972,648,173,162],"brick":[20,1296,648,161,111],"bubble":[20,1620,648,167,164],"cabinet":[20,1944,648,173,164],"chain":[20,2268,648,188,169],"breakfast":[20,2592,648,208,126],"heel":[20,2916,648,324,262],"moustache":[20,0,972,324,257],"chest":[20,324,972,324,231],"love":[20,648,972,148,125],"time":[20,972,972,133,134],"music":[20,1296,972,150,134],"weather":[20,1620,972,163,123],"peace":[20,1944,972,160,138],"luck":[20,2268,972,130,149],"danger":[20,2592,972,138,128],"idea":[20,2916,972,146,150],"dream":[20,0,1296,324,242],"hope":[20,324,1296,324,229],"anger":[20,648,1296,135,133],"fear":[20,972,1296,135,133],"joy":[20,1296,1296,134,133],"happiness":[20,1620,1296,324,221],"health":[20,1944,1296,144,127],"freedom":[20,2268,1296,152,128],"confidence":[20,2592,1296,94,147],"energy":[20,2916,1296,97,140],"speed":[21,0,0,157,102],"strength":[21,324,0,166,125],"beauty":[21,648,0,163,121],"fun":[21,972,0,139,131],"game":[21,1296,0,158,121],"sport":[21,1620,0,144,131],"knowledge":[21,1944,0,160,106],"nature":[21,2268,0,165,136],"future":[21,2592,0,124,129],"past":[21,2916,0,87,120],"truth":[21,0,324,133,120],"friendship":[21,324,324,166,109],"marriage":[21,648,324,133,94],"holiday":[21,972,324,167,92],"journey":[21,1296,324,160,92],"adventure":[21,1620,324,98,91],"success":[21,1944,324,82,100],"victory":[21,2268,324,153,123],"safety":[21,2592,324,109,124],"pride":[21,2916,324,118,130],"memory":[21,0,648,144,123],"mind":[21,324,648,152,125],"courage":[21,648,648,276,324],"noise":[21,972,648,165,116],"kindness":[21,1296,648,144,120],"trust":[21,1620,648,167,114],"silence":[21,1944,648,102,151],"job":[21,2268,648,324,297],"language":[21,2592,648,156,133],"education":[21,2916,648,162,112],"earth":[21,0,972,139,139],"food":[21,324,972,164,111],"apartment":[21,648,972,219,203],"birthday":[21,972,972,214,205],"band":[21,1296,972,254,172],"audience":[21,1620,972,256,187],"cooker":[21,1944,972,183,234],"cottage":[21,2268,972,240,208],"cotton":[21,2592,972,217,189],"crack":[21,2916,972,223,210],"cream":[21,0,1296,212,208],"creature":[21,324,1296,224,211],"crop":[21,648,1296,250,198],"flour":[21,972,1296,209,212],"fur":[21,1296,1296,237,191],"gate":[21,1620,1296,239,216],"giant":[21,1944,1296,324,297],"goal":[21,2268,1296,245,183],"gold":[21,2592,1296,248,181],"harbor":[21,2916,1296,248,209],"accident":[22,0,0,162,135],"anniversary":[22,324,0,132,139],"balance":[22,648,0,161,137],"bar":[22,972,0,152,121],"battle":[22,1296,0,148,137],"beak":[22,1620,0,121,91],"bill":[22,1944,0,158,137],"blade":[22,2268,0,133,136],"body":[22,2592,0,76,146],"border":[22,2916,0,324,227],"bunch":[22,0,324,324,316],"bush":[22,324,324,159,110],"camp":[22,648,324,164,90],"camping":[22,972,324,165,129],"cardboard":[22,1296,324,153,133],"cell":[22,1620,324,137,136],"ceremony":[22,1944,324,164,131],"certificate":[22,2268,324,134,128],"channel":[22,2592,324,131,142],"charity":[22,2916,324,140,132],"chart":[22,0,648,148,125],"chemical":[22,324,648,132,130],"chemist":[22,648,648,113,130],"city":[22,972,648,164,123],"cloth":[22,1296,648,149,110],"coast":[22,1620,648,157,116],"code":[22,1944,648,135,120],"college":[22,2268,648,164,121],"column":[22,2592,648,92,123],"comedy":[22,2916,648,153,116],"concert":[22,0,972,165,147],"concrete":[22,324,972,324,272],"continent":[22,648,972,150,142],"cooking":[22,972,972,324,266],"corner":[22,1296,972,324,302],"council":[22,1620,972,324,279],"counter":[22,1944,972,157,146],"county":[22,2268,972,324,287],"couple":[22,2592,972,160,146],"court":[22,2916,972,144,147],"craft":[22,0,1296,142,137],"credit":[22,324,1296,160,112],"crime":[22,648,1296,164,144],"crisis":[22,972,1296,324,266],"dancing":[22,1296,1296,148,142],"crowd":[22,1620,1296,165,141],"culture":[22,1944,1296,164,142],"cupboard":[22,2268,1296,136,142],"curve":[22,2592,1296,128,105],"customer":[22,2916,1296,92,143]};
       var SHEET_COUNT = 23;
       var sheetState = [];     /* 0 idle, 1 loading, 2 ready, 3 failed */
       var sheetWaiters = [];   /* callbacks waiting on each sheet */
@@ -36196,10 +36121,14 @@
         } catch (e) { /* music is a bonus; game continues silently */ }
       }
 
-      /* Short descending "uh-oh" for a mismatched pair, synthesized
-         with WebAudio (no audio files): two falling triangle notes,
-         clearly different from the match/win sounds. Follows the same
-         sound on/off switch as word speech. */
+      /* Unmistakable error buzz for a mismatched pair, synthesized
+         with WebAudio (no audio files): two low square-wave "duh"
+         blasts — the second one lower and longer — deep, short and
+         blunt, so it reads instantly as "wrong" and cannot be
+         confused with the bright start/win jingles or word speech.
+         (It replaces the older soft two-note triangle "uh-oh",
+         which was easy to miss.) Moderate volume, not shrill.
+         Follows the same sound on/off switch as word speech. */
       function playFailSound() {
         if (!soundOn) return;
         try {
@@ -36207,8 +36136,8 @@
           if (!AC) return;
           if (!audioCtx) audioCtx = new AC();
           if (audioCtx.state === "suspended") audioCtx.resume();
-          tone(329.63, 0, 0.16, "triangle", 0.3);
-          tone(246.94, 0.13, 0.26, "triangle", 0.3);
+          tone(185.0, 0, 0.16, "square", 0.22);
+          tone(138.59, 0.2, 0.3, "square", 0.22);
         } catch (e) { /* sound is a bonus; game continues silently */ }
       }
 
@@ -36253,7 +36182,7 @@
           progress.completedAll = true;
           saveProgress();
           document.getElementById("winTitle").textContent = "全部完成!";
-          document.getElementById("winSub").textContent = "145 关全部通关，1150 个单词都学完啦！";
+          document.getElementById("winSub").textContent = "144 关全部通关，1147 个单词都学完啦！";
           document.getElementById("againBtn").textContent = "再玩一次 · PLAY AGAIN";
         } else {
           progress.currentLevel = level + 1;
