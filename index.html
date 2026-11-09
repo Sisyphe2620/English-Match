@@ -576,6 +576,120 @@
          buttons still fit one screen everywhere. */
       .sp-btn.new { background: linear-gradient(180deg, #fff6d8, #fdeec0); border: 2px solid #e3c169; color: var(--ink); box-shadow: 0 5px 0 #d9b356, inset 0 2px 0 rgba(255,255,255,0.65); margin-top: 14px; }
       .sp-btn.new:active { transform: translateY(3px); box-shadow: 0 2px 0 #d9b356, inset 0 2px 0 rgba(255,255,255,0.65); }
+      /* Second row under 继续: 新开一局 and 地图 side by side,
+         each half of the same 84% column the full-width button
+         uses, a touch smaller than the main button. */
+      .sp-btn-row { display: flex; gap: 12px; width: 84%; margin: 14px auto 0; }
+      .sp-btn-row .sp-btn { flex: 1 1 0; width: auto; margin: 0; font-size: 20px; letter-spacing: 1px; padding: 14px 4px; }
+      .sp-btn.map { background: linear-gradient(180deg, #45c8bc, #14b8a6 55%, #0da08e); border: 2px solid #0d9488; color: #fff; box-shadow: 0 5px 0 #0b7c70, inset 0 2px 0 rgba(255,255,255,0.45); }
+      .sp-btn.map:active { transform: translateY(3px); box-shadow: 0 2px 0 #0b7c70, inset 0 2px 0 rgba(255,255,255,0.45); }
+
+      /* ---------- Map page ----------
+         The user's tall map artwork scrolls vertically inside a
+         full-screen layer; the 13 zone stickers sit on the clear-
+         ings along its winding road (positions in ZONE_DEFS).
+         The explorer kid is pinned to the layer's bottom-left
+         corner, outside the scrolling element, so he never moves
+         while the map scrolls under him. */
+      .map-page { position: fixed; inset: 0; z-index: 60; display: none; background: #79c4f2; }
+      .map-page.show { display: block; }
+      .map-scroll { position: absolute; inset: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+      .map-stage { position: relative; width: 100%; max-width: 460px; margin: 0 auto; line-height: 0; }
+      .map-bg { width: 100%; display: block; }
+      .zone-btn {
+        appearance: none;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 27%;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        line-height: 1;
+        z-index: 2;
+        font-family: inherit;
+        touch-action: manipulation;
+      }
+      .zone-btn img { width: 100%; display: block; filter: drop-shadow(0 4px 5px rgba(30, 60, 20, 0.35)); transition: transform 0.1s ease; }
+      .zone-btn:active img { transform: scale(0.93); }
+      .zone-tag {
+        display: inline-block;
+        margin-top: -4px;
+        background: linear-gradient(180deg, #ff8a76, #fb5a50);
+        border: 2px solid #e05244;
+        color: #fff;
+        border-radius: 999px;
+        padding: 3px 11px 4px;
+        font-family: "ZCOOL KuaiLe", "Baloo 2", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        box-shadow: 0 3px 0 #d84a3e;
+        white-space: nowrap;
+      }
+      .zone-prog {
+        display: table;
+        margin: 4px auto 0;
+        background: rgba(255, 250, 240, 0.94);
+        border: 1.5px solid var(--card-edge);
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 1px 9px 2px;
+        font-size: 11.5px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+      .zone-star {
+        position: absolute;
+        top: -10px;
+        right: 0;
+        font-size: 30px;
+        line-height: 1;
+        color: var(--gold);
+        text-shadow: 0 2px 0 #d99a0b, 0 3px 6px rgba(120, 70, 0, 0.4);
+        z-index: 3;
+      }
+      .map-back {
+        appearance: none;
+        position: absolute;
+        top: calc(10px + env(safe-area-inset-top));
+        left: 10px;
+        z-index: 6;
+        background: linear-gradient(180deg, #fff6d8, #fdeec0);
+        border: 2px solid #e3c169;
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 9px 16px 10px;
+        font-family: "ZCOOL KuaiLe", "Baloo 2", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 0 #d9b356, inset 0 2px 0 rgba(255,255,255,0.65);
+        cursor: pointer;
+        touch-action: manipulation;
+      }
+      .map-back:active { transform: translateY(2px); box-shadow: 0 2px 0 #d9b356, inset 0 2px 0 rgba(255,255,255,0.65); }
+      .map-kid {
+        position: absolute;
+        left: 4px;
+        bottom: calc(4px + env(safe-area-inset-bottom));
+        width: min(36vw, 158px);
+        z-index: 5;
+        pointer-events: none;
+        filter: drop-shadow(0 4px 6px rgba(30, 60, 20, 0.3));
+      }
+      /* Secondary win-card button (回地图), only shown in zone mode. */
+      .win-btn.map-return {
+        margin-top: 10px;
+        background: linear-gradient(180deg, #fff6d8, #fdeec0);
+        border: 2px solid #e3c169;
+        color: var(--ink);
+        box-shadow: 0 4px 0 #d9b356, inset 0 2px 0 rgba(255,255,255,0.65);
+        font-size: 16px;
+        padding: 11px 18px;
+        display: none;
+      }
+      .win-btn.map-return.show { display: inline-block; }
 
       /* ---------- Visitor counter badge ----------
          Same play-count badge as the Halloween tower defence:
@@ -827,6 +941,7 @@
           <div class="ws"><div class="k">LEVEL</div><div class="v" id="winLevel">1</div></div>
         </div>
         <button class="win-btn" id="againBtn" type="button">下一关 · NEXT LEVEL</button>
+        <button class="win-btn map-return" id="winMapBtn" type="button">回地图看看 · MAP</button>
       </div>
     </div>
 
@@ -879,7 +994,10 @@
           <div class="sp-learned" id="spLearned">已学 <b>0</b> / 1197 词</div>
           <div class="sp-bar"><div class="sp-bar-fill" id="spBarFill"></div></div>
           <button class="sp-btn continue" id="spContinueBtn" type="button">继续第 1 关</button>
-          <button class="sp-btn new" id="spNewBtn" type="button">新开一局</button>
+          <div class="sp-btn-row">
+            <button class="sp-btn new" id="spNewBtn" type="button">新开一局</button>
+            <button class="sp-btn map" id="spMapBtn" type="button">地图</button>
+          </div>
         </div>
         <!-- Play counter, same service as the Halloween tower
              defence (visitor-badge, own page_id): +1 every time
@@ -887,6 +1005,23 @@
              total. If it cannot load, it hides itself. -->
         <div class="visitor-badge" id="visitorBadge"><img src="https://visitor-badge.laobi.icu/badge?page_id=english-match-2026" alt="" onerror="var p=document.getElementById('visitorBadge'); if(p) p.style.display='none';" /></div>
       </div>
+    </div>
+
+    <!-- Map page: the user's tall map artwork scrolls under 13
+         zone sticker buttons (built by JS from ZONE_DEFS, each
+         with its zone name and learned count added here — the
+         artwork itself carries no text). Opens scrolled to the
+         bottom, where the road starts at the beach. The explorer
+         kid and the back button sit on the page layer, not in
+         the scroller, so they stay put while the map moves. -->
+    <div class="map-page" id="mapPage">
+      <div class="map-scroll" id="mapScroll">
+        <div class="map-stage" id="mapStage">
+          <img class="map-bg" src="assets/map-bg.webp" alt="单词地图：一条小路从海边出发，穿过草地、小河和森林，一直通到云朵上的城堡" />
+        </div>
+      </div>
+      <button class="map-back" id="mapBackBtn" type="button">‹ 回首页</button>
+      <img class="map-kid" src="assets/map-kid.webp" alt="" />
     </div>
 
     <!-- Difficulty modal: opened by 新开一局 on the start page.
@@ -36618,7 +36753,7 @@
       }
 
       function freshProgress() {
-        return { currentLevel: 1, words: {}, lastReviewDate: "", completedAll: false, difficulty: "normal" };
+        return { currentLevel: 1, words: {}, lastReviewDate: "", completedAll: false, difficulty: "normal", zoneLevels: {} };
       }
       function loadProgress() {
         try {
@@ -36627,6 +36762,7 @@
             var p = JSON.parse(raw);
             if (p && p.words && p.currentLevel) {
               if (!p.difficulty) p.difficulty = "normal";
+              if (!p.zoneLevels) p.zoneLevels = {};
               /* Words retired from the list (TRUMPET / FLUTE /
                  HARP) can still sit in an older memory book: drop
                  them so they are never dealt again as reviews and
@@ -36776,6 +36912,86 @@
         return picks;
       }
       function composeReview() { return computeDue().slice(0, 12); }
+
+      /* ============================================================
+         Map zones. The 13 zones partition all 1197 words (plan:
+         map-plan-2026-11-09, one word in exactly one zone).
+         Zone play is practice on top of the one memory book: a
+         zone level deals this zone's due reviews first, then its
+         unseen words (at most 8), then its other words up to 12
+         types — the same recipe as the main line, filtered to
+         the zone. Zone lengths differ because zone sizes differ
+         (美食厨房 241 words runs long, 工具工坊 27 runs short);
+         that is accepted. progress.zoneLevels[id] counts the
+         zone levels finished, so the HUD can number them.
+         ============================================================ */
+      var ZONE_WORDS = {
+        home: ["umbrella","clock","key","door","desk","chair","bed","house","lamp","fan","radio","phone","camera","box","kitchen","bathroom","bedroom","window","wall","floor","roof","stairs","table","sofa","mirror","curtain","shelf","drawer","closet","toilet","towel","soap","toothbrush","toothpaste","shampoo","comb","bucket","broom","brush","tv","computer","tablet","printer","speaker","headphones","keyboard","screen","fridge","oven","microwave","washer","stove","kettle","toaster","blender","fireplace","candle","pillow","tissue","yarn","bathtub","shower","sink","faucet","perfume","lotion","razor","dryer","iron","hanger","basket","clothespin","detergent","thread","pin","clothesline","charger","battery","plug","cable","remote","lightbulb","blanket","router","mouse","laptop","powerbank","alarm","timer","hairdryer","washingmachine","stool","sheet","carpet","vase","dishsoap","pacifier","diaper","rattle","crib","stroller","onesie","mobile","mop","dustpan","sponge","spray","vacuum","duster","trash","recycle","toiletpaper","plunger","bathmat","freezer","doormat","armchair","dresser","nightstand","mattress","conditioner","trashcan","doorbell","lock","cabinet","cupboard","apartment","cottage","crack","gate","corner","cloth"],
+        food: ["apple","coffee","banana","orange","grape","egg","milk","bread","cake","cheese","fish","rice","tea","cup","bowl","spoon","water","lemon","peach","pear","strawberry","watermelon","pineapple","mango","cherry","tomato","potato","carrot","corn","onion","cucumber","chili","pumpkin","noodle","pizza","burger","sandwich","salad","soup","candy","cookie","juice","cola","yogurt","honey","jam","butter","chocolate","sugar","fork","knife","plate","chopsticks","pot","pan","bottle","dumpling","bun","porridge","chicken","popcorn","fries","hotdog","pie","ham","sausage","bacon","steak","beef","pork","meat","kiwi","coconut","melon","plum","fig","avocado","lime","olive","cabbage","lettuce","broccoli","cauliflower","eggplant","garlic","ginger","mushroom","salt","oil","vinegar","ketchup","mustard","sauce","syrup","pepper","cereal","toast","waffle","muffin","donut","croissant","bagel","omelet","icecream","pudding","jelly","lollipop","marshmallow","cupcake","brownie","mousse","apricot","nectarine","tangerine","pomelo","dragonfruit","passionfruit","blueberry","raspberry","peas","beans","spinach","celery","radish","beet","zucchini","leek","basil","mint","rosemary","cinnamon","vanilla","curry","thyme","parsley","lobster","clam","oyster","squid","mussel","scallop","seaweed","eel","lunchbox","board","whisk","spatula","ladle","grater","rollingpin","grill","skewer","charcoal","cooler","thermos","espresso","latte","cappuccino","mocha","teapot","coffeepot","mug","straw","nachos","burrito","drumstick","nuggets","onionrings","taco","wrap","chips","sushi","ramen","springroll","baozi","mooncake","tanghulu","zongzi","tofu","pretzel","scone","eclair","macaron","tart","brioche","pita","strudel","gummy","jellybean","taffy","fudge","cotton_candy","peppermint","rockcandy","caramel","sundae","popsicle","icecreamcone","gelato","milkshake","bananasplit","softserve","snowcone","coriander","chives","candycane","doughnut","churro","noodles","bubbletea","smoothie","lemonade","soda","hotpot","cuttingboard","napkin","tablecloth","colander","peeler","tongs","fryingpan","steamer","wok","papaya","lychee","guava","blackberry","almond","walnut","cashew","peanut","pistachio","dishrack","beer","breakfast","cooker","cream","flour","bunch","cooking","food"],
+        animals: ["dog","cat","bird","duck","pig","cow","sheep","horse","lion","tiger","elephant","monkey","bear","rabbit","frog","snake","panda","zebra","giraffe","kangaroo","penguin","owl","butterfly","bee","shark","whale","octopus","crab","shrimp","turtle","dolphin","jellyfish","ant","spider","worm","ladybug","dragonfly","mosquito","beetle","cricket","deer","fox","wolf","koala","sloth","hippo","rhino","camel","goat","donkey","turkey","goose","rooster","hen","chick","pony","eagle","parrot","swan","peacock","flamingo","sparrow","pigeon","crow","hamster","goldfish","hedgehog","guineapig","ferret","canary","gecko","snail","moose","coyote","raccoon","skunk","squirrel","chipmunk","feather","starfish","seahorse","bat","spiderweb","creature","fur","beak","leash","collar","cage","aquarium","scratcher","petbed","carrier","litterbox","tree","flower","grass","leaf","farm","garden","seed","sprout","branch","root","acorn","pinecone","flowerpot","fence","hose","rake","wheelbarrow","wateringcan","pebble","stump","barn","windmill","hay","silo","beehive","scarecrow","haystack","rose","tulip","sunflower","daisy","lavender","orchid","lily","lotus","palm","pine","bamboo","cactus","maple","oak","willow","bonsai","seedling","cotton","crop","bush"],
+        clothes: ["hat","shoe","sock","shirt","pants","glove","watch","dress","skirt","coat","jacket","sweater","jeans","scarf","boots","pajamas","uniform","tie","belt","button","pocket","ring","glasses","gloves","slippers","mittens","sunglasses","swimsuit","flipflops","apron","mitt","ovenmitt","shoes","sandals","hoodie","socks","cap","bib","wallet","earmuffs","vest","sneakers","necklace","earring","handbag","raincoat","overalls","shorts","cardigan"],
+        health: ["eye","ear","nose","mouth","hand","foot","hair","tooth","heart","head","face","neck","arm","leg","finger","knee","shoulder","tongue","chin","cheek","elbow","thumb","toe","back","stomach","bone","medicine","pill","bandage","thermometer","syringe","stethoscope","wheelchair","crutch","firstaid","extinguisher","cast","ointment","sunscreen","scale","tweezers","swab","clipper","floss","vitamin","ankle","wrist","forehead","eyebrow","lip","waist","beard","heel","moustache","chest","body","cell"],
+        sport: ["ball","kite","gift","bell","soccer","basketball","tennis","baseball","golf","boxing","swimming","running","racket","skis","skateboard","helmet","trophy","medal","whistle","jersey","piano","guitar","violin","drum","microphone","doll","teddy","robot","puzzle","blocks","yoyo","top","bubbles","dice","chess","balloon","crown","sword","shield","wand","mask","tent","campfire","backpack","flashlight","binoculars","lantern","hammock","sled","skates","snowboard","snowglobe","ghost","witch","skeleton","partyhat","fireworks","santa","reindeer","ornament","stocking","gingerbread","ribbon","wreath","note","record","cassette","cd","controller","drone","slide","swing","seesaw","carousel","sandbox","trampoline","climber","bench","surfboard","snorkel","lifebuoy","beachball","frisbee","picnic","confetti","popper","banner","invitation","garland","sleepingbag","tarp","hockey","curling","bobsled","snowmobile","snowshoe","lift","pool","diving","waterslide","sprinkler","floatie","sandcastle","block","bubble","game","sport","band","goal","comedy","concert","dancing","camp","camping","volleyball","badminton","cycling"],
+        nature: ["sun","moon","star","cloud","rain","snow","fire","mountain","snowman","beach","forest","river","lake","sea","island","rock","sand","sky","wind","ice","smoke","thunder","lightning","rainbow","fog","storm","tornado","hail","breeze","spring","summer","autumn","winter","morning","night","noon","pearl","anchor","wave","shell","lighthouse","compass","coral","planet","comet","telescope","satellite","galaxy","meteor","sunrise","sunset","dawn","dusk","aurora","twilight","nebula","icicle","igloo","snowflake","iceberg","glacier","bay","harbor","coast","continent","weather","nature","earth","seashell"],
+        transport: ["car","bus","bike","boat","plane","train","truck","taxi","subway","ship","rocket","helicopter","ambulance","policecar","wheel","engine","seat","horn","steering","pedal","exhaust","licenseplate","tractor","motorcycle","scooter","van","jeep","crane","forklift","bulldozer","mixer","hotballoon","blimp","parachute","glider","jet","wing","propeller","biplane","tunnel","highway","crosswalk","gasstation","garage","parking","barrier","roundabout","road","street","trafficlight","firetruck","canoe","paddleboard","kayak","yacht","sailboat","submarine","ferry","raft","houseboat","speedboat","tram","monorail","cablecar","decker","rickshaw","trolley","segway","unicycle"],
+        city: ["school","classroom","park","shop","market","hospital","bank","library","museum","zoo","building","bridge","station","airport","hotel","mailbox","envelope","stamp","postcard","package","sign","flag","letter","card","money","coin","tag","cart","register","creditcard","receipt","gym","cinema","restaurant","castle","church","drugstore","elevator","brick","gold","bar","bill","border","city","college","column","concrete","council","counter","county","court"],
+        study: ["book","pen","pencil","ruler","bag","homework","exam","map","paper","crayon","eraser","notebook","dictionary","picture","story","circle","square","triangle","rectangle","oval","diamond","cross","arrow","red","blue","green","yellow","pink","purple","black","white","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","twenty","fifty","hundred","zero","calendar","math","english","science","art","history","geography","reading","writing","blackboard","chalk","globe","poster","abacus","bookmark","newspaper","magazine","paint","paintbrush","easel","canvas","clay","glue","tape","stapler","paperclip","folder","whiteboard","projector","briefcase","clipboard","calculator","comic","microscope","marker","alphabet","music","knowledge","language","education","cardboard","certificate","chart","chemical","code","channel","curve"],
+        people: ["teacher","student","doctor","nurse","farmer","cook","driver","singer","dancer","painter","worker","soldier","policeman","fireman","actor","writer","pilot","engineer","mother","father","sister","brother","baby","grandma","grandpa","family","astronaut","alien","boy","girl","man","woman","child","aunt","grandmother","grandfather","artist","author","actress","lawyer","dentist","captain","businessman","chemist","job","audience","giant","couple","crowd","customer"],
+        tools: ["scissors","needle","hammer","saw","rope","ladder","shovel","wrench","screwdriver","drill","pliers","measure","axe","nail","screw","hardhat","goggles","matches","firewood","pocketknife","mallet","hatchet","rod","lighter","chain","blade","craft"],
+        dream: ["love","time","peace","luck","danger","idea","dream","hope","anger","fear","joy","happiness","health","freedom","confidence","energy","speed","strength","beauty","fun","truth","friendship","marriage","holiday","journey","adventure","success","victory","safety","pride","memory","mind","courage","noise","kindness","trust","silence","future","past","accident","anniversary","birthday","balance","battle","ceremony","charity","credit","crime","crisis","culture","excitement","delight","relief","shame","sympathy","worry","regret","mood","passion","emotion","ability","talent","weakness","behaviour","personality","character","attitude","habit","faith","belief","decision","choice","thought","opinion","reason","problem","solution","difficulty","understanding","attention","moment","opportunity","experience","event","condition","change","growth","progress","failure","life","society","community","government","relationship","communication","agreement","competition","support","respect","promise"]
+      };
+      var ZONE_DEFS = [
+        { id: "dream",     name: "梦想天空",   x: 74, y: 5.2 },
+        { id: "tools",     name: "工具工坊",   x: 55, y: 10.2 },
+        { id: "people",    name: "人物职业",   x: 29, y: 15.2 },
+        { id: "study",     name: "学习书房",   x: 61, y: 21.5 },
+        { id: "city",      name: "城市街区",   x: 25, y: 28.2 },
+        { id: "transport", name: "交通工具",   x: 62, y: 35.5 },
+        { id: "nature",    name: "自然天地",   x: 26, y: 43.2 },
+        { id: "sport",     name: "运动游乐",   x: 66, y: 51.2 },
+        { id: "health",    name: "身体健康",   x: 27, y: 59.5 },
+        { id: "clothes",   name: "穿搭衣橱",   x: 65, y: 67.8 },
+        { id: "animals",   name: "动植物乐园", x: 26, y: 76.3 },
+        { id: "food",      name: "美食厨房",   x: 64, y: 84.8 },
+        { id: "home",      name: "家园小屋",   x: 33, y: 90.8 }
+      ];
+      var zoneMode = null;      // zone id while a zone level is on screen
+      var zoneFinished = false; // the zone on screen has no unseen words left
+
+      function zoneName(id) {
+        for (var i = 0; i < ZONE_DEFS.length; i++) if (ZONE_DEFS[i].id === id) return ZONE_DEFS[i].name;
+        return "";
+      }
+      function zoneWords(id) {
+        return (ZONE_WORDS[id] || []).filter(function (k) { return !!ICONS[k]; });
+      }
+      function zoneSeenCount(id) {
+        var n = 0;
+        zoneWords(id).forEach(function (k) { if (progress.words[k]) n++; });
+        return n;
+      }
+      function composeZoneLevel(id) {
+        var words = zoneWords(id);
+        var inZone = {};
+        words.forEach(function (k) { inZone[k] = true; });
+        var target = 12;
+        var picks = [], inPick = {};
+        function add(k) { if (k && !inPick[k]) { inPick[k] = true; picks.push(k); } }
+        var due = computeDue().filter(function (k) { return inZone[k]; });
+        var pinnedCount = 0;
+        due.forEach(function (k) { if (progress.words[k].pin > 0) pinnedCount++; });
+        var reviewSlots = Math.max(4, Math.min(8, pinnedCount));
+        due.slice(0, reviewSlots).forEach(add);
+        var fresh = words.filter(function (k) { return !progress.words[k]; });
+        fresh.slice(0, Math.min(8, target - picks.length)).forEach(add);
+        if (picks.length < target) {
+          var olds = words.filter(function (k) { return progress.words[k] && !inPick[k]; });
+          shuffled(olds);
+          olds.sort(function (a, b) { return progress.words[a].lvl - progress.words[b].lvl; });
+          for (var i = 0; i < olds.length && picks.length < target; i++) add(olds[i]);
+        }
+        return picks;
+      }
 
       /* Spread the 24 pairs over however many types this level has:
          8 types x 3 pairs, 12 types x 2 pairs, anything else fills
@@ -37220,6 +37436,8 @@
 
       function dealLevel(lv, opts, dealtTypes) {
         isReview = !!opts.review;
+        zoneMode = opts.zone || null;
+        zoneFinished = false;
         level = lv;
         currentTypes = dealtTypes;
         /* Words dealt for the first time enter the memory book at
@@ -37228,13 +37446,18 @@
         lvlWrong = {};
         lvlHint = {};
         lvlSettled = {};
-        if (!isReview) progress.currentLevel = lv;
+        /* Zone levels are practice: they never move the main
+           line's saved level. */
+        if (!isReview && !zoneMode) progress.currentLevel = lv;
         saveProgress();
         var lt = levelEl.parentElement;
-        if (lt && lt.firstChild) lt.firstChild.textContent = isReview ? "" : "LEVEL ";
-        levelEl.textContent = isReview ? "今日复习" : lv;
+        if (lt && lt.firstChild) lt.firstChild.textContent = (isReview || zoneMode) ? "" : "LEVEL ";
+        levelEl.textContent = isReview ? "今日复习" : (zoneMode ? zoneName(zoneMode) : lv);
         if (isReview) {
           barTail.textContent = " · 今日复习";
+          barNext.style.display = "none";
+        } else if (zoneMode) {
+          barTail.textContent = " · 第 " + lv + " 关";
           barNext.style.display = "none";
         } else if (lv >= LEVELS.length) {
           barTail.textContent = " · 最后一关";
@@ -37689,9 +37912,29 @@
       function onWin() {
         document.getElementById("winScore").textContent = score;
         document.getElementById("winMoves").textContent = moves;
-        document.getElementById("winLevel").textContent = isReview ? "复习" : level;
-        var last = !isReview && level >= LEVELS.length && unseenCount() === 0;
-        if (isReview) {
+        document.getElementById("winLevel").textContent = isReview ? "复习" : (zoneMode ? zoneName(zoneMode) : level);
+        var mapBtn = document.getElementById("winMapBtn");
+        mapBtn.classList.remove("show");
+        var last = !isReview && !zoneMode && level >= LEVELS.length && unseenCount() === 0;
+        if (zoneMode) {
+          var zid = zoneMode;
+          progress.zoneLevels[zid] = (progress.zoneLevels[zid] || 0) + 1;
+          var remaining = 0;
+          zoneWords(zid).forEach(function (k) { if (!progress.words[k]) remaining++; });
+          zoneFinished = remaining === 0;
+          saveProgress();
+          if (zoneFinished) {
+            document.getElementById("winTitle").textContent = "区域完成!";
+            document.getElementById("winSub").textContent = zoneName(zid) + "的词都学过啦，真厉害！";
+            document.getElementById("againBtn").textContent = "回地图 · MAP";
+          } else {
+            document.getElementById("winTitle").textContent = "YOU WIN!";
+            document.getElementById("winSub").textContent =
+              zoneName(zid) + "还有 " + remaining + " 个新词等你来学！";
+            document.getElementById("againBtn").textContent = "下一关 · NEXT LEVEL";
+            mapBtn.classList.add("show");
+          }
+        } else if (isReview) {
           progress.lastReviewDate = todayStr();
           saveProgress();
           document.getElementById("winTitle").textContent = "复习完成!";
@@ -37730,6 +37973,12 @@
       }
 
       document.getElementById("againBtn").addEventListener("click", function () {
+        if (zoneMode) {
+          if (zoneFinished) { zoneMode = null; showMap(); return; }
+          var zid = zoneMode;
+          newGame((progress.zoneLevels[zid] || 0) + 1, { zone: zid, types: composeZoneLevel(zid) });
+          return;
+        }
         if (isReview) { newGame(progress.currentLevel); return; }
         // After the final level the button restarts from level 1
         // with a fresh memory book.
@@ -37785,6 +38034,73 @@
           newGame(seenCount() > 0 ? progress.currentLevel : 1);
         }
       }
+
+      /* ---------------- Map page ----------------
+         Zone stickers are built once from ZONE_DEFS; opening the
+         map refreshes each zone's learned count and completion
+         star from the one memory book. All 13 zones are open from
+         the start — no locking. Tapping a zone deals a level of
+         that zone's words through the same engine; the main
+         line's saved level is untouched. */
+      var mapPage = document.getElementById("mapPage");
+      var mapScroll = document.getElementById("mapScroll");
+      var mapStage = document.getElementById("mapStage");
+
+      function buildMap() {
+        ZONE_DEFS.forEach(function (z) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "zone-btn";
+          b.style.left = z.x + "%";
+          b.style.top = z.y + "%";
+          b.setAttribute("aria-label", z.name);
+          b.innerHTML =
+            '<img src="assets/zones/' + z.id + '.webp" alt="" />' +
+            '<span class="zone-tag">' + z.name + '</span>' +
+            '<span class="zone-prog"></span>' +
+            '<span class="zone-star" hidden>★</span>';
+          b.addEventListener("click", function () { startZone(z.id); });
+          mapStage.appendChild(b);
+          z.progEl = b.querySelector(".zone-prog");
+          z.starEl = b.querySelector(".zone-star");
+        });
+      }
+      function refreshMap() {
+        ZONE_DEFS.forEach(function (z) {
+          var total = zoneWords(z.id).length;
+          var seen = zoneSeenCount(z.id);
+          if (z.progEl) z.progEl.textContent = "已学 " + seen + "/" + total;
+          if (z.starEl) z.starEl.hidden = !(total > 0 && seen >= total);
+        });
+      }
+      function showMap() {
+        winOverlay.classList.remove("show");
+        startPage.classList.remove("show");
+        refreshMap();
+        mapPage.classList.add("show");
+      }
+      function startZone(id) {
+        mapPage.classList.remove("show");
+        startPage.classList.remove("show");
+        newGame((progress.zoneLevels[id] || 0) + 1, { zone: id, types: composeZoneLevel(id) });
+      }
+      buildMap();
+
+      document.getElementById("spMapBtn").addEventListener("click", function () {
+        showMap();
+        /* The road starts at the beach: open on the bottom of
+           the map, 家园小屋 first. */
+        requestAnimationFrame(function () { mapScroll.scrollTop = mapScroll.scrollHeight; });
+      });
+      document.getElementById("mapBackBtn").addEventListener("click", function () {
+        mapPage.classList.remove("show");
+        refreshStartPage();
+        startPage.classList.add("show");
+      });
+      document.getElementById("winMapBtn").addEventListener("click", function () {
+        zoneMode = null;
+        showMap();
+      });
 
       document.getElementById("spContinueBtn").addEventListener("click", enterGame);
       document.getElementById("spNewBtn").addEventListener("click", function () {
