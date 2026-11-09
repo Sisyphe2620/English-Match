@@ -610,16 +610,12 @@
         font-family: inherit;
         touch-action: manipulation;
       }
-      /* White app-icon backing: exactly the size of the zone icon
-         itself — the icon keeps its full button width and is laid
-         over the pad unchanged — white with softly rounded corners
-         and a faint shadow, so all 13 stickers read as one tidy
-         set of app icons on the busy map artwork. */
+      /* The zone icon sits directly on the map artwork — no
+         backing pad — keeping its full button width, position
+         and size unchanged. This span only wraps the image so
+         the press-down scale on tap still applies to it. */
       .zone-icon {
         display: block;
-        background: #fff;
-        border-radius: 22%;
-        box-shadow: 0 4px 10px rgba(30, 60, 20, 0.30), 0 1px 3px rgba(30, 60, 20, 0.22);
         line-height: 0;
         transition: transform 0.1s ease;
       }
@@ -1097,7 +1093,7 @@
 
     <!-- Map page: the user's tall map artwork scrolls under 13
          zone sticker buttons (built by JS from ZONE_DEFS, each
-         with its icon on a white app-icon pad, its zone name and
+         with its icon pasted straight onto the map, its zone name and
          a thin learned-progress bar added here — the artwork
          itself carries no text). Opens scrolled to the
          bottom, where the road starts at the beach. The explorer
