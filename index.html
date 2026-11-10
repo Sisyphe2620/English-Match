@@ -611,7 +611,7 @@
         touch-action: manipulation;
       }
       /* Three sticker sizes so the map reads less uniform:
-         large anchors (dream / nature / home) at 36%, medium
+         large anchors (home / growth) at 36%, medium
          at 30%, small at 24% — tier comes from ZONE_DEFS.size. */
       .zone-btn.z-l { width: 36%; }
       .zone-btn.z-m { width: 30%; }
@@ -37070,7 +37070,7 @@
       function composeReview() { return computeDue().slice(0, tripleTarget()); }
 
       /* ============================================================
-         Map zones. The 13 zones partition all 1298 words (plan:
+         Map zones. The 17 zones partition all 1298 words (plan:
          map-plan-2026-11-09, one word in exactly one zone).
          Zone play is practice on top of the one memory book: a
          zone level deals this zone's due reviews first (2–3
@@ -37095,29 +37095,37 @@
         study: ["book","pen","pencil","ruler","bag","homework","exam","map","paper","crayon","eraser","notebook","dictionary","picture","story","circle","square","triangle","rectangle","oval","diamond","cross","arrow","red","blue","green","yellow","pink","purple","black","white","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","twenty","fifty","hundred","zero","calendar","math","english","science","art","history","geography","reading","writing","blackboard","chalk","globe","poster","abacus","bookmark","newspaper","magazine","paint","paintbrush","easel","canvas","clay","glue","tape","stapler","paperclip","folder","whiteboard","projector","briefcase","clipboard","calculator","comic","microscope","marker","alphabet","music","knowledge","language","education","cardboard","certificate","chart","chemical","code","channel","curve"],
         people: ["teacher","student","doctor","nurse","farmer","cook","driver","singer","dancer","painter","worker","soldier","policeman","fireman","actor","writer","pilot","engineer","mother","father","sister","brother","baby","grandma","grandpa","family","astronaut","alien","boy","girl","man","woman","child","aunt","grandmother","grandfather","artist","author","actress","lawyer","dentist","captain","businessman","chemist","job","audience","giant","couple","crowd","customer"],
         tools: ["scissors","needle","hammer","saw","rope","ladder","shovel","wrench","screwdriver","drill","pliers","measure","axe","nail","screw","hardhat","goggles","matches","firewood","pocketknife","mallet","hatchet","rod","lighter","chain","blade","craft"],
-        dream: ["love","time","peace","luck","danger","idea","dream","hope","anger","fear","joy","happiness","health","freedom","confidence","energy","speed","strength","beauty","fun","truth","friendship","marriage","holiday","journey","adventure","success","victory","safety","pride","memory","mind","courage","noise","kindness","trust","silence","future","past","accident","anniversary","birthday","balance","battle","ceremony","charity","credit","crime","crisis","culture","excitement","delight","relief","shame","sympathy","worry","regret","mood","passion","emotion","ability","talent","weakness","behaviour","personality","character","attitude","habit","faith","belief","decision","choice","thought","opinion","reason","problem","solution","difficulty","understanding","attention","moment","opportunity","experience","event","condition","change","growth","progress","failure","life","society","community","government","relationship","communication","agreement","competition","support","respect","promise","chance","laughter","humour","surprise","wonder","secret","rule","law","power","reality","concept","theory","principle","purpose","meaning","world","universe","situation","advice","justice","imagination","concentration","duty","conflict","risk","reward","birth","absence","anxiety","awareness","certainty","chaos","curiosity","desire","dignity","doubt","effort","evidence","fantasy","honesty","independence","patience","wisdom","creativity","intelligence","ambition","determination","guilt","harmony","motivation","affection","hatred","embarrassment","distress","stress","satisfaction","romance","isolation","hunger","trauma","loyalty","resilience","virtue","equality","genius","logic","efficiency","accuracy","reliability","privacy","discovery","thinking","philosophy","assumption","reflection","realization","perspective","distinction","contrast","dilemma","discussion","apology","blessing","praise","encouragement","tradition","legislation","bias","dispute","burden","breakthrough","consequence","development","transformation","trend","strategy","technique","value","prospect","legacy"]
+        emotion: ["love","hope","anger","fear","joy","happiness","fun","pride","excitement","delight","relief","shame","sympathy","worry","regret","mood","passion","emotion","laughter","humour","surprise","wonder","anxiety","desire","guilt","harmony","affection","hatred","embarrassment","distress","stress","satisfaction","romance","isolation","hunger","trauma"],
+        character: ["freedom","confidence","strength","beauty","courage","kindness","ability","talent","weakness","behaviour","personality","character","attitude","habit","dignity","honesty","independence","patience","creativity","intelligence","ambition","determination","loyalty","resilience","virtue","genius","reliability"],
+        wisdom: ["idea","truth","memory","mind","faith","belief","decision","choice","thought","opinion","reason","problem","solution","understanding","attention","secret","reality","concept","theory","principle","purpose","meaning","world","universe","imagination","concentration","awareness","certainty","curiosity","doubt","evidence","fantasy","wisdom","motivation","logic","accuracy","discovery","thinking","philosophy","assumption","reflection","realization","perspective","distinction","contrast","strategy","technique","value"],
+        social: ["peace","friendship","marriage","trust","ceremony","charity","credit","crime","culture","society","community","government","relationship","communication","agreement","competition","support","respect","promise","rule","law","power","advice","justice","duty","conflict","equality","privacy","discussion","apology","blessing","praise","encouragement","tradition","legislation","bias","dispute"],
+        growth: ["time","luck","danger","dream","health","energy","speed","holiday","journey","adventure","success","victory","safety","noise","silence","future","past","accident","anniversary","birthday","balance","battle","crisis","difficulty","moment","opportunity","experience","event","condition","change","growth","progress","failure","life","chance","situation","risk","reward","birth","absence","chaos","effort","efficiency","dilemma","burden","breakthrough","consequence","development","transformation","trend","prospect","legacy"]
       };
       /* Zone sticker positions on the long map (2026-11): x/y are
          % of the map stage. Each sticker sits in a clearing beside
          the dirt road — side chosen per stretch so neither the
          sticker nor its name/progress pills cover the road or the
-         bridges. dream sits left of the sky castle; home stands on
-         the beach at centre-bottom, clear of the kid pinned to the
+         bridges. growth sits right of the sky castle at the top; home stands
+         at centre-bottom, clear of the kid pinned to the
          page's bottom-left corner. */
       var ZONE_DEFS = [
-        { id: "dream",     name: "梦想天空",   x: 81, y: 14.8, size: "l" },
-        { id: "tools",     name: "工具工坊",   x: 20, y: 18.1, size: "s" },
-        { id: "people",    name: "人物职业",   x: 58, y: 22.4, size: "s" },
-        { id: "study",     name: "学习书房",   x: 28, y: 30.6, size: "s" },
-        { id: "city",      name: "城市街区",   x: 73, y: 35.6, size: "m" },
-        { id: "transport", name: "交通工具",   x: 37, y: 42.7, size: "m" },
-        { id: "nature",    name: "自然天地",   x: 69, y: 49.8, size: "l" },
-        { id: "sport",     name: "运动游乐",   x: 22, y: 55.3, size: "s" },
-        { id: "health",    name: "身体健康",   x: 60, y: 62.4, size: "m" },
-        { id: "clothes",   name: "穿搭衣橱",   x: 19, y: 66.2, size: "s" },
-        { id: "animals",   name: "动植物乐园", x: 59, y: 71.1, size: "m" },
-        { id: "food",      name: "美食厨房",   x: 25, y: 85.4, size: "s" },
-        { id: "home",      name: "家园小屋",   x: 59, y: 92.5, size: "l" }
+        { id: "growth", name: "成长小径", x: 75.7, y: 13.7, size: "l" },
+        { id: "social", name: "人际磨坊", x: 36.2, y: 17.4, size: "s" },
+        { id: "wisdom", name: "智慧星空", x: 11.5, y: 18.5, size: "s" },
+        { id: "character", name: "品格小院", x: 61.3, y: 22.2, size: "s" },
+        { id: "emotion", name: "情感花园", x: 12.7, y: 28.3, size: "s" },
+        { id: "tools", name: "工具工坊", x: 40.4, y: 29.7, size: "s" },
+        { id: "people", name: "人物职业", x: 76.2, y: 36.4, size: "s" },
+        { id: "study", name: "学习书房", x: 40.3, y: 42.0, size: "s" },
+        { id: "city", name: "城市街区", x: 74.9, y: 50.1, size: "m" },
+        { id: "transport", name: "交通工具", x: 40.5, y: 54.9, size: "s" },
+        { id: "nature", name: "自然天地", x: 16.8, y: 55.0, size: "s" },
+        { id: "sport", name: "运动游乐", x: 57.7, y: 62.7, size: "s" },
+        { id: "health", name: "身体健康", x: 17.3, y: 65.6, size: "m" },
+        { id: "clothes", name: "穿搭衣橱", x: 55.0, y: 71.2, size: "s" },
+        { id: "animals", name: "动植物乐园", x: 77.9, y: 76.6, size: "s" },
+        { id: "food", name: "美食厨房", x: 23.3, y: 86.4, size: "s" },
+        { id: "home", name: "家园小屋", x: 66.5, y: 93.4, size: "l" }
       ];
       var zoneMode = null;      // zone id while a zone level is on screen
       var zoneFinished = false; // the zone on screen has no unseen words left
@@ -38351,7 +38359,7 @@
       /* ---------------- Map page ----------------
          Zone stickers are built once from ZONE_DEFS; opening the
          map refreshes each zone's learned count and completion
-         star from the one memory book. All 13 zones are open from
+         star from the one memory book. All 17 zones are open from
          the start — no locking. Tapping a zone deals a level of
          that zone's words through the same engine; the main
          line's saved level is untouched. */
