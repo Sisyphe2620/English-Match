@@ -610,6 +610,12 @@
         font-family: inherit;
         touch-action: manipulation;
       }
+      /* Three sticker sizes so the map reads less uniform:
+         large anchors (dream / nature / home) at 36%, medium
+         at 30%, small at 24% — tier comes from ZONE_DEFS.size. */
+      .zone-btn.z-l { width: 36%; }
+      .zone-btn.z-m { width: 30%; }
+      .zone-btn.z-s { width: 24%; }
       /* The zone icon sits directly on the map artwork — no
          backing pad — keeping its full button width, position
          and size unchanged. This span only wraps the image so
@@ -37071,19 +37077,19 @@
          the beach at centre-bottom, clear of the kid pinned to the
          page's bottom-left corner. */
       var ZONE_DEFS = [
-        { id: "dream",     name: "梦想天空",   x: 81, y: 13.5 },
-        { id: "tools",     name: "工具工坊",   x: 20, y: 16.5 },
-        { id: "people",    name: "人物职业",   x: 58, y: 20.5 },
-        { id: "study",     name: "学习书房",   x: 28, y: 28 },
-        { id: "city",      name: "城市街区",   x: 73, y: 32.5 },
-        { id: "transport", name: "交通工具",   x: 37, y: 39 },
-        { id: "nature",    name: "自然天地",   x: 69, y: 45.5 },
-        { id: "sport",     name: "运动游乐",   x: 22, y: 50.5 },
-        { id: "health",    name: "身体健康",   x: 60, y: 57 },
-        { id: "clothes",   name: "穿搭衣橱",   x: 19, y: 60.5 },
-        { id: "animals",   name: "动植物乐园", x: 59, y: 65 },
-        { id: "food",      name: "美食厨房",   x: 25, y: 78 },
-        { id: "home",      name: "家园小屋",   x: 59, y: 84.5 }
+        { id: "dream",     name: "梦想天空",   x: 81, y: 13.5, size: "l" },
+        { id: "tools",     name: "工具工坊",   x: 20, y: 16.5, size: "s" },
+        { id: "people",    name: "人物职业",   x: 58, y: 20.5, size: "s" },
+        { id: "study",     name: "学习书房",   x: 28, y: 28,   size: "s" },
+        { id: "city",      name: "城市街区",   x: 73, y: 32.5, size: "m" },
+        { id: "transport", name: "交通工具",   x: 37, y: 39,   size: "m" },
+        { id: "nature",    name: "自然天地",   x: 69, y: 45.5, size: "l" },
+        { id: "sport",     name: "运动游乐",   x: 22, y: 50.5, size: "s" },
+        { id: "health",    name: "身体健康",   x: 60, y: 57,   size: "m" },
+        { id: "clothes",   name: "穿搭衣橱",   x: 19, y: 60.5, size: "s" },
+        { id: "animals",   name: "动植物乐园", x: 59, y: 65,   size: "m" },
+        { id: "food",      name: "美食厨房",   x: 25, y: 78,   size: "s" },
+        { id: "home",      name: "家园小屋",   x: 59, y: 84.5, size: "l" }
       ];
       var zoneMode = null;      // zone id while a zone level is on screen
       var zoneFinished = false; // the zone on screen has no unseen words left
@@ -38319,7 +38325,7 @@
         ZONE_DEFS.forEach(function (z) {
           var b = document.createElement("button");
           b.type = "button";
-          b.className = "zone-btn";
+          b.className = "zone-btn z-" + (z.size || "m");
           b.style.left = z.x + "%";
           b.style.top = z.y + "%";
           b.setAttribute("aria-label", z.name);
