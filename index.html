@@ -37689,12 +37689,28 @@
          persona also carries its own pitch and rate, so on devices that
          offer fewer than three English voices the personas still sound
          clearly different (same voice, different pitch/pace). */
+      function voicePersonKey(name) {
+        return String(name || "")
+          .toLowerCase()
+          .replace(/\s*\(\s*(enhanced|premium|compact)\s*\)/g, " ")
+          .replace(/\b(enhanced|premium|compact)\b/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
       function unusedEn(voices, used) {
+        var usedKeys = [];
+        for (var u = 0; u < used.length; u++) {
+          if (used[u]) usedKeys.push(voicePersonKey(used[u].name));
+        }
         var out = [];
         for (var i = 0; i < voices.length; i++) {
           if (!/^en([-_]|$)/i.test(voices[i].lang)) continue;
           var seen = false;
           for (var j = 0; j < used.length; j++) { if (used[j] === voices[i]) { seen = true; break; } }
+          if (!seen) {
+            var key = voicePersonKey(voices[i].name);
+            for (var k = 0; k < usedKeys.length; k++) { if (usedKeys[k] === key) { seen = true; break; } }
+          }
           if (!seen) out.push(voices[i]);
         }
         return out;
@@ -37707,6 +37723,39 @@
         }
         return list.length ? list[0] : null;
       }
+      function pickByNameOnly(list, patterns) {
+        for (var f = 0; f < patterns.length; f++) {
+          for (var j = 0; j < list.length; j++) {
+            if (patterns[f].test(list[j].name)) return list[j];
+          }
+        }
+        return null;
+      }
+      function voiceAccent(v) {
+        return String((v && v.lang) || "").toLowerCase().replace(/_/g, "-");
+      }
+      function pickThirdVoice(list, used) {
+        var female = pickByNameOnly(list,
+          [/\bsamantha\b/i, /\baria\b/i, /\bjenny\b/i, /\bzira\b/i,
+           /\ballison\b/i, /\bava\b/i, /\bsusan\b/i, /\bkaren\b/i,
+           /\bmoira\b/i, /\btessa\b/i, /\bserena\b/i, /\bkate\b/i,
+           /\bfiona\b/i, /\bvictoria\b/i, /\bveena\b/i, /\bhazel\b/i,
+           /female/i, /google uk english female/i, /google us english/i]);
+        if (female) return female;
+        var usedAccents = {};
+        for (var u = 0; u < used.length; u++) {
+          if (used[u]) usedAccents[voiceAccent(used[u])] = true;
+        }
+        var accents = ["en-us", "en-gb", "en-au", "en-ie"];
+        for (var i = 0; i < list.length; i++) {
+          var a = voiceAccent(list[i]);
+          if (accents.indexOf(a) >= 0 && !usedAccents[a]) return list[i];
+        }
+        for (var m = 0; m < list.length; m++) {
+          if (!usedAccents[voiceAccent(list[m])]) return list[m];
+        }
+        return list.length ? list[0] : null;
+      }
       function buildPersonas(voices) {
         var used = [];
         var v1 = pickLivelyVoice(voices);
@@ -37715,9 +37764,7 @@
           [/google uk english male/i, /david/i, /daniel/i, /george/i,
            /arthur/i, /christopher/i, /guy/i, /ryan/i, /fred/i, /alex/i, /male/i]);
         if (v2) used.push(v2);
-        var v3 = pickByName(unusedEn(voices, used),
-          [/google uk english female/i, /fiona/i, /victoria/i, /veena/i,
-           /hazel/i, /serena/i, /female/i]);
+        var v3 = pickThirdVoice(unusedEn(voices, used), used);
         return [
           { voice: v1, pitch: 1.1, rate: 0.9 },
           { voice: v2 || v1, pitch: 0.8, rate: 0.88 },
