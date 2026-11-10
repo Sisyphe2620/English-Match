@@ -704,7 +704,7 @@
         pointer-events: none;
         filter: drop-shadow(0 4px 6px rgba(30, 60, 20, 0.3));
       }
-      /* Secondary win-card button (回地图), only shown in zone mode. */
+      /* Secondary win-card button (返回家园), only shown in zone mode. */
       .win-btn.map-return {
         margin-top: 10px;
         background: linear-gradient(180deg, #fff6d8, #fdeec0);
@@ -1031,7 +1031,7 @@
           <div class="ws"><div class="k">LEVEL</div><div class="v" id="winLevel">1</div></div>
         </div>
         <button class="win-btn" id="againBtn" type="button">下一关 · NEXT LEVEL</button>
-        <button class="win-btn map-return" id="winMapBtn" type="button">回地图看看 · MAP</button>
+        <button class="win-btn map-return" id="winMapBtn" type="button">返回家园 · MAP</button>
       </div>
     </div>
 
@@ -38200,14 +38200,14 @@
           if (zoneFinished) {
             document.getElementById("winTitle").textContent = "区域完成!";
             document.getElementById("winSub").textContent = zoneName(zid) + "的词都学过啦，真厉害！";
-            document.getElementById("againBtn").textContent = "回地图 · MAP";
           } else {
             document.getElementById("winTitle").textContent = "YOU WIN!";
             document.getElementById("winSub").textContent =
               zoneName(zid) + "还有 " + remaining + " 个新词等你来学！";
-            document.getElementById("againBtn").textContent = "下一关 · NEXT LEVEL";
-            mapBtn.classList.add("show");
           }
+          document.getElementById("againBtn").textContent = "继续玩一局 · PLAY AGAIN";
+          mapBtn.textContent = "返回家园 · MAP";
+          mapBtn.classList.add("show");
         } else if (isReview) {
           progress.lastReviewDate = todayStr();
           saveProgress();
@@ -38248,7 +38248,6 @@
 
       document.getElementById("againBtn").addEventListener("click", function () {
         if (zoneMode) {
-          if (zoneFinished) { zoneMode = null; showMap(); return; }
           var zid = zoneMode;
           newGame((progress.zoneLevels[zid] || 0) + 1, { zone: zid, types: composeZoneLevel(zid) });
           return;
