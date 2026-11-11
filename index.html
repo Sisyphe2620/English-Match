@@ -128,6 +128,12 @@
       .mini svg { width: 24px; height: 24px; flex: 0 0 auto; }
       .mini .k { font-size: 12px; font-weight: 800; letter-spacing: 1px; line-height: 1.05; color: var(--ink); }
       .mini .v { font-size: 21px; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+      /* Back button in the HUD: same mini-card look as the old SCORE
+         slot, but a real button — tap to leave the level. Zone
+         levels go back to the map, main and review levels go back
+         to the home page. */
+      .mini-btn { cursor: pointer; font: inherit; color: inherit; text-align: left; touch-action: manipulation; }
+      .mini-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--card-edge); }
 
       .tip {
         text-align: center;
@@ -971,7 +977,7 @@
   </head>
   <body>
     <div class="app">
-      <!-- Header: level + progress | score / time -->
+      <!-- Header: level + progress | back / moves -->
       <header class="hud">
         <div class="hud-left">
           <div class="level-row">
@@ -982,10 +988,10 @@
           <div class="bar-label"><span id="barPct">0%</span><span id="barTail"> TO LEVEL </span><span id="barNext">2</span></div>
         </div>
         <div class="hud-right">
-          <div class="mini">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#f5b921" stroke="#d99a0b" stroke-width="1.6" stroke-linejoin="round" d="M12 2.6l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.7l-6 3.3 1.3-6.7-5-4.7 6.8-.8z"/></svg>
-            <div><div class="k">SCORE</div><div class="v" id="scoreVal">0</div></div>
-          </div>
+          <button class="mini mini-btn" id="backBtn" type="button" aria-label="返回">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="#2f4858" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><div class="k">返回</div><div class="v">BACK</div></div>
+          </button>
           <div class="mini">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.4" fill="#f0762a"/><circle cx="12" cy="12" r="7.6" fill="none" stroke="#f0762a" stroke-width="2.4"/><path d="M12 1.8v3.4M12 18.8v3.4M1.8 12h3.4M18.8 12h3.4" stroke="#f0762a" stroke-width="2.4" stroke-linecap="round"/></svg>
             <div><div class="k">MOVES</div><div class="v" id="movesVal">0</div></div>
@@ -1032,7 +1038,6 @@
         <div class="win-title" id="winTitle">YOU WIN!</div>
         <div class="win-sub" id="winSub">全部消完啦，太棒了！</div>
         <div class="win-stats">
-          <div class="ws"><div class="k">SCORE</div><div class="v" id="winScore">0</div></div>
           <div class="ws"><div class="k">MOVES</div><div class="v" id="winMoves">0</div></div>
           <div class="ws"><div class="k">LEVEL</div><div class="v" id="winLevel">1</div></div>
         </div>
@@ -37650,7 +37655,6 @@
       /* ---------------- Game state ---------------- */
       var COLS = 6, ROWS = 8, TOTAL = COLS * ROWS, PAIRS = TOTAL / 2;
       var boardEl = document.getElementById("board");
-      var scoreEl = document.getElementById("scoreVal");
       var movesEl = document.getElementById("movesVal");
       var barFill = document.getElementById("barFill");
       var barPct = document.getElementById("barPct");
@@ -37693,7 +37697,6 @@
       var tiles = [];        // type key or null per cell
       var tileEls = [];
       var selected = -1;
-      var score = 0;
       var moves = 0;
       var matchedPairs = 0;
       var level = 1;
@@ -37760,12 +37763,10 @@
           barNext.style.display = "";
           barNext.textContent = lv + 1;
         }
-        score = 0;
         moves = 0;
         matchedPairs = 0;
         selected = -1;
         lock = false;
-        scoreEl.textContent = "0";
         movesEl.textContent = "0";
         barFill.style.width = "0%";
         barFill.classList.add("no-knob");
@@ -38016,8 +38017,6 @@
           showWord(b);
           applyResult(b);
           speakWord(ICONS[b].word);
-          score += 10;
-          scoreEl.textContent = score;
           matchedPairs++;
           updateProgress();
           setTimeout(function () {
@@ -38329,7 +38328,6 @@
       });
 
       function onWin() {
-        document.getElementById("winScore").textContent = score;
         document.getElementById("winMoves").textContent = moves;
         document.getElementById("winLevel").textContent = isReview ? "复习" : (zoneMode ? zoneName(zoneMode) : level);
         var mapBtn = document.getElementById("winMapBtn");
@@ -38568,6 +38566,22 @@
         refreshStartPage();
         startPage.classList.add("show");
         syncBgm();
+      });
+      /* HUD back button: leaves the level mid-game. Zone levels go
+         back to the map, main and review levels go back to the home
+         page. Learned words are already saved per match and the
+         level number is untouched, so leaving mid-level loses
+         nothing — the same level is dealt again next time. */
+      document.getElementById("backBtn").addEventListener("click", function () {
+        winOverlay.classList.remove("show");
+        if (zoneMode) {
+          zoneMode = null;
+          showMap();
+        } else {
+          refreshStartPage();
+          startPage.classList.add("show");
+          syncBgm();
+        }
       });
       document.getElementById("winMapBtn").addEventListener("click", function () {
         zoneMode = null;
