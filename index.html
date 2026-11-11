@@ -100,6 +100,12 @@
         background: var(--teal);
         border: 3px solid var(--card);
       }
+      /* The knob overhangs 26px behind the fill's leading edge, so
+         while the fill is narrower than the knob it would poke out
+         past the track's left edge (visible at 0% as a dot sitting
+         outside the bar). JS adds .no-knob until the fill is wide
+         enough to hold it. */
+      .bar-fill.no-knob::after { display: none; }
       .bar-label {
         margin-top: 9px;
         color: var(--teal);
@@ -37762,6 +37768,7 @@
         scoreEl.textContent = "0";
         movesEl.textContent = "0";
         barFill.style.width = "0%";
+        barFill.classList.add("no-knob");
         barPct.textContent = "0%";
         winOverlay.classList.remove("show");
 
@@ -37973,6 +37980,10 @@
         var pct = Math.round((matchedPairs / PAIRS) * 100);
         barFill.style.width = pct + "%";
         barPct.textContent = pct + "%";
+        /* Hide the leading-edge knob until the fill is at least as
+           wide as the knob (30px), or it pokes out past the track. */
+        var trackW = barFill.parentElement ? barFill.parentElement.clientWidth : 0;
+        barFill.classList.toggle("no-knob", (pct / 100) * trackW < 30);
       }
 
       function clearHints() {
